@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { defineProps } from "vue";
-  defineProps<{ name: string }>();
+  // import { defineProps } from "vue";
+  const props = defineProps<{ name: string }>();
 </script>
 
 <template>
@@ -29,7 +29,7 @@
             <h4
               class="text-navy-700 text-2xl text-center md:text-left font-bold dark:text-white"
             >
-              {{ name }}
+              {{ props.name }}
             </h4>
             <h5
               className="text-base font-normal text-center md:text-left text-gray-600"
