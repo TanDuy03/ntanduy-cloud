@@ -19,7 +19,7 @@
         proptype: `website`,
         propurl: `https://ntanduy.id.vn`,
         proptitle: `Nguyen Tan Duy`,
-        propimg: `https://img.freepik.com/free-vector/flat-design-colour-blocked-pattern-design_23-2149613038.jpg`,
+        propimg: `/assets/meta-img.jpg`,
       })
       useHead({
         title: computed(() => siteData.title),
