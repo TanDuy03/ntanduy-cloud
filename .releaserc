@@ -1,8 +1,8 @@
 {
     "branches": [
-        "main",
-        "dev"
+        "main"
     ],
+    "repositoryUrl": "https://github.com/TanDuy03/ntanduy-bot.git",
     "plugins": [
         "@semantic-release/commit-analyzer",
         "@semantic-release/release-notes-generator",
