@@ -10,7 +10,7 @@ const routes: RouteRecordRaw[] = [
   { 
     path: '/', component:() => import('../components/Home.vue'), 
     meta: {
-      title: 'Nguyen Tan Duy | Software Developer'
+      title: 'Nguyen Tan Duy'
     },
     props: {
       name: 'Nguyen Tan Duy'
@@ -30,7 +30,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, _from) => {
-  document.title = to.meta?.title ?? 'Nguyen Tan Duy | Software Developer'
+  document.title = to.meta?.title ?? 'Nguyen Tan Duy'
 })
 
 export default router
