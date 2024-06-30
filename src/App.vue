@@ -8,7 +8,6 @@
   export default defineComponent({
     setup() {
       const siteData = reactive({
-        title: `Nguyen Tan Duy | Software Developer`,
         viewport:`width=device-width, initial-scale=1.0, viewport-fit=cover`,
         appleCapable:`yes`,
         appleStatus:`black`,
@@ -27,7 +26,6 @@
         ]
       })
       useHead({
-        title: computed(() => siteData.title),
         meta: [
           {
             name: `apple-mobile-web-app-capable`,
