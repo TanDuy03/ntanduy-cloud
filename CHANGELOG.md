@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/TanDuy03/ntanduy-bot/compare/v1.1.0...v1.1.1) (2024-06-30)
+
+
+### Bug Fixes
+
+* style home pgae ([7c81b19](https://github.com/TanDuy03/ntanduy-bot/commit/7c81b198ebb9280163e8ddf8bfbc016365fc7c52))
+
 # [1.1.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.0.0...v1.1.0) (2024-06-30)
 
 
