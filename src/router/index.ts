@@ -29,8 +29,8 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, _from) => {
-  document.title = to.meta?.title ?? 'Nguyen Tan Duy | Software Developer'
-})
+// router.beforeEach((to, _from) => {
+//   document.title = to.meta?.title ?? 'Nguyen Tan Duy | Software Developer'
+// })
 
 export default router

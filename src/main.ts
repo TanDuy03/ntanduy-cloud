@@ -3,8 +3,10 @@ import './style.css'
 import router from './router/index'
 import App from './App.vue'
 import Alpine from 'alpinejs'
+import { createHead } from '@vueuse/head'
 
-createApp(App).use(router).mount('#app')
+const meta = createHead()
+createApp(App).use(meta).use(router).mount('#app')
 
 window.Alpine = Alpine
 
