@@ -63,19 +63,19 @@ const props = defineProps<{ name: string }>();
       <div class="w-full h-[1px] bg-gray-300"></div>
       <div class="px-[21px] py-[21px]">
         <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 icon-social">
-          <a href="https://www.facebook.com/ntanduy03" target="_blank" class="flex gap-2 items-center">
+          <a href="https://www.facebook.com/ntanduy03" target="_blank" class="flex gap-2 items-center" title="Facebook">
             <i class='bx bxl-meta text-[28px] text-gray-700'></i>
             <span class="text-neutral-900 hover:text-cyan-600 transition duration-150">Facebook</span>
           </a>
-          <a href="https://x.com/ng_tanduy" target="_blank" class="flex gap-2 items-center">
+          <a href="https://x.com/ng_tanduy" target="_blank" class="flex gap-2 items-center" title="Twitter">
             <i class='bx bxl-twitter text-[28px] text-gray-700'></i>
             <span class="text-neutral-900 hover:text-cyan-600 transition duration-150">Twitter</span>
           </a>
-          <a href="https://github.com/TanDuy03" target="_blank" class="flex gap-2 items-center">
+          <a href="https://github.com/TanDuy03" target="_blank" class="flex gap-2 items-center" title="Github">
             <i class='bx bxl-github text-[28px] text-gray-700'></i>
             <span class="text-neutral-900 hover:text-cyan-600 transition duration-150">Github</span>
           </a>
-          <a href="https://www.instagram.com/ng.tanduy26" target="_blank" class="flex gap-2 items-center">
+          <a href="https://www.instagram.com/ng.tanduy26" target="_blank" class="flex gap-2 items-center" title="Instagram">
             <i class='bx bxl-instagram text-[28px] text-gray-700'></i>
             <span class="text-neutral-900 hover:text-cyan-600 transition duration-150">Instagram</span>
           </a>
@@ -86,12 +86,12 @@ const props = defineProps<{ name: string }>();
 </template>
 
 <style scoped>
-.banner {
-  background-image: url("../assets/banner.png");
-}
+  .banner {
+    background-image: url("../assets/banner.png");
+  }
 
-.icon-social svg {
-  height: 28px;
-  width: 28px;
-}
+  .icon-social svg {
+    height: 28px;
+    width: 28px;
+  }
 </style>
