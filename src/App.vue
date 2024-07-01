@@ -14,7 +14,7 @@
       }
     ">
       <div x-show="loading"
-        x-bind:style="'width: ' + progress + '%;'" class="absolute top-0 h-1 transition-all duration-100 animate-pulse ease-in bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500"
+        x-bind:style="'width: ' + progress + '%;'" class="absolute top-0 h-1 transition-all duration-100 animate-pulse ease-in bg-gradient-to-r from-rose-400 via-fuchsia-500 to-cyan-500"
       >
       </div>
   </div>

@@ -13,7 +13,8 @@ const routes: RouteRecordRaw[] = [
       title: 'Nguyen Tan Duy'
     },
     props: {
-      name: 'Nguyen Tan Duy'
+      name: 'Nguyen Tan Duy',
+      description: 'Software Developer',
     }
   },
   { 
