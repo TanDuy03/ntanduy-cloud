@@ -1,6 +1,6 @@
 <template >
   <div
-    x-data="{ progress: 0, interval: null, loading: true  }"
+    x-data="{ progress: 0, interval: null, loading: true }"
     x-init="
       window.onload = () => {
         interval = setInterval(() => { 
