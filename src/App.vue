@@ -1,4 +1,23 @@
-<template>
+<template >
+  <div
+    x-data="{ progress: 0, interval: null, loading: true  }"
+    x-init="
+      window.onload = () => {
+        interval = setInterval(() => { 
+          if (progress < 100) {
+            progress++; 
+          } else {
+            clearInterval(interval);
+            setTimeout(() => loading = false, 300); 
+          }
+        }, 30);
+      }
+    ">
+      <div x-show="loading"
+        x-bind:style="'width: ' + progress + '%;'" class="absolute top-0 h-1 transition-all duration-100 animate-pulse ease-in bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500"
+      >
+      </div>
+  </div>
   <RouterView />
 </template>
 
@@ -19,7 +38,7 @@
         propUrl: `https://ntanduy.id.vn`,
         propTitle: `Nguyen Tan Duy`,
         propImg: `/meta-img.jpg`,
-        xcard: `summary`,
+        xCard: `summary`,
         xSiteCre: `@ng_tanduy`,
         alternateLinks: [
           { rel: "alternate", href: 'https://ntanduy.id.vn', hreflang: 'es' }
@@ -73,7 +92,7 @@
           },
           {
             name: `twitter:card`,
-            content: computed(() => siteData.xcard),
+            content: computed(() => siteData.xCard),
           },
           {
             name: `twitter:site`,
