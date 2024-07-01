@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.1.1...v1.2.0) (2024-07-01)
+
+
+### Features
+
+* add progress bar loading page ([b125c37](https://github.com/TanDuy03/ntanduy-bot/commit/b125c37536f26ec7c13fb621b2531888ed9da53d))
+
 ## [1.1.1](https://github.com/TanDuy03/ntanduy-bot/compare/v1.1.0...v1.1.1) (2024-06-30)
 
 
