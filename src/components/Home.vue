@@ -66,7 +66,7 @@
               <small class="font-normal text-neutral-600">View</small>
             </div>
             <div class="px-4 flex flex-col justify-center items-center">
-              <count-up class="text-2xl font-bold" :end-val="35"></count-up>
+              <count-up class="text-2xl font-bold" :end-val="60"></count-up>
               <small class="font-normal text-neutral-600">Block</small>
             </div>
           </div>

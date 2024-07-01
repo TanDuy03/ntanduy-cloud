@@ -40,12 +40,16 @@
         propImg: `/meta-img.jpg`,
         xCard: `summary`,
         xSiteCre: `@ng_tanduy`,
+        charset: `UTF-8`,
         alternateLinks: [
           { rel: "alternate", href: 'https://ntanduy.id.vn', hreflang: 'es' }
         ]
       })
       useHead({
         meta: [
+          {
+            charset: computed(() => siteData.charset),
+          },
           {
             name: `apple-mobile-web-app-capable`,
             content: computed(() => siteData.appleCapable),
