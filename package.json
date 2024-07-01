@@ -12,7 +12,8 @@
     "@vueuse/head": "^2.0.0",
     "vue": "^3.3.13",
     "vue-countup-v3": "^1.4.2",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.4.0",
+    "vue-writer": "^2.0.2"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",

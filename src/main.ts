@@ -4,9 +4,10 @@ import router from './router/index'
 import App from './App.vue'
 import Alpine from 'alpinejs'
 import { createHead } from '@vueuse/head'
+import VueWriter from "vue-writer";
 
 const meta = createHead()
-createApp(App).use(meta).use(router).mount('#app')
+createApp(App).use(VueWriter).use(meta).use(router).mount('#app')
 
 window.Alpine = Alpine
 

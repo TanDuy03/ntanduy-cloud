@@ -51,7 +51,7 @@
             <h5
               className="text-base font-normal text-[15px] text-center md:text-left text-gray-600"
             >
-              {{ props.description }}
+              <vue-writer :array="[props.description]" :eraseSpeed="35" :typeSpeed="20"></vue-writer>
             </h5>
           </div>
         </div>
