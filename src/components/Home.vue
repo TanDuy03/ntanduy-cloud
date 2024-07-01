@@ -1,6 +1,7 @@
 <script setup lang="ts">
-  import { defineProps } from "vue";
-  const props = defineProps<{ name: string, description: string }>();
+  import { defineProps } from "vue"
+  import CountUp from 'vue-countup-v3'
+  const props = defineProps<{ name: string, description: string }>()
 </script>
 
 <template>
@@ -57,15 +58,15 @@
         <div class="w-full flex justify-center pt-2 pb-3">
           <div class="w-2/3 grid grid-cols-3 gap-4">
             <div class="px-4 flex flex-col justify-center items-center">
-              <h3 class="text-2xl font-bold">26</h3>
+              <count-up class="text-2xl font-bold" :end-val="26"></count-up>
               <small class="font-normal text-neutral-600">Online</small>
             </div>
             <div class="px-4 flex flex-col justify-center items-center">
-              <h3 class="text-2xl font-bold">12</h3>
+              <count-up class="text-2xl font-bold" :end-val="12"></count-up>
               <small class="font-normal text-neutral-600">View</small>
             </div>
             <div class="px-4 flex flex-col justify-center items-center">
-              <h3 class="text-2xl font-bold">03</h3>
+              <count-up class="text-2xl font-bold" :end-val="35"></count-up>
               <small class="font-normal text-neutral-600">Block</small>
             </div>
           </div>
