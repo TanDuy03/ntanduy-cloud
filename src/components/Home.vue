@@ -142,11 +142,11 @@
     </div>
   </div>
   <div class="fixed w-[55px] h-[55px] rounded-full bg-[#FDD690] bottom-10 right-10">
-    <div class="flex h-full w-full justify-center items-center">
-      <router-link to="/register">
+    <router-link to="/register">
+      <div class="flex h-full w-full justify-center items-center">
         <i class='bx bx-user text-xl leading-none'></i>
-      </router-link>
-    </div>
+      </div>
+    </router-link>
   </div>
 </template>
 
