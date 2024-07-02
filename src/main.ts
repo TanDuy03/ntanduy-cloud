@@ -15,20 +15,19 @@ window.Alpine = Alpine
 
 Alpine.store('page', {
     title: 'Not Found 404',
-    products: ['Swiss Alp Chocolate', 'Car Alpine A110'],
 })
 
 Alpine.start()
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBVZdkhPAyFqYC0exPOlC2-pag28Z5cZxk",
-    authDomain: "ntanduy-2eb98.firebaseapp.com",
-    databaseURL: "https://ntanduy-2eb98-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "ntanduy-2eb98",
-    storageBucket: "ntanduy-2eb98.appspot.com",
-    messagingSenderId: "586088571005",
-    appId: "1:586088571005:web:5f0c209cbfe20d57bb9114",
-    measurementId: "G-9DDEDF74N2"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    databaseURL: import.meta.env.VITE_DATABASE_URL,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESS_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID,
+    measurementId: import.meta.env.VITE_MEASURE_ID
 };
 
 const app = initializeApp(firebaseConfig);
