@@ -15,7 +15,8 @@
     "vue": "^3.3.13",
     "vue-countup-v3": "^1.4.2",
     "vue-router": "^4.4.0",
-    "vue-writer": "^2.0.2"
+    "vue-writer": "^2.0.2",
+    "vue3-toastify": "^0.2.2"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",

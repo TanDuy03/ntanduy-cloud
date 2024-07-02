@@ -141,10 +141,10 @@
       </div>
     </div>
   </div>
-  <div class="fixed w-[55px] h-[55px] rounded-full bg-[#FDD690] bottom-10 right-10">
+  <div class="fixed w-[50px] h-[50px] rounded-full bg-[#6366F1] transition duration-75 hover:bg-cyan-500 bottom-10 right-10">
     <router-link to="/register">
       <div class="flex h-full w-full justify-center items-center">
-        <i class='bx bx-user text-xl leading-none'></i>
+        <i class='bx bx-user text-xl leading-none text-white'></i>
       </div>
     </router-link>
   </div>

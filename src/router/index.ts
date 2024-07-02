@@ -24,6 +24,18 @@ const routes: RouteRecordRaw[] = [
     } 
   },
   { 
+    path: '/login', component:() => import('../components/auth/Login.vue'),
+    meta: {
+      title: 'Login'
+    } 
+  },
+  { 
+    path: '/welcome', component:() => import('../components/Welcome.vue'),
+    meta: {
+      title: 'Welcome',
+    },
+  },
+  { 
     path: '/:pathMatch(.*)*', component:() => import('../components/NotFound.vue'),
     meta: {
       title: 'Not Found'
