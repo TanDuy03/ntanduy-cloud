@@ -37,7 +37,7 @@
         propType: `website`,
         propUrl: `https://ntanduy.id.vn`,
         propTitle: `Nguyen Tan Duy`,
-        propImg: `/meta-img.jpg`,
+        propImg: `https://ntanduy.id.vn/meta-img.jpg`,
         xCard: `summary`,
         xSiteCre: `@ng_tanduy`,
         charset: `UTF-8`,
