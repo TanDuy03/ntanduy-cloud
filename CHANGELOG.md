@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.2.0...v1.3.0) (2024-07-02)
+
+
+### Features
+
+* add auth firebase ([e5232f0](https://github.com/TanDuy03/ntanduy-bot/commit/e5232f0bcabf694fbb2d8e3fc8ac94bead973f43))
+
 # [1.2.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.1.1...v1.2.0) (2024-07-01)
 
 
