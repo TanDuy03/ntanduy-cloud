@@ -141,15 +141,22 @@
       </div>
     </div>
   </div>
+  <div class="fixed w-[55px] h-[55px] rounded-full bg-[#FDD690] bottom-10 right-10">
+    <div class="flex h-full w-full justify-center items-center">
+      <router-link to="/register">
+        <i class='bx bx-user text-xl leading-none'></i>
+      </router-link>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-.banner {
-  background-image: url("../assets/banner.png");
-}
+  .banner {
+    background-image: url("../assets/banner.png");
+  }
 
-.icon-social svg {
-  height: 28px;
-  width: 28px;
-}
+  .icon-social svg {
+    height: 28px;
+    width: 28px;
+  }
 </style>

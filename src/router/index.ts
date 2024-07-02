@@ -18,6 +18,12 @@ const routes: RouteRecordRaw[] = [
     }
   },
   { 
+    path: '/register', component:() => import('../components/auth/Register.vue'),
+    meta: {
+      title: 'Register'
+    } 
+  },
+  { 
     path: '/:pathMatch(.*)*', component:() => import('../components/NotFound.vue'),
     meta: {
       title: 'Not Found'
