@@ -80,6 +80,7 @@
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
+            localStorage.setItem('isLoggedIn', true)
             router.push('/welcome');
         })
         .catch((error) => {

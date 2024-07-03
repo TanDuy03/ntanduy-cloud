@@ -7,7 +7,7 @@
           <div class="flex">
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
-              <a href="http://127.0.0.1:8000/dashboard">
+              <a href="/">
                 <svg
                   viewBox="0 0 48 48"
                   fill="none"
@@ -30,7 +30,7 @@
             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
               <a
                 class="inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out"
-                href="http://127.0.0.1:8000/dashboard"
+                href="/"
               >
                 Dashboard
               </a>
@@ -312,7 +312,7 @@
     import { useRouter } from "vue-router";
 
     const router = useRouter();
-    const isLoggedIn = ref(false);
+    const isLoggedIn = ref(true);
     const auth = getAuth();
 
     onAuthStateChanged(auth, (user) => {
@@ -327,10 +327,11 @@
     const logout = () => {
     signOut(auth)
         .then(() => {
-        router.push("/login");
+            localStorage.removeItem("isLoggedIn")
+            router.push("/login");
         })
         .catch(() => {
-        console.log("Logout fail");
+            console.log("Logout fail");
         });
     };
 </script>

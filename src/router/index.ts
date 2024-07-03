@@ -1,4 +1,7 @@
 import { RouteRecordRaw, createWebHistory, createRouter } from 'vue-router'
+import { getAuth } from "firebase/auth"
+import { toast } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -26,13 +29,14 @@ const routes: RouteRecordRaw[] = [
   { 
     path: '/login', component:() => import('../components/auth/Login.vue'),
     meta: {
-      title: 'Login'
+      title: 'Login',
     } 
   },
   { 
     path: '/welcome', component:() => import('../components/Welcome.vue'),
     meta: {
       title: 'Welcome',
+      isLoggedIn: true,
     },
   },
   { 
@@ -47,9 +51,25 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 })
-
-router.beforeEach((to, _from) => {
+const checkLoggIn = localStorage.getItem('isLoggedIn') == 'true'
+router.beforeEach((to, _from, next) => {
   document.title = to.meta?.title ?? 'Nguyen Tan Duy'
+
+  const auth = getAuth()
+  if(to.matched.some((record) => record.meta.isLoggedIn)) {
+    if(auth.currentUser || checkLoggIn) {
+      next()
+    } else {
+      next("/login")
+      setTimeout(() => {
+        toast.warning('Bạn chưa đăng nhập', {
+          autoClose: 1600,
+        })
+      }, 500)
+    }
+  } else {
+    next()
+  }
 })
 
 export default router
