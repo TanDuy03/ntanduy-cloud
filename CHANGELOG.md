@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/TanDuy03/ntanduy-bot/compare/v1.5.1...v1.5.2) (2024-07-03)
+
+
+### Bug Fixes
+
+* cloudflare turnstile ([53c00a7](https://github.com/TanDuy03/ntanduy-bot/commit/53c00a74827733c260dc8b5b3d32c1becb8640da))
+
 ## [1.5.1](https://github.com/TanDuy03/ntanduy-bot/compare/v1.5.0...v1.5.1) (2024-07-03)
 
 
