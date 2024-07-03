@@ -60,9 +60,12 @@ router.beforeEach((to, _from, next) => {
     if(auth.currentUser || checkLoggIn) {
       next()
     } else {
-      next("/login")
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath },
+      })
       setTimeout(() => {
-        toast.warning('Bạn chưa đăng nhập', {
+        toast.warning('You are not logged in', {
           autoClose: 1600,
         })
       }, 500)
