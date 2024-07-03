@@ -74,14 +74,13 @@
     const email = ref("")
     const password = ref("")
     const router = useRouter()
-    const errMsg = ref()
+    const errMsg = ref("")
+    const token = ref("")
     const login = () => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
-            localStorage.setItem('isLogin', true)
             router.push('/welcome');
-            const user = userCredential.user;
         })
         .catch((error) => {
             switch (error.code) {
