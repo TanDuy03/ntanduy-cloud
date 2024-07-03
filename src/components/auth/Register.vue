@@ -68,8 +68,16 @@
             />
           </div>
         </div>
-        <!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAAAaSeSo8FB_CYrUN"></div> -->
-        <vue-turnstile site-key="0x4AAAAAAAAaSeSo8FB_CYrUNs" v-model="token" />
+        <div class="mb-5">
+          <label
+            for="email"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Let us know you're human</label
+          >
+          <div class="mt-3">
+            <vue-turnstile site-key="0x4AAAAAAAaSeSo8FB_CYrUN" v-model="token" />
+          </div>
+        </div>
         <div class="mt-7 mb-3">
           <button
             @click="register"
@@ -100,7 +108,7 @@
     const password = ref("")
     const router = useRouter()
     const errMsg = ref()
-    const token = ref('');
+    const token = ref("")
     const register = () => {
       const auth = getAuth()
       createUserWithEmailAndPassword(auth, email.value, password.value)
@@ -113,12 +121,6 @@
               router.push("/welcome")
           })
           .catch((error) => {
-            // console.log(error.message)
-            // const errorMessage = error.message;
-            console.log(error.code);
-            // toast.error(errorMessage, {
-            //   autoClose: 1000,
-            // }); 
             switch (error.code) {
               case 'auth/email-already-in-use':
                 errMsg.value = 'Email already exists'
