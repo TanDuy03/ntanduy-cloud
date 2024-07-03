@@ -106,6 +106,7 @@
       createUserWithEmailAndPassword(auth, email.value, password.value)
           .then((userCredential) => {
               const user = userCredential.user;
+              console.log(user)
               toast.success("Sign Up Success", {
                 autoClose: 1600,
               }); 
