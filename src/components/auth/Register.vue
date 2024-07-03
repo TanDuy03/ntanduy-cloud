@@ -140,5 +140,6 @@
   };
 
   const siteKey = import.meta.env.VITE_CLOUDFLARE_SITE_KEY
+  console.log(siteKey)
 
 </script>
