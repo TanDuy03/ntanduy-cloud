@@ -159,7 +159,7 @@
       // const user = result.user;
       router.push('/welcome')
       
-    }).catch((error) => {
+    }).catch(() => {
       // // Handle Errors here.
       // const errorCode = error.code;
       // const errorMessage = error.message;
