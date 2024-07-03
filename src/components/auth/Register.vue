@@ -75,7 +75,7 @@
             >Let us know you're human</label
           >
           <div class="mt-3">
-            <vue-turnstile site-key="0x4AAAAAAAaSeSo8FB_CYrUN" v-model="token" />
+            <vue-turnstile site-key="0x4AAAAAAAeReUjVJabT-jD1" v-model="token" />
           </div>
         </div>
         <div class="mt-7 mb-3">
@@ -145,4 +145,6 @@
             });
           });
     };
+
+    console.log(token)
 </script>
