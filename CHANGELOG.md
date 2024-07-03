@@ -1,3 +1,11 @@
+# [1.7.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.6.0...v1.7.0) (2024-07-03)
+
+
+### Features
+
+* add sigin with google ([d0d8cef](https://github.com/TanDuy03/ntanduy-bot/commit/d0d8cef28fa7965fbbf09c36b967dc03fe472913))
+* add sigin with google ([7748571](https://github.com/TanDuy03/ntanduy-bot/commit/77485712868d2e9b19f64c81f71f5219358edfa9))
+
 # [1.6.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.5.2...v1.6.0) (2024-07-03)
 
 
