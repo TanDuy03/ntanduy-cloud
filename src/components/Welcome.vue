@@ -29,8 +29,7 @@
     const logout = () => {
         signOut(auth).then(() => {
             localStorage.removeItem('isLogin')
-            router.push("/")
-            // console.log("Logout successful")
+            router.push("/login")
         }).catch(() => {
             console.log("Logout fail");
         })

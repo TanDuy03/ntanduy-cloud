@@ -37,7 +37,6 @@
         propType: `website`,
         propUrl: `https://ntanduy.id.vn`,
         propTitle: `Nguyen Tan Duy`,
-        propImg: `https://ntanduy.id.vn/meta-img.jpg`,
         xCard: `summary`,
         xSiteCre: `@ng_tanduy`,
         charset: `UTF-8`,
@@ -63,10 +62,6 @@
             content: computed(() => siteData.viewport),
           },
           {
-            name: `description`,
-            content: computed(() => siteData.description),
-          },
-          {
             name: `keywords`,
             content: computed(() => siteData.keywords),
           },
@@ -85,14 +80,6 @@
           {
             property: `og:url`,
             content: computed(() => siteData.propUrl),
-          },
-          {
-            property: `og:title`,
-            content: computed(() => siteData.propTitle),
-          },
-          {
-            property: `og:image`,
-            content: computed(() => siteData.propImg),
           },
           {
             name: `twitter:card`,
@@ -117,11 +104,7 @@
           {
             name: `twitter:description`,
             content: computed(() => siteData.description),
-          },
-          {
-            name: `twitter:image`,
-            content: computed(() => siteData.propImg),
-          },
+          }
         ],
         link: computed(() => [
           { rel: 'canonical', href: siteData.propUrl },
