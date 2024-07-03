@@ -69,7 +69,7 @@
           </div>
         </div>
         <!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAAAaSeSo8FB_CYrUN"></div> -->
-        <vue-turnstile site-key="0x4AAAAAAAaSeSo8FB_CYrUN" v-model="token" />
+        <vue-turnstile site-key="0x4AAAAAAAAaSeSo8FB_CYrUNs" v-model="token" />
         <div class="mt-7 mb-3">
           <button
             @click="register"
