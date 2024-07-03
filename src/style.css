@@ -8,4 +8,8 @@
         font-family: "Poppins", sans-serif;
         letter-spacing: -0.5px;
     }
+
+    .disabled-button {
+        cursor: not-allowed;
+    }
 }
