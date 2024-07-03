@@ -68,7 +68,8 @@
             />
           </div>
         </div>
-
+        <!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAAAaSeSo8FB_CYrUN"></div> -->
+        <vue-turnstile site-key="0x4AAAAAAAaSeSo8FB_CYrUN" v-model="token" />
         <div class="mt-7 mb-3">
           <button
             @click="register"
@@ -87,17 +88,19 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { ref } from "vue";
     import { useRouter } from "vue-router";
     import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
     import { toast } from 'vue3-toastify';
     import 'vue3-toastify/dist/index.css';
+    import VueTurnstile from 'vue-turnstile';
 
     const email = ref("")
     const password = ref("")
     const router = useRouter()
     const errMsg = ref()
+    const token = ref('');
     const register = () => {
       const auth = getAuth()
       createUserWithEmailAndPassword(auth, email.value, password.value)
