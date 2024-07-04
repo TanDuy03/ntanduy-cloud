@@ -157,8 +157,8 @@
       // const credential = GoogleAuthProvider.credentialFromResult(result);
       // const token = credential.accessToken;
       // // The signed-in user info.
+      // const user = result.user;
       localStorage.setItem('isLoggedIn', JSON.stringify(true))
-      const user = result.user;
       router.push('/welcome')
       
     }).catch((error) => {
