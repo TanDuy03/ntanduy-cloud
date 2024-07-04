@@ -1,3 +1,11 @@
+## [1.9.1](https://github.com/TanDuy03/ntanduy-bot/compare/v1.9.0...v1.9.1) (2024-07-03)
+
+
+### Bug Fixes
+
+* validate token cloudflare turnstile ([f131ad7](https://github.com/TanDuy03/ntanduy-bot/commit/f131ad77a0c5dd543bf4548abafbff97dccc3297))
+* validate token cloudflare turnstile ([ec060b1](https://github.com/TanDuy03/ntanduy-bot/commit/ec060b15cc7cff01414d61eb282106be09f9de3f))
+
 # [1.9.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.8.0...v1.9.0) (2024-07-03)
 
 
