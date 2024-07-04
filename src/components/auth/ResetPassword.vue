@@ -46,14 +46,18 @@
 
     const email = ref("")
     const msg = ref("")
+    const router = useRouter()
 
     const auth = getAuth()
     const reset = () => {
         sendPasswordResetEmail(auth, email.value)
         .then(() => {
             toast.success("Password reset email sent!", {
-                autoClose: 1500
+                autoClose: 1200
             })
+            setTimeout(() => {
+                router.push("/login")
+            }, 2000)
         })
         .catch((error) => {
             const errorCode = error.code;
