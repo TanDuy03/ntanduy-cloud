@@ -266,7 +266,6 @@ const photoURL = ref("")
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    const uid = user.uid;
     isLoggedIn.value = true;
     displayName.value = user.displayName;
     photoURL.value = user.photoURL;
