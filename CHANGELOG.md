@@ -1,3 +1,11 @@
+## [1.11.1](https://github.com/TanDuy03/ntanduy-bot/compare/v1.11.0...v1.11.1) (2024-07-04)
+
+
+### Bug Fixes
+
+* clear module ts-node ([5e49de3](https://github.com/TanDuy03/ntanduy-bot/commit/5e49de3c6a65078fbddcf41c9583419bb17e2bf0))
+* clear module ts-node ([d98db38](https://github.com/TanDuy03/ntanduy-bot/commit/d98db38c1a2906f627ef5950b24a2d2de4710f65))
+
 # [1.11.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.10.0...v1.11.0) (2024-07-04)
 
 
