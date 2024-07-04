@@ -81,7 +81,7 @@
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
-            localStorage.setItem('isLoggedIn', true)
+            localStorage.setItem('isLoggedIn', JSON.stringify(true))
             router.push('/welcome');
         })
         .catch((error) => {
