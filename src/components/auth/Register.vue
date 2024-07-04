@@ -159,7 +159,6 @@
       // // The signed-in user info.
       localStorage.setItem('isLoggedIn', JSON.stringify(true))
       const user = result.user;
-      console.log(user)
       router.push('/welcome')
       
     }).catch((error) => {
