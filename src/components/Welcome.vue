@@ -57,7 +57,7 @@
                   <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" id="dropdown-button" type="button"
                     class="flex items-center gap-2 px-5 rounded-md">
                     <img class="h-8 w-8 rounded-full object-cover"
-                      src="https://ui-avatars.com/api/?name=T&amp;color=7F9CF5&amp;background=EBF4FF" alt="TanDuy03" />
+                      :src="photoURL" :alt="displayName" />
 
                     <!-- Heroicon: chevron-down -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
@@ -79,7 +79,7 @@
 
                     <a href="#"
                       class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
-                      Setting
+                      {{ displayName }}
                     </a>
                     <div class="border-t border-gray-200"></div>
                     <button v-if="isLoggedIn" @click="logout"
@@ -258,14 +258,18 @@ import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-const isLoggedIn = ref(true);
+const isLoggedIn = ref(false);
 const open = ref(false)
-const auth = getAuth();
+const auth = getAuth()
+const displayName = ref("")
+const photoURL = ref("")
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
     isLoggedIn.value = true;
+    displayName.value = user.displayName;
+    photoURL.value = user.photoURL;
   } else {
     isLoggedIn.value = false;
   }
