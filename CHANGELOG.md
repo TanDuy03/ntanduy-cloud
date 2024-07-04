@@ -1,3 +1,15 @@
+# [1.11.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.10.0...v1.11.0) (2024-07-04)
+
+
+### Bug Fixes
+
+* reset password auth ([cb230ac](https://github.com/TanDuy03/ntanduy-bot/commit/cb230acb437ab5e5e062b4e3e5dc88e04765b57d))
+
+
+### Features
+
+* reset password auth ([1bb265f](https://github.com/TanDuy03/ntanduy-bot/commit/1bb265f251b3906a54e9cb6be89afb086ac409e7))
+
 # [1.10.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.9.1...v1.10.0) (2024-07-04)
 
 
