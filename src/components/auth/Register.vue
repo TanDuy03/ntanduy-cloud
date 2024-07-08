@@ -81,7 +81,7 @@
             Sign up
           </button>         
         </div>
-        <div class="flex gap-3">
+        <div class="flex flex-col gap-3 md:flex-row">
           <button
             type="submit" @click="signInGoogle"
             class="flex gap-2 w-full justify-center rounded-md transition-all duration-100 ease-in border border-gray-300 px-3 py-1.5 text-sm font-semibold leading-6 text-indigo-600 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 outline-none"
