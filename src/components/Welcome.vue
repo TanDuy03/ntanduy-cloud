@@ -142,18 +142,26 @@
                   previous experience, we recommend reading all of the
                   documentation from beginning to end.
                 </p>
+              </div>
 
-                <p class="mt-4 text-sm">
-                  <a href="https://laravel.com/docs" class="inline-flex items-center font-semibold text-indigo-700">
-                    Explore the documentation
+              <div>
+                <div class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    class="w-6 h-6 stroke-gray-400">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                  </svg>
+                  <h2 class="ms-3 text-xl font-semibold text-gray-900">
+                    Authentication
+                  </h2>
+                </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="ms-1 w-5 h-5 fill-indigo-500">
-                      <path fill-rule="evenodd"
-                        d="M5 10a.75.75 0 01.75-.75h6.638L10.23 7.29a.75.75 0 111.04-1.08l3.5 3.25a.75.75 0 010 1.08l-3.5 3.25a.75.75 0 11-1.04-1.08l2.158-1.96H5.75A.75.75 0 015 10z"
-                        clip-rule="evenodd" />
-                    </svg>
-                  </a>
-                </p>
+                <div class="flex mt-5 gap-3">
+                  <input type="password" placeholder="New password" v-model="newPassword" class="flex-1 block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 
+                  ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset 
+                  focus:ring-indigo-600 outline-none sm:text-sm sm:leading-6 ps-2">
+                  <button :disabled="newPassword == '' || newPassword.length < 6" :class="{'disabled-button' : newPassword == '' || newPassword.length < 6 }"  @click="resetPassword" class="flex flex-end justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 outline-none">Change Password</button>
+                </div>
               </div>
 
               <div>
@@ -174,17 +182,6 @@
                   and massively level up your development skills in the process.
                 </p>
 
-                <p class="mt-4 text-sm">
-                  <a href="https://laracasts.com" class="inline-flex items-center font-semibold text-indigo-700">
-                    Start watching Laracasts
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="ms-1 w-5 h-5 fill-indigo-500">
-                      <path fill-rule="evenodd"
-                        d="M5 10a.75.75 0 01.75-.75h6.638L10.23 7.29a.75.75 0 111.04-1.08l3.5 3.25a.75.75 0 010 1.08l-3.5 3.25a.75.75 0 11-1.04-1.08l2.158-1.96H5.75A.75.75 0 015 10z"
-                        clip-rule="evenodd" />
-                    </svg>
-                  </a>
-                </p>
               </div>
 
               <div>
@@ -207,26 +204,6 @@
                 </p>
               </div>
 
-              <div>
-                <div class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    class="w-6 h-6 stroke-gray-400">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                  </svg>
-                  <h2 class="ms-3 text-xl font-semibold text-gray-900">
-                    Authentication
-                  </h2>
-                </div>
-
-                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                  Authentication and registration views are included with
-                  Laravel Jetstream, as well as support for user email
-                  verification and resetting forgotten passwords. So, you're
-                  free to get started with what matters most: building your
-                  application.
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -237,8 +214,9 @@
 
 <script setup>
   import { ref } from "vue";
-  import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+  import { getAuth, signOut, onAuthStateChanged, updatePassword  } from "firebase/auth";
   import { useRouter } from "vue-router";
+  import { toast } from "vue3-toastify";
 
   const router = useRouter();
   const isLoggedIn = ref(false);
@@ -246,6 +224,9 @@
   const auth = getAuth()
   const displayName = ref("")
   const photoURL = ref("")
+  const newPassword = ref("")
+  const user = auth.currentUser
+  const errMsg = ref("")
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -276,5 +257,34 @@
     router.push("/login");
   } else {
     router.push("/welcome");
+  }
+
+  const resetPassword = () => {
+
+    updatePassword(user, newPassword.value).then(() => {
+      toast.success("Reset password successfully", {
+        autoClose: 1600
+      })
+
+      newPassword.value = ""
+      logout()
+
+      setTimeout(() => {
+        router.push("/login");
+      }, 1700)
+    }).catch((error) => {
+      switch (error.code) {
+        case "auth/weak-password":
+          errMsg.value = "Password is too short"
+          break;
+        default:
+          errMsg.value = "Invalid login session"
+          break;
+      }
+      toast.error(error.message, {
+        autoClose: 1600
+      })
+    });
+
   }
 </script>

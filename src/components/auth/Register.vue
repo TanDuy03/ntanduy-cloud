@@ -126,9 +126,7 @@
   const auth = getAuth()
   const register = () => {
     createUserWithEmailAndPassword(auth, email.value, password.value)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user)
+        .then(() => {
             toast.success("Sign Up Success", {
               autoClose: 1600,
             }); 
@@ -160,14 +158,18 @@
         });
   };
 
+  const timeLogin = new Date();
+  const expLogin = timeLogin.getTime() + (24 * 60 * 60) ;
+
   const signInGoogle = () => {
+    
     const provider = new GoogleAuthProvider();
-    const timeLogin = new Date();
+    
     signInWithPopup(auth, provider)
     .then(() => {
       
       const checkLogin = {
-              time: timeLogin,
+              time: expLogin,
               isLoggedIn: true,
             }
       localStorage.setItem('checkLogin', JSON.stringify(checkLogin))
@@ -175,20 +177,22 @@
       
     }).catch((error) => {
       
-      const errorCode = error.code;
-      console.log(errorCode)
+      toast.error(error.code, {
+        autoClose: 1600,
+      });
 
     });
   }
 
   const signInGihub = () => {
+
     const provider = new GithubAuthProvider();
-    const timeLogin = new Date();
+    
     signInWithPopup(auth, provider)
     .then(() => {
   
       const checkLogin = {
-              time: timeLogin,
+              time: expLogin,
               isLoggedIn: true,
             }
       localStorage.setItem('checkLogin', JSON.stringify(checkLogin))
