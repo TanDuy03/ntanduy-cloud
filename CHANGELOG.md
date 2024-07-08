@@ -1,3 +1,11 @@
+# [1.12.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.11.2...v1.12.0) (2024-07-08)
+
+
+### Features
+
+* login with github ([32d4afb](https://github.com/TanDuy03/ntanduy-bot/commit/32d4afb9c4af45af33d800efcdced79cfc072aa3))
+* login with github ([af73e95](https://github.com/TanDuy03/ntanduy-bot/commit/af73e955571e42524de49a1a79eed2976ac7b918))
+
 ## [1.11.2](https://github.com/TanDuy03/ntanduy-bot/compare/v1.11.1...v1.11.2) (2024-07-08)
 
 
