@@ -262,16 +262,17 @@
   const resetPassword = () => {
 
     updatePassword(user, newPassword.value).then(() => {
-      toast.success("Reset password successfully", {
-        autoClose: 1600
-      })
+      
+      router.push("/login");
 
       newPassword.value = ""
       logout()
 
       setTimeout(() => {
-        router.push("/login");
-      }, 1700)
+        toast.success("Reset password successfully", {
+          autoClose: 1600
+        })
+      }, 500)
     }).catch((error) => {
       switch (error.code) {
         case "auth/weak-password":
