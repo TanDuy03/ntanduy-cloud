@@ -142,7 +142,7 @@
     </div>
   </div>
   <div class="fixed w-[50px] h-[50px] rounded-full bg-[#6366F1] transition duration-75 hover:bg-cyan-500 bottom-10 right-10">
-    <router-link to="/register">
+    <router-link to="/login">
       <div class="flex h-full w-full justify-center items-center">
         <i class='bx bx-user text-xl leading-none text-white'></i>
       </div>
