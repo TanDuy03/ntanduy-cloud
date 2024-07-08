@@ -159,7 +159,7 @@
   };
 
   const timeLogin = new Date();
-  const expLogin = timeLogin.getTime() + (24 * 60 * 60) ;
+  const expLogin = timeLogin.getTime() + (24 * 60 * 60 * 1000) ;
 
   const signInGoogle = () => {
     
