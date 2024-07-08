@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/TanDuy03/ntanduy-bot/compare/v1.11.1...v1.11.2) (2024-07-08)
+
+
+### Bug Fixes
+
+* login with session exp ([aed3f5b](https://github.com/TanDuy03/ntanduy-bot/commit/aed3f5b12a20235593d2228ea2d670ac4daf95fe))
+
 ## [1.11.1](https://github.com/TanDuy03/ntanduy-bot/compare/v1.11.0...v1.11.1) (2024-07-04)
 
 
