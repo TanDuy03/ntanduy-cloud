@@ -1,1 +1,1 @@
-# Nguyen Tan Duy
+# [Nguyen Tan Duy](https://ntanduy.id.vn)
