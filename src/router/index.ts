@@ -57,13 +57,23 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 })
-const checkLoggIn = localStorage.getItem('isLoggedIn') == 'true'
+
 router.beforeEach((to, _from, next) => {
   document.title = to.meta?.title ?? 'Nguyen Tan Duy'
 
   const auth = getAuth()
+  const checkLogin = localStorage.getItem('checkLogin')
+  let checkLoggIn = false
+  
+  if(checkLogin) {
+    const convertCheck = JSON.parse(checkLogin)
+    checkLoggIn = convertCheck.isLoggedIn
+  } else {
+    checkLoggIn = false
+  }
+  
   if(to.matched.some((record) => record.meta.isLoggedIn)) {
-    if(auth.currentUser || checkLoggIn) {
+    if(auth.currentUser || checkLoggIn == true) {
       next()
     } else {
       next({

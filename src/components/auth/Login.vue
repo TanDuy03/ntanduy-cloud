@@ -79,11 +79,19 @@
     const router = useRouter()
     const errMsg = ref("")
     const token = ref("")
+
     const login = () => {
+        const timeLogin = new Date();
+        const expLogin = timeLogin.getTime() + 10000;
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
-            localStorage.setItem('isLoggedIn', JSON.stringify(true))
+
+            const checkLogin = {
+                time: expLogin,
+                isLoggedIn: true,
+            }
+            localStorage.setItem('checkLogin', JSON.stringify(checkLogin))
             router.push('/welcome');
         })
         .catch((error) => {
@@ -108,5 +116,4 @@
     }
 
     const siteKey = import.meta.env.VITE_CLOUDFLARE_SITE_KEY
-
 </script>

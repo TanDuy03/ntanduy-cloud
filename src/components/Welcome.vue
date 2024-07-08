@@ -236,35 +236,45 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
-import { useRouter } from "vue-router";
+  import { ref } from "vue";
+  import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+  import { useRouter } from "vue-router";
 
-const router = useRouter();
-const isLoggedIn = ref(false);
-const open = ref(false)
-const auth = getAuth()
-const displayName = ref("")
-const photoURL = ref("")
+  const router = useRouter();
+  const isLoggedIn = ref(false);
+  const open = ref(false)
+  const auth = getAuth()
+  const displayName = ref("")
+  const photoURL = ref("")
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    isLoggedIn.value = true;
-    displayName.value = user.displayName;
-    photoURL.value = user.photoURL;
-  } else {
-    isLoggedIn.value = false;
-  }
-});
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+      displayName.value = user.displayName;
+      photoURL.value = user.photoURL;
+    } else {
+      isLoggedIn.value = false;
+    }
+  });
 
-const logout = () => {
-  signOut(auth)
-    .then(() => {
-      localStorage.removeItem("isLoggedIn");
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      localStorage.removeItem("checkLogin");
       router.push("/login");
-    })
-    .catch(() => {
-      console.log("Logout fail");
-    });
-};
+    } catch (error) {
+      // console.error('Logout error:', error);
+      throw error;
+    }
+  }
+
+  const checkLogin = JSON.parse(localStorage.getItem('checkLogin'))
+  const currTime = new Date()
+
+  if(checkLogin.time <= currTime.getTime()) {
+    localStorage.removeItem("checkLogin");
+    router.push("/login");
+  } else {
+    router.push("/welcome");
+  }
 </script>

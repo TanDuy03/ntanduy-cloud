@@ -151,6 +151,7 @@
 
   const signInGoogle = () => {
     const provider = new GoogleAuthProvider();
+    const timeLogin = new Date();
     signInWithPopup(auth, provider)
     .then(() => {
       // // This gives you a Google Access Token. You can use it to access the Google API.
@@ -158,7 +159,11 @@
       // const token = credential.accessToken;
       // // The signed-in user info.
       // const user = result.user;
-      localStorage.setItem('isLoggedIn', JSON.stringify(true))
+      const checkLogin = {
+              time: timeLogin,
+              isLoggedIn: true,
+            }
+      localStorage.setItem('checkLogin', JSON.stringify(checkLogin))
       router.push('/welcome')
       
     }).catch((error) => {
