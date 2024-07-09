@@ -219,7 +219,8 @@
   import { ref } from "vue"
   import { getAuth, signOut, onAuthStateChanged, updatePassword  } from "firebase/auth"
   import { useRouter } from "vue-router"
-  import { toast } from "vue3-toastify"
+  import { toast } from 'vue3-toastify'
+  import 'vue3-toastify/dist/index.css'
 
   const router = useRouter();
   const isLoggedIn = ref(false)

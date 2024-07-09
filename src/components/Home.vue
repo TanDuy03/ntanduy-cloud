@@ -1,7 +1,30 @@
 <script setup lang="ts">
-  import { defineProps } from "vue"
+  import { defineProps, ref } from "vue"
   import CountUp from 'vue-countup-v3'
+  import axios from "axios"
+  import { toast } from 'vue3-toastify'
+  import 'vue3-toastify/dist/index.css'
+
   const props = defineProps<{ name: string, description: string }>()
+  const ipAddress = ref("")
+  const city = ref("")
+
+  axios.get('https://ipinfo.io/json', {
+    params: {
+      token: process.env.VITE_TOKEN_IP
+    }
+  })
+  .then((response) => {
+    const getData = response.data
+    ipAddress.value = getData.ip
+    city.value = getData.city
+  })
+  .catch((error) => {
+    toast.error(error.message, {
+      autoClose: 1600
+    })
+  });
+
 </script>
 
 <template>
@@ -85,68 +108,47 @@
         </div>
       </div>
       <div class="w-full h-[1px] bg-gray-300"></div>
-      <div class="px-[21px] py-[21px]">
-        <div
-          class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 icon-social"
-        >
-          <a
-            href="https://www.facebook.com/ntanduy03"
-            target="_blank"
-            class="flex gap-2 items-center"
-            title="Facebook"
-          >
-            <i class="bx bxl-meta text-[28px] text-gray-700"></i>
-            <span
-              class="text-neutral-900 hover:text-cyan-600 transition duration-150"
-              >Facebook</span
-            >
-          </a>
-          <a
-            href="https://x.com/ng_tanduy"
-            target="_blank"
-            class="flex gap-2 items-center"
-            title="Twitter"
-          >
-            <i class="bx bxl-twitter text-[28px] text-gray-700"></i>
-            <span
-              class="text-neutral-900 hover:text-cyan-600 transition duration-150"
-              >Twitter</span
-            >
-          </a>
-          <a
-            href="https://github.com/TanDuy03"
-            target="_blank"
-            class="flex gap-2 items-center"
-            title="Github"
-          >
-            <i class="bx bxl-github text-[28px] text-gray-700"></i>
-            <span
-              class="text-neutral-900 hover:text-cyan-600 transition duration-150"
-              >Github</span
-            >
-          </a>
-          <a
-            href="https://www.instagram.com/ng.tanduy26"
-            target="_blank"
-            class="flex gap-2 items-center"
-            title="Instagram"
-          >
-            <i class="bx bxl-instagram text-[28px] text-gray-700"></i>
-            <span
-              class="text-neutral-900 hover:text-cyan-600 transition duration-150"
-              >Instagram</span
-            >
-          </a>
-        </div>
+      <div class="px-[21px] py-3">
+        <small class="block text-center text-[13px] italic">Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}</small>
       </div>
     </div>
   </div>
-  <div class="fixed w-[50px] h-[50px] rounded-full bg-[#6366F1] transition duration-75 hover:bg-cyan-500 bottom-10 right-10">
-    <router-link to="/login">
-      <div class="flex h-full w-full justify-center items-center">
-        <i class='bx bx-user text-xl leading-none text-white'></i>
-      </div>
-    </router-link>
+  <div class="fixed bottom-10 right-10 flex flex-col gap-3">
+    <div class="w-[45px] h-[45px] rounded-full border-2 text-[#6366F1] border-[#6366F1] transition duration-75 hover:bg-[#6366F1] hover:text-white">
+      <a href="https://www.facebook.com/ntanduy03" target="_blank">
+        <div class="flex h-full w-full justify-center items-center">
+          <i class='bx bxl-meta text-xl leading-none'></i>
+        </div>
+      </a>
+    </div>
+    <div class="w-[45px] h-[45px] rounded-full border-2 text-[#6366F1] border-[#6366F1] transition duration-75 hover:bg-[#6366F1] hover:text-white">
+      <a href="https://x.com/ng_tanduy" target="_blank">
+        <div class="flex h-full w-full justify-center items-center">
+          <i class='bx bxl-twitter text-xl leading-none'></i>
+        </div>
+      </a>
+    </div>
+    <div class="w-[45px] h-[45px] rounded-full border-2 text-[#6366F1] border-[#6366F1] transition duration-75 hover:bg-[#6366F1] hover:text-white">
+      <a href="https://www.instagram.com/ng.tanduy26" target="_blank">
+        <div class="flex h-full w-full justify-center items-center">
+          <i class='bx bxl-instagram text-xl leading-none'></i>
+        </div>
+      </a>
+    </div>
+    <div class="w-[45px] h-[45px] rounded-full border-2 text-[#6366F1] border-[#6366F1] transition duration-75 hover:bg-[#6366F1] hover:text-white">
+      <a href="https://www.github.com/TanDuy03" target="_blank">
+        <div class="flex h-full w-full justify-center items-center">
+          <i class='bx bxl-github text-xl leading-none'></i>
+        </div>
+      </a>
+    </div>
+    <div class="w-[45px] h-[45px] rounded-full bg-[#6366F1] transition duration-75 hover:bg-cyan-500">
+      <router-link to="/login">
+        <div class="flex h-full w-full justify-center items-center">
+          <i class='bx bx-user text-xl leading-none text-white'></i>
+        </div>
+      </router-link>
+    </div>
   </div>
 </template>
 
