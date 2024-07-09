@@ -160,7 +160,10 @@
                   <input type="password" placeholder="New password" v-model="newPassword" class="md:flex-1 block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 
                   ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset 
                   focus:ring-indigo-600 outline-none sm:text-sm sm:leading-6 ps-2">
-                  <button :disabled="newPassword == '' || newPassword.length < 6" :class="{'disabled-button' : newPassword == '' || newPassword.length < 6 }"  @click="resetPassword" class="flex flex-end justify-center rounded-md mt-1 md:mt-0 bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 outline-none">Change Password</button>
+                  <button :disabled="newPassword == '' || newPassword.length < 6" :class="{'disabled-button' : newPassword == '' || newPassword.length < 6 }"  @click="resetPassword" class="flex flex-end items-center justify-center rounded-md mt-1 md:mt-0 bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 outline-none">
+                    <span class="block py-2 loader" v-if="loading"></span>
+                    <span v-else>Change Password</span>
+                  </button>
                 </div>
               </div>
 
@@ -227,6 +230,7 @@
   const newPassword = ref("")
   const user = auth.currentUser
   const errMsg = ref("")
+  const loading = ref(false)
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -261,6 +265,8 @@
 
   const resetPassword = () => {
 
+    loading.value = true
+
     updatePassword(user, newPassword.value).then(() => {
       
       router.push("/login");
@@ -285,7 +291,10 @@
       toast.error(error.message, {
         autoClose: 1600
       })
-    });
+    })
+    .finally(() => {
+      loading.value = false
+    })
 
   }
 </script>

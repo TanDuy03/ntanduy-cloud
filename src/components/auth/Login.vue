@@ -51,8 +51,9 @@
             <div class="mt-7 mb-3">
                 <button type="submit" @click="login" :disabled="token === '' || token === undefined"
                     :class="{'disabled-button' : token === '' || token === undefined}"
-                    class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 outline-none">
-                    Sign in
+                    class="flex w-full gap-3 justify-center items-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 outline-none">
+                    <span class="block py-2 loader" v-if="loading"></span>
+                    <span v-else>Sign in</span>
                 </button>
             </div>
 
@@ -79,14 +80,15 @@
     const router = useRouter()
     const errMsg = ref("")
     const token = ref("")
+    const loading = ref(false)
 
     const login = () => {
+        loading.value = true
         const timeLogin = new Date();
         const expLogin = timeLogin.getTime() + (24 * 60 * 60 * 1000) ;
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
-
             const checkLogin = {
                 time: expLogin,
                 isLoggedIn: true,
@@ -112,7 +114,10 @@
             toast.error(errMsg.value, {
               autoClose: 1600,
             });
-        });
+        })
+        .finally(() => {
+            loading.value = false
+        })
     }
 
     const siteKey = import.meta.env.VITE_CLOUDFLARE_SITE_KEY

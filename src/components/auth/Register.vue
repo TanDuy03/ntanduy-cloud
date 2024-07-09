@@ -76,9 +76,10 @@
             @click="register" :disabled="token === '' || token === undefined"
             :class="{'disabled-button' : token === '' || token === undefined}"
             type="submit"
-            class="flex mb-3 w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 outline-none"
+            class="flex w-full gap-3 justify-center items-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 outline-none"
           >
-            Sign up
+            <span class="block py-2 loader" v-if="loading"></span>
+            <span v-else>Sign up</span>
           </button>         
         </div>
         <div class="flex flex-col gap-3 md:flex-row mt-4">
@@ -124,7 +125,12 @@
   const errMsg = ref()
   const token = ref("")
   const auth = getAuth()
+  const loading = ref(false)
+
   const register = () => {
+
+    loading.value = true
+
     createUserWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
             toast.success("Sign Up Success", {
@@ -155,7 +161,10 @@
           toast.error(errMsg.value, {
             autoClose: 1600,
           });
-        });
+        })
+        .finally(() => {
+          loading.value = false
+        })
   };
 
   const timeLogin = new Date();
