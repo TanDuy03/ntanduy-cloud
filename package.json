@@ -11,7 +11,9 @@
   "dependencies": {
     "@vueuse/head": "^2.0.0",
     "axios": "^1.7.2",
+    "babel-plugin-transform-import-meta": "^2.2.1",
     "firebase": "^10.12.2",
+    "vite-plugin-environment": "^1.1.3",
     "vue": "^3.3.13",
     "vue-countup-v3": "^1.4.2",
     "vue-router": "^4.4.0",

@@ -216,13 +216,13 @@
 </template>
 
 <script setup>
-  import { ref } from "vue";
-  import { getAuth, signOut, onAuthStateChanged, updatePassword  } from "firebase/auth";
-  import { useRouter } from "vue-router";
-  import { toast } from "vue3-toastify";
+  import { ref } from "vue"
+  import { getAuth, signOut, onAuthStateChanged, updatePassword  } from "firebase/auth"
+  import { useRouter } from "vue-router"
+  import { toast } from "vue3-toastify"
 
   const router = useRouter();
-  const isLoggedIn = ref(false);
+  const isLoggedIn = ref(false)
   const open = ref(false)
   const auth = getAuth()
   const displayName = ref("")
@@ -234,11 +234,11 @@
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      isLoggedIn.value = true;
-      displayName.value = user.displayName;
-      photoURL.value = user.photoURL;
+      isLoggedIn.value = true
+      displayName.value = user.displayName
+      photoURL.value = user.photoURL
     } else {
-      isLoggedIn.value = false;
+      isLoggedIn.value = false
     }
   });
 
@@ -257,10 +257,10 @@
   const currTime = new Date()
 
   if(checkLogin.time <= currTime.getTime()) {
-    localStorage.removeItem("checkLogin");
-    router.push("/login");
+    localStorage.removeItem("checkLogin")
+    router.push("/login")
   } else {
-    router.push("/welcome");
+    router.push("/welcome")
   }
 
   const resetPassword = () => {
@@ -295,6 +295,5 @@
     .finally(() => {
       loading.value = false
     })
-
   }
 </script>

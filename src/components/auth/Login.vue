@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="mt-7 mb-3">
+            <div class="mt-4 mb-3">
                 <button type="submit" @click="login" :disabled="token === '' || token === undefined"
                     :class="{'disabled-button' : token === '' || token === undefined}"
                     class="flex w-full gap-3 justify-center items-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 outline-none">
@@ -67,7 +67,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { ref } from "vue"
     import { useRouter } from "vue-router"
     import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
@@ -81,14 +81,15 @@
     const errMsg = ref("")
     const token = ref("")
     const loading = ref(false)
+    const siteKey = process.env.VITE_CLOUDFLARE_SITE_KEY || ''
 
     const login = () => {
         loading.value = true
         const timeLogin = new Date();
-        const expLogin = timeLogin.getTime() + (24 * 60 * 60 * 1000) ;
+        const expLogin = timeLogin.getTime() + (24 * 60 * 60 * 1000)
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email.value, password.value)
-        .then((userCredential) => {
+        .then(() => {
             const checkLogin = {
                 time: expLogin,
                 isLoggedIn: true,
@@ -120,5 +121,4 @@
         })
     }
 
-    const siteKey = import.meta.env.VITE_CLOUDFLARE_SITE_KEY
 </script>

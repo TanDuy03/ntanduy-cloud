@@ -71,7 +71,7 @@
             <vue-turnstile :site-key="siteKey" v-model="token" />
           </div>
         </div>
-        <div class="mt-7 mb-2">
+        <div class="mt-4 mb-2">
           <button
             @click="register" :disabled="token === '' || token === undefined"
             :class="{'disabled-button' : token === '' || token === undefined}"
@@ -126,6 +126,7 @@
   const token = ref("")
   const auth = getAuth()
   const loading = ref(false)
+  const siteKey = process.env.VITE_CLOUDFLARE_SITE_KEY || ''
 
   const register = () => {
 
@@ -224,6 +225,4 @@
 
     });
   }
-  const siteKey = import.meta.env.VITE_CLOUDFLARE_SITE_KEY
-
 </script>
