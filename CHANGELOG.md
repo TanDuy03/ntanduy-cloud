@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.13.0...v1.14.0) (2024-07-09)
+
+
+### Features
+
+* add request ip axios ([a37fae8](https://github.com/TanDuy03/ntanduy-bot/commit/a37fae80cabd3b0abea7bc31965eb60ceb69be3f))
+
 # [1.13.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.12.0...v1.13.0) (2024-07-09)
 
 
