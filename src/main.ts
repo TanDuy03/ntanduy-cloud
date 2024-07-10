@@ -32,3 +32,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 getAnalytics(app)
 getPerformance(app)
+
+const authDomain = process.env.VITE_AUTH_DOMAIN
+console.log(authDomain)
