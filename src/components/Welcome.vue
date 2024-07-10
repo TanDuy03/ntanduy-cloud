@@ -287,11 +287,11 @@
         logout()
         router.push("/login")
         setTimeout(() => {
-          toast.info("Please login again", {
+          toast.warning("Please login again", {
             autoClose: 1600
           })
         }, 500)
-        
+
       } else {
         switch (error.code) {
           case "auth/weak-password":
