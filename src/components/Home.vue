@@ -113,7 +113,7 @@
       </div>
     </div>
   </div>
-  <div class="fixed bottom-0 right-0 py-2 w-full bg-[#6366F1] md:bg-inherit md:w-auto md:bottom-10 
+  <div class="fixed bottom-0 right-0 py-3 w-full bg-[#6366F1] md:bg-inherit md:w-auto md:bottom-10 
     md:right-10 flex md:flex-col md:gap-3 rounded-t-[15px] justify-evenly items-center
     md:rounded-none md:py-0
     ">
