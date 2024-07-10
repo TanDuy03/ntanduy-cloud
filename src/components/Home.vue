@@ -109,44 +109,37 @@
       </div>
       <div class="w-full h-[1px] bg-gray-300"></div>
       <div class="px-[21px] py-3">
-        <small class="block text-center text-[13px] italic">Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}</small>
+        <small class="block text-center text-[13px]">Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}</small>
       </div>
     </div>
   </div>
-  <div class="fixed bottom-10 right-10 flex flex-col gap-3">
-    <div class="w-[45px] h-[45px] rounded-full border-2 text-[#6366F1] border-[#6366F1] transition duration-75 hover:bg-[#6366F1] hover:text-white">
-      <a href="https://www.facebook.com/ntanduy03" target="_blank">
-        <div class="flex h-full w-full justify-center items-center">
-          <i class='bx bxl-meta text-xl leading-none'></i>
-        </div>
+  <div class="fixed bottom-0 right-0 py-2 w-full bg-[#6366F1] md:bg-inherit md:w-auto md:bottom-10 
+    md:right-10 flex md:flex-col md:gap-3 rounded-t-[15px] justify-evenly items-center
+    md:rounded-none md:py-0
+    ">
+    <div class="md:w-[45px] md:h-[45px] md:bg-[#6366F1] rounded-full hover:translateY">
+      <a href="https://www.facebook.com/ntanduy03" target="_blank" class="w-full h-full flex items-center justify-center">
+        <i class='bx bxl-meta text-[25px] text-white leading-none'></i>
       </a>
     </div>
-    <div class="w-[45px] h-[45px] rounded-full border-2 text-[#6366F1] border-[#6366F1] transition duration-75 hover:bg-[#6366F1] hover:text-white">
-      <a href="https://x.com/ng_tanduy" target="_blank">
-        <div class="flex h-full w-full justify-center items-center">
-          <i class='bx bxl-twitter text-xl leading-none'></i>
-        </div>
+    <div class="md:w-[45px] md:h-[45px] md:bg-[#6366F1] rounded-full hover:translateY">
+      <a href="https://x.com/ng_tanduy" target="_blank" class="w-full h-full flex items-center justify-center">
+        <i class='bx bxl-twitter text-[25px] text-white leading-none'></i>
       </a>
     </div>
-    <div class="w-[45px] h-[45px] rounded-full border-2 text-[#6366F1] border-[#6366F1] transition duration-75 hover:bg-[#6366F1] hover:text-white">
-      <a href="https://www.instagram.com/ng.tanduy26" target="_blank">
-        <div class="flex h-full w-full justify-center items-center">
-          <i class='bx bxl-instagram text-xl leading-none'></i>
-        </div>
+    <div class="md:w-[45px] md:h-[45px] md:bg-[#6366F1] rounded-full hover:translateY">
+      <a href="https://www.instagram.com/ng.tanduy26" target="_blank" class="w-full h-full flex items-center justify-center">
+        <i class='bx bxl-instagram text-[25px] text-white leading-none'></i>
       </a>
     </div>
-    <div class="w-[45px] h-[45px] rounded-full border-2 text-[#6366F1] border-[#6366F1] transition duration-75 hover:bg-[#6366F1] hover:text-white">
-      <a href="https://www.github.com/TanDuy03" target="_blank">
-        <div class="flex h-full w-full justify-center items-center">
-          <i class='bx bxl-github text-xl leading-none'></i>
-        </div>
+    <div class="md:w-[45px] md:h-[45px] md:bg-[#6366F1] rounded-full hover:translateY">
+      <a href="https://www.github.com/TanDuy03" target="_blank" class="w-full h-full flex items-center justify-center">
+        <i class='bx bxl-github text-[25px] text-white leading-none'></i>
       </a>
     </div>
-    <div class="w-[45px] h-[45px] rounded-full bg-[#6366F1] transition duration-75 hover:bg-cyan-500">
-      <router-link to="/login">
-        <div class="flex h-full w-full justify-center items-center">
-          <i class='bx bx-user text-xl leading-none text-white'></i>
-        </div>
+    <div class="md:w-[45px] md:h-[45px] md:bg-[#6366F1] rounded-full hover:translateY">
+      <router-link to="/login" class="w-full h-full flex items-center justify-center">
+        <i class='bx bx-user text-[25px] text-white leading-none'></i>
       </router-link>
     </div>
   </div>

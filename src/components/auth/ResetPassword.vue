@@ -23,7 +23,8 @@
             <div class="mt-7 mb-3">
                 <button type="submit" @click="reset"
                     class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 outline-none">
-                    Reset Password
+                    <span class="block py-2 loader" v-if="loading"></span>
+                    <span v-else>Reset Password</span>
                 </button>
             </div>
 
@@ -47,9 +48,13 @@
     const email = ref("")
     const msg = ref("")
     const router = useRouter()
+    const loading = ref(false)
 
     const auth = getAuth()
     const reset = () => {
+
+        loading.value = true
+
         sendPasswordResetEmail(auth, email.value)
         .then(() => {
             toast.success("Password reset email sent!", {
@@ -76,6 +81,9 @@
             toast.error(msg, {
                 autoClose: 1500
             })
-        });
+        })
+        .then(() => {
+            loading.value = false
+        })
     }
 </script>

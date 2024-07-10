@@ -32,4 +32,13 @@
             transform: rotate(360deg);
         }
     } 
+
+    .translateY {
+        transform: translateY(0);
+        transition: all .25s ease-out;
+    }
+
+    .translateY:hover {
+        transform: translateY(-2px);
+    }
 }
