@@ -268,7 +268,7 @@
 
     loading.value = true
     const user = auth.currentUser
-    
+
     updatePassword(user, newPassword.value).then(() => {
       
       router.push("/login");
@@ -282,17 +282,29 @@
         })
       }, 500)
     }).catch((error) => {
-      switch (error.code) {
-        case "auth/weak-password":
-          errMsg.value = "Password is too short"
-          break;
-        default:
-          errMsg.value = "Invalid login session"
-          break;
+      if(error.code == 'auth/requires-recent-login') {
+
+        logout()
+        router.push("/login")
+        setTimeout(() => {
+          toast.info("Please login again", {
+            autoClose: 1600
+          })
+        }, 500)
+        
+      } else {
+        switch (error.code) {
+          case "auth/weak-password":
+            errMsg.value = "Password is too short"
+            break;
+          default:
+            errMsg.value = "Invalid login session"
+            break;
+        }
+        toast.error(error.message, {
+          autoClose: 1600
+        })
       }
-      toast.error(error.message, {
-        autoClose: 1600
-      })
     })
     .finally(() => {
       loading.value = false
