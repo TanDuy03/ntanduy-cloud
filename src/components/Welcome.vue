@@ -271,10 +271,9 @@
 
     updatePassword(user, newPassword.value).then(() => {
       
-      router.push("/login");
-
-      newPassword.value = ""
       logout()
+      newPassword.value = ""
+      router.push("/login");
 
       setTimeout(() => {
         toast.success("Reset password successfully", {
