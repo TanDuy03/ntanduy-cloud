@@ -267,7 +267,8 @@
   const resetPassword = () => {
 
     loading.value = true
-
+    const user = auth.currentUser
+    
     updatePassword(user, newPassword.value).then(() => {
       
       router.push("/login");
