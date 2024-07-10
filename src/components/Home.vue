@@ -113,31 +113,31 @@
       </div>
     </div>
   </div>
-  <div class="fixed bottom-0 right-0 py-3 w-full bg-[#6366F1] md:bg-inherit md:w-auto md:bottom-10 
-    md:right-10 flex md:flex-col md:gap-3 rounded-t-[15px] justify-evenly items-center
-    md:rounded-none md:py-0
+  <div class="fixed bottom-0 right-0 py-3 w-full bg-[#6366F1] sm:bg-inherit sm:w-auto sm:bottom-10 
+    sm:right-10 flex sm:flex-col sm:gap-3 rounded-t-[15px] justify-evenly items-center
+    sm:rounded-none sm:py-0
     ">
-    <div class="md:w-[45px] md:h-[45px] md:bg-[#6366F1] rounded-full hover:translateY">
+    <div class="sm:w-[45px] sm:h-[45px] sm:bg-[#6366F1] rounded-full hover:translateY">
       <a href="https://www.facebook.com/ntanduy03" target="_blank" class="w-full h-full flex items-center justify-center">
         <i class='bx bxl-meta text-[25px] text-white leading-none'></i>
       </a>
     </div>
-    <div class="md:w-[45px] md:h-[45px] md:bg-[#6366F1] rounded-full hover:translateY">
+    <div class="sm:w-[45px] sm:h-[45px] sm:bg-[#6366F1] rounded-full hover:translateY">
       <a href="https://x.com/ng_tanduy" target="_blank" class="w-full h-full flex items-center justify-center">
         <i class='bx bxl-twitter text-[25px] text-white leading-none'></i>
       </a>
     </div>
-    <div class="md:w-[45px] md:h-[45px] md:bg-[#6366F1] rounded-full hover:translateY">
+    <div class="sm:w-[45px] sm:h-[45px] sm:bg-[#6366F1] rounded-full hover:translateY">
       <a href="https://www.instagram.com/ng.tanduy26" target="_blank" class="w-full h-full flex items-center justify-center">
         <i class='bx bxl-instagram text-[25px] text-white leading-none'></i>
       </a>
     </div>
-    <div class="md:w-[45px] md:h-[45px] md:bg-[#6366F1] rounded-full hover:translateY">
+    <div class="sm:w-[45px] sm:h-[45px] sm:bg-[#6366F1] rounded-full hover:translateY">
       <a href="https://www.github.com/TanDuy03" target="_blank" class="w-full h-full flex items-center justify-center">
         <i class='bx bxl-github text-[25px] text-white leading-none'></i>
       </a>
     </div>
-    <div class="md:w-[45px] md:h-[45px] md:bg-[#6366F1] rounded-full hover:translateY">
+    <div class="sm:w-[45px] sm:h-[45px] sm:bg-[#6366F1] rounded-full hover:translateY">
       <router-link to="/login" class="w-full h-full flex items-center justify-center">
         <i class='bx bx-user text-[25px] text-white leading-none'></i>
       </router-link>
