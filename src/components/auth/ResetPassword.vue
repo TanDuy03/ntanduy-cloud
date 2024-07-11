@@ -84,7 +84,7 @@
                 autoClose: 1500
             })
         })
-        .then(() => {
+        .finally(() => {
             loading.value = false
         })
     }
