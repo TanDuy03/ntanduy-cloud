@@ -8,6 +8,7 @@ import { createHead } from '@vueuse/head'
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
 import { getPerformance } from "firebase/performance"
+import { inject } from '@vercel/analytics'
 
 const meta = createHead()
 createApp(App).use(VueWriter).use(meta).use(router).mount('#app')
@@ -32,3 +33,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 getAnalytics(app)
 getPerformance(app)
+inject()
