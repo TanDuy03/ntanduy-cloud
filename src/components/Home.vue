@@ -4,10 +4,18 @@
   import axios from "axios"
   import { toast } from 'vue3-toastify'
   import 'vue3-toastify/dist/index.css'
+  import { getDatabase, push, ref as dbRef, query, orderByChild, equalTo, get } from "firebase/database"
 
+  // Initialize Database
+  const db = getDatabase()
   const props = defineProps<{ name: string, description: string }>()
   const ipAddress = ref("")
   const city = ref("")
+  const org = ref("")
+  const loc = ref("")
+  const timezone = ref("")
+  const country = ref("")
+  const postal = ref("")
 
   axios.get('https://ipinfo.io/json', {
     params: {
@@ -18,6 +26,26 @@
     const getData = response.data
     ipAddress.value = getData.ip
     city.value = getData.city
+    org.value = getData.org
+    loc.value = getData.loc
+    timezone.value = getData.timezone
+    country.value = getData.country
+    postal.value = getData.postal
+
+    // Firebase Database Realtime
+    const ipUnique = query(dbRef(db, 'ip/'), orderByChild('ip'), equalTo(ipAddress.value))
+    get(ipUnique)
+    .then((data) => {
+      data.exists() ? undefined : push(dbRef(db, 'ip/'), {
+        ip: ipAddress.value,
+        location: city.value,
+        org: org.value,
+        loc: loc.value,
+        timezone: timezone.value,
+        country: country.value,
+        postal: postal.value,
+      })
+    })
   })
   .catch((error) => {
     toast.error(error.message, {
