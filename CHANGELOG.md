@@ -1,3 +1,11 @@
+# [1.15.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.14.4...v1.15.0) (2024-07-13)
+
+
+### Features
+
+* add insert ip realtime db firebase ([56ebb23](https://github.com/TanDuy03/ntanduy-bot/commit/56ebb235be51afb5321a3e9e58357e27e461afca))
+* add insert ip realtime db firebase ([4a77ee8](https://github.com/TanDuy03/ntanduy-bot/commit/4a77ee805ac257aa54825e63c435bca9cd12b5fd))
+
 ## [1.14.4](https://github.com/TanDuy03/ntanduy-bot/compare/v1.14.3...v1.14.4) (2024-07-10)
 
 
