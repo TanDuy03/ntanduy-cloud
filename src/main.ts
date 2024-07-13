@@ -9,6 +9,7 @@ import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
 import { getPerformance } from "firebase/performance"
 import { inject } from '@vercel/analytics'
+import { injectSpeedInsights } from '@vercel/speed-insights'
 
 const meta = createHead()
 createApp(App).use(VueWriter).use(meta).use(router).mount('#app')
@@ -34,3 +35,4 @@ const app = initializeApp(firebaseConfig)
 getAnalytics(app)
 getPerformance(app)
 inject()
+injectSpeedInsights()
