@@ -5,6 +5,15 @@
     <meta property="og:image" content="/meta-img.jpg">
     <meta name="description" content="Nguyen Tan Duy, web application developer using Laravel, VueJS, Tailwindcss, Bootstrap,...">
     <meta property="og:description" content="Nguyen Tan Duy, web application developer using Laravel, VueJS, Tailwindcss, Bootstrap,...">
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(function (OneSignal) {
+        OneSignal.init({
+          appId: "603f73b0-8479-4d47-8e43-e928cb06814e",
+        });
+      });
+    </script>
   </head>
   <body>
     <div id="app"></div>
