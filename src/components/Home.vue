@@ -24,13 +24,13 @@
   })
   .then((response) => {
     const getData = response.data
-    ipAddress.value = getData.ip
-    city.value = getData.city
-    org.value = getData.org
-    loc.value = getData.loc
-    timezone.value = getData.timezone
-    country.value = getData.country
-    postal.value = getData.postal
+    ipAddress.value = getData.ip || null
+    city.value = getData.city || null
+    org.value = getData.org || null
+    loc.value = getData.loc || null
+    timezone.value = getData.timezone || null
+    country.value = getData.country || null
+    postal.value = getData.postal || null
 
     // Firebase Database Realtime
     const ipUnique = query(dbRef(db, 'ip/'), orderByChild('ip'), equalTo(ipAddress.value))
