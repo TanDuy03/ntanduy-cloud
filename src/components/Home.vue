@@ -127,8 +127,8 @@
             class="text-[14px] font-normal text-slate-600 -tracking-2 text-left md:text-justify"
           >
             Welcome to the website. I am a programmer from Vietnam, I specialize
-            in programming web applications using Laravel, VueJs, Tailwindcss,
-            Bootstrap, etc. My strong passion for programming drives me to
+            in programming web applications using Laravel, Vuejs, Tailwindcss, etc. My 
+            strong passion for programming drives me to
             create powerful, high-performance web applications with the most
             modern technologies and contribute to the development of open
             source.
