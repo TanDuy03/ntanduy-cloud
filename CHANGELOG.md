@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.0...v1.15.1) (2024-07-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vue-turnstile to v1.0.10 ([7b22ac9](https://github.com/TanDuy03/ntanduy-bot/commit/7b22ac9bc35e4be2b5771ec0f7357c349386c9c6))
+
 # [1.15.0](https://github.com/TanDuy03/ntanduy-bot/compare/v1.14.4...v1.15.0) (2024-07-13)
 
 
