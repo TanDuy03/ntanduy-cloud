@@ -1,3 +1,10 @@
+## [1.15.2](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.1...v1.15.2) (2024-07-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vue to v3.4.35 ([f372396](https://github.com/TanDuy03/ntanduy-bot/commit/f372396bae676cfafb60998d7fd9fd6f3f968c65))
+
 ## [1.15.1](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.0...v1.15.1) (2024-07-31)
 
 
