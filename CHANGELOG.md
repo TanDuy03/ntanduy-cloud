@@ -1,3 +1,10 @@
+## [1.15.3](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.2...v1.15.3) (2024-08-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vue-router to v4.4.1 ([867753f](https://github.com/TanDuy03/ntanduy-bot/commit/867753f177df3a5efc2e681ab91b85882518f0b8))
+
 ## [1.15.2](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.1...v1.15.2) (2024-07-31)
 
 
