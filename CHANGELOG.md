@@ -1,3 +1,10 @@
+## [1.15.6](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.5...v1.15.6) (2024-08-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to v1.7.3 ([015530b](https://github.com/TanDuy03/ntanduy-bot/commit/015530ba3990b2f54ad947f963a9d5f99ce2e0f4))
+
 ## [1.15.5](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.4...v1.15.5) (2024-08-02)
 
 
