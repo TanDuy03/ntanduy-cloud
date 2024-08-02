@@ -1,3 +1,10 @@
+## [1.15.5](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.4...v1.15.5) (2024-08-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency firebase to v10.12.5 ([42dca21](https://github.com/TanDuy03/ntanduy-bot/commit/42dca216a3f28ca9caa79d0a26e8c524959a9afd))
+
 ## [1.15.4](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.3...v1.15.4) (2024-08-01)
 
 
