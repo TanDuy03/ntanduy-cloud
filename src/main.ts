@@ -16,7 +16,7 @@ createApp(App).use(VueWriter).use(meta).use(router).mount('#app')
 
 window.Alpine = Alpine
 Alpine.store('page', {
-    title: 'Not Found 404',
+    title: '404 Not Found',
 })
 Alpine.start()
 
