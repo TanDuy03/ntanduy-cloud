@@ -71,7 +71,7 @@
           >
             <img
               class="h-full w-full rounded-full object-fill"
-              src="../assets/avatar.png"
+              src="../assets/avatar.webp"
               alt="Nguyen Tan Duy"
             />
           </div>
@@ -124,7 +124,7 @@
         </div>
         <div class="w-full mt-1">
           <p
-            class="text-[14px] font-normal text-slate-600 -tracking-2 text-left md:text-justify"
+            class="text-[13px] font-normal text-slate-600 -tracking-2 text-left md:text-justify"
           >
             Welcome to the website. I am a programmer from Vietnam, I specialize
             in programming web applications using Laravel, Vuejs, Tailwindcss, etc. My 
@@ -146,27 +146,27 @@
     sm:rounded-none sm:py-0
     ">
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://www.facebook.com/ntanduy03" target="_blank" class="w-full h-full flex items-center justify-center">
+      <a href="https://www.facebook.com/ntanduy03" target="_blank" aria-label="Facebook" class="w-full h-full flex items-center justify-center">
         <i class='bx bxl-meta text-[25px] text-white leading-none'></i>
       </a>
     </div>
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://x.com/ng_tanduy" target="_blank" class="w-full h-full flex items-center justify-center">
+      <a href="https://x.com/ng_tanduy" target="_blank" aria-label="X" class="w-full h-full flex items-center justify-center">
         <i class='bx bxl-twitter text-[25px] text-white leading-none'></i>
       </a>
     </div>
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://www.instagram.com/ng.tanduy26" target="_blank" class="w-full h-full flex items-center justify-center">
+      <a href="https://www.instagram.com/ng.tanduy26" target="_blank" aria-label="Instagram" class="w-full h-full flex items-center justify-center">
         <i class='bx bxl-instagram text-[25px] text-white leading-none'></i>
       </a>
     </div>
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://www.github.com/TanDuy03" target="_blank" class="w-full h-full flex items-center justify-center">
+      <a href="https://www.github.com/TanDuy03" target="_blank" aria-label="Github" class="w-full h-full flex items-center justify-center">
         <i class='bx bxl-github text-[25px] text-white leading-none'></i>
       </a>
     </div>
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <router-link to="/login" class="w-full h-full flex items-center justify-center">
+      <router-link to="/login" class="w-full h-full flex items-center justify-center" aria-label="Login">
         <i class='bx bx-user text-[25px] text-white leading-none'></i>
       </router-link>
     </div>
@@ -175,7 +175,7 @@
 
 <style scoped>
   .banner {
-    background-image: url("../assets/banner.png");
+    background-image: url("../assets/banner.webp");
   }
 
   .icon-social svg {
