@@ -18,6 +18,18 @@ export default defineConfig({
       format: {
         comments: false,
       },
+      toplevel: true
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'group-auth': [
+            './src/components/auth/Login.vue',
+            './src/components/auth/Register.vue',
+            './src/components/auth/ResetPassword.vue',
+          ],
+        },
+      },
     },
   }
 })

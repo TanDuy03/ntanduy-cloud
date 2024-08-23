@@ -67,12 +67,12 @@
           class="relative flex h-32 md:h-36 w-full justify-center rounded-[8px] bg-cover banner"
         >
           <div
-            class="absolute -bottom-7 md:-bottom-12 md:left-12 h-[100px] md:h-[130px] w-[100px] md:w-[130px] flex justify-center rounded-full border-[4px] border-white"
+            class="absolute -bottom-7 md:-bottom-12 md:left-12 flex justify-center rounded-full border-[4px] border-white"
           >
             <img
-              class="h-full w-full rounded-full object-fill"
-              src="../assets/avatar.webp"
-              alt="Nguyen Tan Duy"
+              class="size-[100px] md:size-[130px] rounded-full object-fill"
+              src="https://ik.imagekit.io/odbmay3h6/avatar.webp?updatedAt=1724402771259"
+              alt="Nguyen Tan Duy" loading="lazy"
             />
           </div>
         </div>
@@ -175,7 +175,7 @@
 
 <style scoped>
   .banner {
-    background-image: url("../assets/banner.webp");
+    background-image: url("https://ik.imagekit.io/odbmay3h6/banner.webp?updatedAt=1724402641525");
   }
 
   .icon-social svg {
