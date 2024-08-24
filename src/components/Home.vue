@@ -1,10 +1,15 @@
 <script setup lang="ts">
-  import { defineProps, ref } from "vue"
+  import { defineProps, ref } from 'vue'
   import CountUp from 'vue-countup-v3'
-  import axios from "axios"
+  import axios from 'axios'
   import { toast } from 'vue3-toastify'
   import 'vue3-toastify/dist/index.css'
   import { getDatabase, push, ref as dbRef, query, orderByChild, equalTo, get } from "firebase/database"
+  import Meta from './icons/Meta.vue'
+  import Instagram from './icons/Instagram.vue'
+  import Twitter from './icons/Twitter.vue'
+  import Github from './icons/Github.vue'
+  import Account from './icons/Account.vue'
 
   // Initialize Database
   const db = getDatabase()
@@ -64,10 +69,10 @@
     >
       <div class="p-[21px]">
         <div
-          class="relative flex h-24 md:h-36 w-full justify-center rounded-[8px] bg-cover banner"
+          class="relative flex h-20 md:h-36 w-full justify-center rounded-[8px] bg-cover banner"
         >
           <div
-            class="absolute -bottom-10 md:-bottom-12 md:left-12 flex justify-center rounded-full border-[4px] border-white"
+            class="absolute -bottom-4 md:-bottom-12 md:left-12 flex justify-center rounded-full border-[4px] border-white"
           >
             <img
               class="size-[100px] md:size-[130px] rounded-full object-fill"
@@ -146,28 +151,28 @@
     sm:rounded-none sm:py-0
     ">
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://www.facebook.com/ntanduy03" target="_blank" aria-label="Facebook" class="w-full h-full flex items-center justify-center">
-        <i class='bx bxl-meta text-[25px] text-white leading-none'></i>
+      <a href="https://www.facebook.com/ntanduy03" target="_blank" aria-label="Facebook" class="w-full h-full flex items-center justify-center text-white">
+        <Meta class="size-6"/>
       </a>
     </div>
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://x.com/ng_tanduy" target="_blank" aria-label="X" class="w-full h-full flex items-center justify-center">
-        <i class='bx bxl-twitter text-[25px] text-white leading-none'></i>
+      <a href="https://x.com/ng_tanduy" target="_blank" aria-label="X" class="w-full h-full flex items-center justify-center text-white">
+        <Twitter class="size-6"/>
       </a>
     </div>
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://www.instagram.com/ng.tanduy26" target="_blank" aria-label="Instagram" class="w-full h-full flex items-center justify-center">
-        <i class='bx bxl-instagram text-[25px] text-white leading-none'></i>
+      <a href="https://www.instagram.com/ng.tanduy26" target="_blank" aria-label="Instagram" class="w-full h-full flex items-center justify-center text-white">
+        <Instagram class="size-6"/>
       </a>
     </div>
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://www.github.com/TanDuy03" target="_blank" aria-label="Github" class="w-full h-full flex items-center justify-center">
-        <i class='bx bxl-github text-[25px] text-white leading-none'></i>
+      <a href="https://www.github.com/TanDuy03" target="_blank" aria-label="Github" class="w-full h-full flex items-center justify-center text-white">
+        <Github class="size-6"/>
       </a>
     </div>
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <router-link to="/login" class="w-full h-full flex items-center justify-center" aria-label="Login">
-        <i class='bx bx-user text-[25px] text-white leading-none'></i>
+      <router-link to="/login" class="w-full h-full flex items-center justify-center text-white" aria-label="Login">
+        <Account class="size-6"/>
       </router-link>
     </div>
   </div>
