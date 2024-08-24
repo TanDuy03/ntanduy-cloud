@@ -69,7 +69,7 @@
     >
       <div class="p-[21px]">
         <div
-          class="relative flex h-20 md:h-36 w-full justify-center rounded-[8px] bg-cover banner"
+          class="relative flex h-20 md:h-36 w-full justify-center rounded-[8px] bg-gradient-to-r from-rose-400 to-orange-300"
         >
           <div
             class="absolute -bottom-4 md:-bottom-12 md:left-12 flex justify-center rounded-full border-[4px] border-white"
@@ -81,7 +81,7 @@
             />
           </div>
         </div>
-        <div class="w-full flex justify-end p-3 mt-8 md:mt-0">
+        <div class="w-full flex justify-end p-3 mt-6 md:mt-0">
           <div class="w-full flex-col md:w-[70%]">
             <h4
               class="flex justify-center md:justify-normal items-center gap-2 text-navy-700 text-2xl text-center md:text-left font-bold dark:text-white"
@@ -179,12 +179,10 @@
 </template>
 
 <style scoped>
-  .banner {
-    background-image: url("https://ik.imagekit.io/odbmay3h6/banner.webp?updatedAt=1724402641525");
-  }
 
   .icon-social svg {
     height: 28px;
     width: 28px;
   }
+
 </style>
