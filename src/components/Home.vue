@@ -64,10 +64,10 @@
     >
       <div class="p-[21px]">
         <div
-          class="relative flex h-32 md:h-36 w-full justify-center rounded-[8px] bg-cover banner"
+          class="relative flex h-24 md:h-36 w-full justify-center rounded-[8px] bg-cover banner"
         >
           <div
-            class="absolute -bottom-7 md:-bottom-12 md:left-12 flex justify-center rounded-full border-[4px] border-white"
+            class="absolute -bottom-10 md:-bottom-12 md:left-12 flex justify-center rounded-full border-[4px] border-white"
           >
             <img
               class="size-[100px] md:size-[130px] rounded-full object-fill"
@@ -76,7 +76,7 @@
             />
           </div>
         </div>
-        <div class="w-full flex justify-end p-3 mt-6 md:mt-0">
+        <div class="w-full flex justify-end p-3 mt-8 md:mt-0">
           <div class="w-full flex-col md:w-[70%]">
             <h4
               class="flex justify-center md:justify-normal items-center gap-2 text-navy-700 text-2xl text-center md:text-left font-bold dark:text-white"
