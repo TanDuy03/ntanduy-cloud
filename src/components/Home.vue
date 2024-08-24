@@ -76,7 +76,7 @@
           >
             <img
               class="size-[100px] md:size-[130px] rounded-full object-fill"
-              src="https://ik.imagekit.io/odbmay3h6/z5763204095890_794210606c61c277dac928b8ca60d86c-min.jpg?updatedAt=1724504017947"
+              src="https://ik.imagekit.io/odbmay3h6/avatar.webp?updatedAt=1724402771259"
               alt="Nguyen Tan Duy" loading="lazy"
             />
           </div>
