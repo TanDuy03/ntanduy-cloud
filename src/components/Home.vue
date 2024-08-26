@@ -129,7 +129,7 @@
         </div>
         <div class="w-full mt-1">
           <p
-            class="text-[13px] line-clamp-3 md:line-clamp-none font-normal text-slate-600 -tracking-2 text-left md:text-justify"
+            class="text-[13px] font-normal text-slate-600 -tracking-2 text-left md:text-justify"
           >
             Welcome to the website. I am a programmer from Vietnam, I specialize
             in programming web applications using Laravel, Vuejs, Tailwindcss, etc. My 
@@ -156,7 +156,7 @@
       </a>
     </div>
     <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://x.com/ng_tanduy" target="_blank" aria-label="X" class="w-full h-full flex items-center justify-center text-white">
+      <a href="https://x.com/daniel_saigon" target="_blank" aria-label="X" class="w-full h-full flex items-center justify-center text-white">
         <Twitter class="size-6"/>
       </a>
     </div>
