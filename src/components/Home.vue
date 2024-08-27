@@ -31,15 +31,88 @@ const country = ref("")
 const postal = ref("")
 const options = {
   chart: {
-    id: 'vuechart-example'
+    height: 300,
+    type: 'line',
+    toolbar: {
+      show: false
+    }
+  },
+  colors: ["#3736af", "#3693FF"],
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    curve: 'smooth',
+    width: 6
+  },
+  legend: {
+    show: false,
+
+  },
+  markers: {
+    strokeWidth: 5,
+    strokeColors: '#fff',
+    hover: {
+      size: 10,
+    },
+  },
+  grid: {
+    show: true,
+    strokeDashArray: 6,
+    borderColor: '#e6e6e6',
+    xaxis: {
+      lines: {
+        show: true
+      },
+    },
+    yaxis: {
+      lines: {
+        show: false
+      },
+    },
+  },
+  yaxis: {
+    show: false,
+    labels: {
+      style: {
+        colors: '#717579',
+        fontSize: '12px',
+        fontFamily: 'Poppins',
+        fontWeight: 400
+
+      },
+      formatter: function (value: number) {
+        return value + "USD";
+      }
+    },
   },
   xaxis: {
-    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+    categories: ["Jan", "Feb", "Mar", "Apr", "jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+    labels: {
+      style: {
+        colors: '#B5B5C3',
+        fontSize: '12px',
+        fontFamily: 'Poppins',
+        fontWeight: 400
+
+      },
+    },
+    axisBorder: {
+      show: false,
+    },
+    tooltip: {
+      enabled: false,
+    }
   }
 }
 const series = [{
-  name: 'series-1',
-  data: [30, 40, 45, 50, 49, 60, 70, 91]
+  name: '1 ETH',
+  className: 'bg-primary',
+  data: [10000, 25000, 15000, 5000, 8000, 7000, 6000, 5000, 10000, 4000]
+}, {
+  name: '1 XRP',
+  className: 'bg-secondary',
+  data: [7000, 15000, 8000, 3000, 4000, 5000, 1000, 500, 8000, 2000]
 }]
 
 axios.get('https://ipinfo.io/json', {
@@ -146,7 +219,7 @@ axios.get('https://ipinfo.io/json', {
       </div>
       <div class="mt-32"></div>
     </div>
-    <div class="w-full p-5 md:px-12 min-h-[500px]">
+    <div class="w-full p-5 md:px-12 min-h-[500px] bg-[#09153F]">
       <div class="z-[1]">
         <swiper :modules="[Autoplay, Scrollbar]" :slides-per-view="1" :speed="10000" :space-between="20"
           :scrollbar="{ draggable: true }" :autoplay="{
@@ -155,19 +228,19 @@ axios.get('https://ipinfo.io/json', {
             reverseDirection: true,
             pauseOnMouseEnter: true,
           }" :breakpoints="{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 25,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-        }">
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 25,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+          }">
           <swiper-slide>
             <div class="max-w-sm p-6 bg-[#F4392E] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <div class="flex gap-3 items-center">
@@ -180,8 +253,8 @@ axios.get('https://ipinfo.io/json', {
               <a href="https://laravel.com" target="_blank"
                 class="inline-flex font-normal items-center text-white hover:underline">
                 <small class="text-[14px]">Documentation</small>
-                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 18 18">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                 </svg>
@@ -200,8 +273,8 @@ axios.get('https://ipinfo.io/json', {
               <a href="https://vuejs.org" target="_blank"
                 class="inline-flex font-normal items-center text-white hover:underline">
                 <small class="text-[14px]">Documentation</small>
-                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 18 18">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                 </svg>
@@ -220,8 +293,8 @@ axios.get('https://ipinfo.io/json', {
               <a href="https://tailwindcss.com" target="_blank"
                 class="inline-flex font-normal items-center text-white hover:underline">
                 <small class="text-[14px]">Documentation</small>
-                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 18 18">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                 </svg>
@@ -240,8 +313,8 @@ axios.get('https://ipinfo.io/json', {
               <a href="https://git-scm.com" target="_blank"
                 class="inline-flex font-normal items-center text-white hover:underline">
                 <small class="text-[14px]">Documentation</small>
-                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 18 18">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                 </svg>
@@ -260,8 +333,8 @@ axios.get('https://ipinfo.io/json', {
               <a href="https://developers.cloudflare.com" target="_blank"
                 class="inline-flex font-normal items-center text-white hover:underline">
                 <small class="text-[14px]">Documentation</small>
-                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 18 18">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                 </svg>
@@ -270,13 +343,59 @@ axios.get('https://ipinfo.io/json', {
           </swiper-slide>
         </swiper>
       </div>
-      <div class="w-full grid md:grid-cols-2 gap-[30px] mt-12">
+      <div class="w-full grid md:grid-cols-2 gap-[30px] my-12">
         <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">
-          <apexchart width="100%" type="bar" :options="options" :series="series"></apexchart>
+          <div class="card text-primary-content">
+            <h4 class="card-title text-white font-medium text-lg capitalize">Crypto Statistics</h4>
+            <p class="text-[#8896b9] text-xs mt-2">Lorem ipsum dolor sit amet consectetur.</p>
+            <div class="card-body">
+              <apexchart width="100%" type="line" :options="options" :series="series"></apexchart>
+            </div>
+          </div>
         </div>
-        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">1</div>
+        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">
+          <div class="card text-primary-content">
+            <h4 class="card-title text-white font-medium text-lg capitalize">Maps</h4>
+            <p class="text-[#8896b9] text-xs mt-2">Lorem ipsum dolor sit amet consectetur.</p>
+            <div class="card-body">
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <footer class="bg-[#18254F]">
+      <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+          <a href="https://www.github.com/TanDuy03" target="_blank" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">TanDuy03</span>
+          </a>
+          <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0">
+            <li>
+              <a href="#" class="hover:underline me-4 md:me-6">About</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline me-4 md:me-6">Contact</a>
+            </li>
+            <li>
+              <router-link to="/login" class="hover:underline">Login</router-link>
+            </li>
+          </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-white sm:text-center">© 2024 <a
+          href="https://github.com/TanDuy03" class="hover:underline">TanDuy03</a>. All Rights Reserved.</span>
+      </div>
+    </footer>
+
     <!-- <div
       class="rounded-[8px] bg-white shadow-3xl shadow-gray-500 rounded-primary relative mx-auto w-full max-w-[678px] bg-cover bg-clip-border dark:text-white dark:shadow-none"
     >
