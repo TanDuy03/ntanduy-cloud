@@ -10,9 +10,10 @@ import { initializeApp } from "firebase/app"
 import { getPerformance } from "firebase/performance"
 import { inject } from '@vercel/analytics'
 import { injectSpeedInsights } from '@vercel/speed-insights'
+import VueApexCharts from "vue3-apexcharts"
 
 const meta = createHead()
-createApp(App).use(VueWriter).use(meta).use(router).mount('#app')
+createApp(App).use(VueApexCharts).use(VueWriter).use(meta).use(router).mount('#app')
 
 window.Alpine = Alpine
 Alpine.store('page', {

@@ -9,7 +9,15 @@ import Meta from './icons/Meta.vue'
 import Instagram from './icons/Instagram.vue'
 import Twitter from './icons/Twitter.vue'
 import Github from './icons/Github.vue'
+import Laravel from './icons/Laravel.vue'
+import Vuejs from './icons/Vuejs.vue'
+import Tailwind from './icons/Tailwind.vue'
+import Git from './icons/Git.vue'
+import Cloudflare from './icons/Cloudflare.vue'
 // import Account from './icons/Account.vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules'
+import 'swiper/css'
 
 // Initialize Database
 const db = getDatabase()
@@ -21,6 +29,18 @@ const loc = ref("")
 const timezone = ref("")
 const country = ref("")
 const postal = ref("")
+const options = {
+  chart: {
+    id: 'vuechart-example'
+  },
+  xaxis: {
+    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+  }
+}
+const series = [{
+  name: 'series-1',
+  data: [30, 40, 45, 50, 49, 60, 70, 91]
+}]
 
 axios.get('https://ipinfo.io/json', {
   params: {
@@ -61,11 +81,12 @@ axios.get('https://ipinfo.io/json', {
 </script>
 
 <template>
-  <div class="min-h-dvh w-full h-screen flex justify-center items-center bg-[#09153F] p-[18px]">
-    <div class="w-full h-44 md:h-52 bg-[#3736af] absolute top-0 left-0 baner-top">
-      <div class="relative header-top top-0 w-full flex justify-between items-center px-5 md:px-12 py-4">
-        <div class="flex justify-center items-center gap-3">
-          <button aria-label="Menu" class="p-2 bg-[#ffffff1f] rounded-lg text-white">
+  <div class="container-fluid">
+    <div class="w-full h-44 md:h-52 bg-[#3736af] absolute top-0 left-0 baner-top"></div>
+    <div class="relative w-full top-0">
+      <div class="fixed top-0 header-top w-full flex justify-between items-center p-5 md:px-12 z-10 bg-[#3736af]">
+        <div class="flex justify-center items-center gap-2 md:gap-3">
+          <button aria-label="Menu" class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2">
@@ -75,7 +96,7 @@ axios.get('https://ipinfo.io/json', {
               <path d="M4 18l16 0" />
             </svg>
           </button>
-          <a href="#" aria-label="Dark Mode" class="p-2 bg-[#ffffff1f] rounded-lg text-white">
+          <a href="#" aria-label="Dark Mode" class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="icon icon-tabler icons-tabler-outline icon-tabler-brightness-up">
@@ -92,18 +113,22 @@ axios.get('https://ipinfo.io/json', {
             </svg>
           </a>
         </div>
-        <div class="flex gap-4">
-          <div class="flex gap-3">
-            <a href="#" target="_blank" aria-label="Facebook" class="p-2 bg-[#ffffff1f] rounded-lg text-white">
+        <div class="flex gap-2 md:gap-4">
+          <div class="flex gap-2 md:gap-3">
+            <a href="https://facebook.com/ntanduy03" target="_blank" aria-label="Facebook"
+              class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
               <Meta />
             </a>
-            <a href="#" target="_blank" aria-label="Github" class="p-2 bg-[#ffffff1f] rounded-lg text-white">
+            <a href="https://github.com/TanDuy03" target="_blank" aria-label="Github"
+              class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
               <Github />
             </a>
-            <a href="#" target="_blank" aria-label="Twitter" class="p-2 bg-[#ffffff1f] rounded-lg text-white">
+            <a href="https://x.com/daniel_saigon" target="_blank" aria-label="Twitter"
+              class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
               <Twitter />
             </a>
-            <a href="#" target="_blank" aria-label="Instagram" class="p-2 bg-[#ffffff1f] rounded-lg text-white">
+            <a href="https://instagram.com/ng.tanduy26" target="_blank" aria-label="Instagram"
+              class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
               <Instagram />
             </a>
           </div>
@@ -119,99 +144,139 @@ axios.get('https://ipinfo.io/json', {
           </div>
         </div>
       </div>
-      <div class="grid py-3 grid-cols-2 md:grid-cols-4 gap-4 z-[1] mt-10 px-5 md:px-12
-      ">
-        <!-- Card -->
-        <div
-          class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-          </svg>
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Need a help in Claim?
-            </h5>
-          </a>
-          <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-            See our guideline
-            <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-              fill="none" viewBox="0 0 18 18">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
-            </svg>
-          </a>
+      <div class="mt-32"></div>
+    </div>
+    <div class="w-full p-5 md:px-12 min-h-[500px]">
+      <div class="z-[1]">
+        <swiper :modules="[Autoplay, Scrollbar]" :slides-per-view="1" :speed="10000" :space-between="20"
+          :scrollbar="{ draggable: true }" :autoplay="{
+            delay: 0,
+            disableOnInteraction: false,
+            reverseDirection: true,
+            pauseOnMouseEnter: true,
+          }" :breakpoints="{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 25,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+        }">
+          <swiper-slide>
+            <div class="max-w-sm p-6 bg-[#F4392E] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div class="flex gap-3 items-center">
+                <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
+                  <Laravel />
+                </div>
+                <h2 class="mb-2 text-lg font-semibold tracking-tight text-white dark:text-white">Laravel
+                </h2>
+              </div>
+              <a href="https://laravel.com" target="_blank"
+                class="inline-flex font-normal items-center text-white hover:underline">
+                <small class="text-[14px]">Documentation</small>
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                </svg>
+              </a>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="max-w-sm p-6 bg-[#3AB67A] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div class="flex gap-3 items-center">
+                <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
+                  <Vuejs />
+                </div>
+                <h2 class="mb-2 text-lg font-semibold tracking-tight text-white dark:text-white">Vuejs
+                </h2>
+              </div>
+              <a href="https://vuejs.org" target="_blank"
+                class="inline-flex font-normal items-center text-white hover:underline">
+                <small class="text-[14px]">Documentation</small>
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                </svg>
+              </a>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="max-w-sm p-6 bg-[#3693FF] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div class="flex gap-3 items-center">
+                <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
+                  <Tailwind />
+                </div>
+                <h2 class="mb-2 text-lg font-semibold tracking-tight text-white dark:text-white">Tailwindcss
+                </h2>
+              </div>
+              <a href="https://tailwindcss.com" target="_blank"
+                class="inline-flex font-normal items-center text-white hover:underline">
+                <small class="text-[14px]">Documentation</small>
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                </svg>
+              </a>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="max-w-sm p-6 bg-[#5B5E81] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div class="flex gap-3 items-center">
+                <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
+                  <Git />
+                </div>
+                <h2 class="mb-2 text-lg font-semibold tracking-tight text-white dark:text-white">Git
+                </h2>
+              </div>
+              <a href="https://git-scm.com" target="_blank"
+                class="inline-flex font-normal items-center text-white hover:underline">
+                <small class="text-[14px]">Documentation</small>
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                </svg>
+              </a>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="max-w-sm p-6 bg-[#FFAB2D] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div class="flex gap-3 items-center">
+                <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
+                  <Cloudflare />
+                </div>
+                <h2 class="mb-2 text-lg font-semibold tracking-tight text-white dark:text-white">Cloudflare
+                </h2>
+              </div>
+              <a href="https://developers.cloudflare.com" target="_blank"
+                class="inline-flex font-normal items-center text-white hover:underline">
+                <small class="text-[14px]">Documentation</small>
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                </svg>
+              </a>
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+      <div class="w-full grid md:grid-cols-2 gap-[30px] mt-12">
+        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">
+          <apexchart width="100%" type="bar" :options="options" :series="series"></apexchart>
         </div>
-  
-        <!-- Card -->
-        <div
-          class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-          </svg>
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Need a help in Claim?
-            </h5>
-          </a>
-          <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-            See our guideline
-            <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-              fill="none" viewBox="0 0 18 18">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
-            </svg>
-          </a>
-        </div>
-  
-        <!-- Card -->
-        <div
-          class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-          </svg>
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Need a help in Claim?
-            </h5>
-          </a>
-          <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-            See our guideline
-            <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-              fill="none" viewBox="0 0 18 18">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
-            </svg>
-          </a>
-        </div>
-  
-        <!-- Card -->
-        <div
-          class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-          </svg>
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Need a help in Claim?
-            </h5>
-          </a>
-          <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-            See our guideline
-            <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-              fill="none" viewBox="0 0 18 18">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
-            </svg>
-          </a>
-        </div>
-  
+        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">1</div>
       </div>
     </div>
-    
     <!-- <div
       class="rounded-[8px] bg-white shadow-3xl shadow-gray-500 rounded-primary relative mx-auto w-full max-w-[678px] bg-cover bg-clip-border dark:text-white dark:shadow-none"
     >
@@ -347,5 +412,11 @@ svg {
   width: 100%;
   background: rgba(255, 255, 255, 0.12);
   height: 1px;
+}
+
+.swiper-wrapper {
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
 }
 </style>
