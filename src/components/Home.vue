@@ -280,9 +280,9 @@ axios.get('https://ipinfo.io/json', {
       </div>
     </div>
     <div class="px-5 md:px-12">
-      <div class="relative w-full border-line"></div>
+      <div class="relative w-full border-line top-[-14px] md:top-[-45px]"></div>
     </div>
-    <div class="mt-32"></div>
+    <div class="mt-24 md:mt-32"></div>
     <div class="w-full p-5 md:px-12 min-h-[500px] bg-[#09153F]">
       <div class="z-[1]">
         <swiper :modules="[Autoplay, Scrollbar, Pagination, Navigation]" :slides-per-view="1" :speed="15000" :space-between="20"
@@ -770,7 +770,6 @@ svg {
   right: 0;
   width: 100%;
   height: 1px;
-  top: -45px;
   background-color: rgba(255, 255, 255, 0.12);
 }
 
