@@ -14,6 +14,7 @@ import Vuejs from './icons/Vuejs.vue'
 import Tailwind from './icons/Tailwind.vue'
 import Git from './icons/Git.vue'
 import Cloudflare from './icons/Cloudflare.vue'
+import Discord from './icons/Discord.vue'
 // import Account from './icons/Account.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules'
@@ -230,21 +231,8 @@ axios.get('https://ipinfo.io/json', {
               <path d="M4 18l16 0" />
             </svg>
           </button>
-          <a href="#" aria-label="Dark Mode" class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-brightness-up">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-              <path d="M12 5l0 -2" />
-              <path d="M17 7l1.4 -1.4" />
-              <path d="M19 12l2 0" />
-              <path d="M17 17l1.4 1.4" />
-              <path d="M12 19l0 2" />
-              <path d="M7 17l-1.4 1.4" />
-              <path d="M6 12l-2 0" />
-              <path d="M7 7l-1.4 -1.4" />
-            </svg>
+          <a href="https://discordapp.com/users/1261979713388150845" target="_blank" aria-label="Dark Mode" class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
+            <Discord/>
           </a>
         </div>
         <div class="flex gap-2 md:gap-4">
@@ -706,7 +694,7 @@ axios.get('https://ipinfo.io/json', {
           <div class="sm:flex sm:items-center sm:justify-between">
             <a href="https://pinkary.com/@TanDuy03" target="_blank"
               class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse slide-up">
-              <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" :alt="props.name" />
+              <img v-lazy="'https://flowbite.com/docs/images/logo.svg'" class="h-8" :alt="props.name" />
               <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">{{ props.userID }}</span>
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 slide-up">
@@ -746,11 +734,11 @@ axios.get('https://ipinfo.io/json', {
 }
 
 .header-top {
-  -webkit-transition: background-color 1000ms linear;
-  -moz-transition: background-color 1000ms linear;
-  -o-transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  transition: background-color 1000ms linear;
+  -webkit-transition: background-color 1200ms linear;
+  -moz-transition: background-color 1200ms linear;
+  -o-transition: background-color 1200ms linear;
+  -ms-transition: background-color 1200ms linear;
+  transition: background-color 1200ms linear;
 }
 
 .header-top.active {
