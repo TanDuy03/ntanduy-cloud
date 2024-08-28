@@ -224,7 +224,7 @@ axios.get('https://ipinfo.io/json', {
     <div class="mt-32"></div>
     <div class="w-full p-5 md:px-12 min-h-[500px] bg-[#09153F]">
       <div class="z-[1]">
-        <swiper :modules="[Autoplay, Scrollbar]" :slides-per-view="1" :speed="15000" :space-between="20"
+        <swiper :modules="[Autoplay, Scrollbar, Pagination, Navigation]" :slides-per-view="1" :speed="15000" :space-between="20"
           :scrollbar="{ draggable: true }" :autoplay="{
             delay: 0,
             disableOnInteraction: false,
@@ -346,6 +346,8 @@ axios.get('https://ipinfo.io/json', {
           </swiper-slide>
         </swiper>
       </div>
+
+      <!-- Chart -->
       <div class="w-full grid md:grid-cols-2 gap-[30px] mt-12 mb-10">
         <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">
           <div class="card text-primary-content">
@@ -366,17 +368,18 @@ axios.get('https://ipinfo.io/json', {
           </div>
         </div>
       </div>
+
+      <!-- About -->
       <div class="bg-[#18254F] mt-10 rounded-lg">
         <div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-10 mx-auto">
           <div class="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between">
-            <div class="lg:col-span-5 lg:col-start-1">
+            <div class="lg:col-span-6 lg:col-start-1">
               <div class="mb-8">
                 <h2 class="mb-2 text-3xl text-white font-bold lg:text-4xl dark:text-neutral-200">
-                  It's all about speed
+                  The passion that drives me forward
                 </h2>
                 <p class="text-gray-500 text-sm dark:text-neutral-400">
-                  We provide you with a test account that can be set up in seconds. Our main focus is getting responses
-                  to you as soon as we can.
+                  I am a programmer from Vietnam, I specialize in programming web applications using Laravel, Vuejs, Tailwindcss, etc. My strong passion for programming drives me to create powerful, high-performance web applications with the most modern technologies and contribute to the development of open source.
                 </p>
               </div>
 
@@ -418,7 +421,7 @@ axios.get('https://ipinfo.io/json', {
                   class="grid grid-cols-2 divide-y-2 divide-x-2 divide-gray-500 overflow-hidden dark:divide-neutral-700">
                   <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                     <div
-                      class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
                       <count-up :end-val="45"></count-up>k+
                     </div>
                     <p class="text-sm sm:text-base text-white dark:text-neutral-400">
@@ -428,7 +431,7 @@ axios.get('https://ipinfo.io/json', {
 
                   <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                     <div
-                      class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
                       <svg class="shrink-0 size-5 text-[#ffab2d] dark:text-blue-500" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -444,7 +447,7 @@ axios.get('https://ipinfo.io/json', {
 
                   <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                     <div
-                      class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
                       <svg class="shrink-0 size-5 text-[#ffab2d] dark:text-blue-500" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -460,7 +463,7 @@ axios.get('https://ipinfo.io/json', {
 
                   <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                     <div
-                      class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
                       <count-up :end-val="2"></count-up>x
                     </div>
                     <p class="text-sm sm:text-base text-white dark:text-neutral-400">
@@ -473,6 +476,8 @@ axios.get('https://ipinfo.io/json', {
           </div>
         </div>
       </div>
+
+      <!-- Business  -->
       <div class="mt-10">
         <section class="py-6 bg-[#18254F] sm:py-12 lg:py-18 rounded-lg">
           <div class="px-4 md:px-0 mx-auto sm:px-6 lg:px-8 max-w-7xl">
@@ -485,7 +490,7 @@ axios.get('https://ipinfo.io/json', {
               <div class="text-center lg:text-left">
                 <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">Grow business with
                   connections.</h2>
-                <p class="mt-6 text-base text-gray-500 text-sm">Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                <p class="mt-6 text-gray-500 text-sm">Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                   amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
                   amet.</p>
 
@@ -497,6 +502,8 @@ axios.get('https://ipinfo.io/json', {
           </div>
         </section>
       </div>
+
+      <!-- Princing -->
       <div class="bg-[#18254F] mt-10 rounded-lg">
         <section class="py-6 sm:py-12 lg:py-18">
           <div class="max-w-8xl px-4 mx-auto sm:px-6 lg:px-8">
@@ -610,9 +617,9 @@ axios.get('https://ipinfo.io/json', {
                       </li>
                     </ul>
 
-                    <a href="#" title=""
+                    <button
                       class="inline-flex items-center justify-center w-full px-8 py-4 mt-10 font-semibold text-white transition-all duration-200 rounded-full bg-gradient-to-r from-fuchsia-600 to-blue-600 hover:opacity-80 focus:opacity-80"
-                      role="button"> Get full access </a>
+                      role="button"> Get full access </button>
 
                     <div class="flex items-center mt-5">
                       <svg class="flex-shrink-0 w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -631,8 +638,9 @@ axios.get('https://ipinfo.io/json', {
 
       </div>
 
+      <!-- Footer -->
       <footer class="bg-[#18254F] rounded-lg mt-10">
-        <div class="w-full max-w-screen-xl mx-auto px-5 py-4 md:pt-8 md:pb-5">
+        <div class="w-full max-w-screen-xl mx-auto px-8 py-4 md:pt-8 md:pb-5">
           <div class="sm:flex sm:items-center sm:justify-between">
             <a href="https://pinkary.com/@TanDuy03" target="_blank"
               class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
@@ -663,120 +671,8 @@ axios.get('https://ipinfo.io/json', {
             Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}.</small>
         </div>
       </footer>
-
-      <!-- <div
-      class="rounded-[8px] bg-white shadow-3xl shadow-gray-500 rounded-primary relative mx-auto w-full max-w-[678px] bg-cover bg-clip-border dark:text-white dark:shadow-none"
-    >
-      <div class="p-[21px]">
-        <div
-          class="relative flex h-20 md:h-36 w-full justify-center rounded-[8px] bg-gradient-to-r from-rose-400 to-orange-300"
-        >
-          <div
-            class="absolute -bottom-4 md:-bottom-12 md:left-12 flex justify-center rounded-full border-[4px] border-white"
-          >
-            <img
-              class="size-[100px] md:size-[130px] rounded-full object-fill"
-              src="https://ik.imagekit.io/odbmay3h6/avatar.webp?updatedAt=1724402771259"
-              alt="Nguyen Tan Duy" loading="lazy"
-            />
-          </div>
-        </div>
-        <div class="w-full flex justify-end p-3 mt-6 md:mt-0">
-          <div class="w-full flex-col md:w-[70%]">
-            <h4
-              class="flex justify-center md:justify-normal items-center gap-2 text-navy-700 text-2xl text-center md:text-left font-bold dark:text-white"
-            >
-              {{ props.name }}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                style="color: #0866ff"
-                title="System verified"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="icon icon-tabler icons-tabler-filled icon-tabler-rosette-discount-check hover:cursor-pointer"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12.01 2.011a3.2 3.2 0 0 1 2.113 .797l.154 .145l.698 .698a1.2 1.2 0 0 0 .71 .341l.135 .008h1a3.2 3.2 0 0 1 3.195 3.018l.005 .182v1c0 .27 .092 .533 .258 .743l.09 .1l.697 .698a3.2 3.2 0 0 1 .147 4.382l-.145 .154l-.698 .698a1.2 1.2 0 0 0 -.341 .71l-.008 .135v1a3.2 3.2 0 0 1 -3.018 3.195l-.182 .005h-1a1.2 1.2 0 0 0 -.743 .258l-.1 .09l-.698 .697a3.2 3.2 0 0 1 -4.382 .147l-.154 -.145l-.698 -.698a1.2 1.2 0 0 0 -.71 -.341l-.135 -.008h-1a3.2 3.2 0 0 1 -3.195 -3.018l-.005 -.182v-1a1.2 1.2 0 0 0 -.258 -.743l-.09 -.1l-.697 -.698a3.2 3.2 0 0 1 -.147 -4.382l.145 -.154l.698 -.698a1.2 1.2 0 0 0 .341 -.71l.008 -.135v-1l.005 -.182a3.2 3.2 0 0 1 3.013 -3.013l.182 -.005h1a1.2 1.2 0 0 0 .743 -.258l.1 -.09l.698 -.697a3.2 3.2 0 0 1 2.269 -.944zm3.697 7.282a1 1 0 0 0 -1.414 0l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.32 1.497l2 2l.094 .083a1 1 0 0 0 1.32 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
-                />
-                <title>System verified</title>
-              </svg>
-            </h4>
-            <h5
-              className="text-base font-normal text-[15px] text-center md:text-left text-gray-600"
-            >
-              <vue-writer :array="[props.description]" :eraseSpeed="35" :typeSpeed="20"></vue-writer>
-            </h5>
-          </div>
-        </div>
-        <div class="w-full flex justify-center pt-2 pb-3">
-          <div class="w-2/3 grid grid-cols-3 gap-4">
-            <div class="px-4 flex flex-col justify-center items-center">
-              <count-up class="text-2xl font-bold" :end-val="26"></count-up>
-              <small class="font-normal text-neutral-600">Online</small>
-            </div>
-            <div class="px-4 flex flex-col justify-center items-center">
-              <count-up class="text-2xl font-bold" :end-val="12"></count-up>
-              <small class="font-normal text-neutral-600">View</small>
-            </div>
-            <div class="px-4 flex flex-col justify-center items-center">
-              <count-up class="text-2xl font-bold" :end-val="60"></count-up>
-              <small class="font-normal text-neutral-600">Block</small>
-            </div>
-          </div>
-        </div>
-        <div class="w-full mt-1">
-          <p
-            class="text-[13px] line-clamp-3 md:line-clamp-none font-normal text-slate-600 -tracking-2 text-left md:text-justify"
-          >
-            Welcome to the website. I am a programmer from Vietnam, I specialize
-            in programming web applications using Laravel, Vuejs, Tailwindcss, etc. My 
-            strong passion for programming drives me to
-            create powerful, high-performance web applications with the most
-            modern technologies and contribute to the development of open
-            source.
-          </p>
-        </div>
-      </div>
-      <div class="w-full h-[1px] bg-gray-300"></div>
-      <div class="px-[21px] py-3">
-        <small class="block text-center text-[13px]">Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}</small>
-      </div>
-    </div> -->
     </div>
   </div>
-  <!-- <div class="fixed bottom-0 right-0 py-3 w-full bg-[#6366F1] sm:bg-inherit sm:w-auto sm:bottom-10 
-    sm:right-10 flex sm:flex-col sm:gap-3 rounded-t-[15px] justify-evenly items-center
-    sm:rounded-none sm:py-0
-    ">
-    <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://www.facebook.com/ntanduy03" target="_blank" aria-label="Facebook" class="w-full h-full flex items-center justify-center text-white">
-        <Meta class="size-6"/>
-      </a>
-    </div>
-    <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://x.com/ng_tanduy" target="_blank" aria-label="X" class="w-full h-full flex items-center justify-center text-white">
-        <Twitter class="size-6"/>
-      </a>
-    </div>
-    <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://www.instagram.com/ng.tanduy26" target="_blank" aria-label="Instagram" class="w-full h-full flex items-center justify-center text-white">
-        <Instagram class="size-6"/>
-      </a>
-    </div>
-    <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <a href="https://www.github.com/TanDuy03" target="_blank" aria-label="Github" class="w-full h-full flex items-center justify-center text-white">
-        <Github class="size-6"/>
-      </a>
-    </div>
-    <div class="sm:size-[45px] sm:bg-[#6366F1] rounded-full hover:translateY shadow-lg shadow-[#6366F1]">
-      <router-link to="/login" class="w-full h-full flex items-center justify-center text-white" aria-label="Login">
-        <Account class="size-6"/>
-      </router-link>
-    </div>
-  </div> -->
 </template>
 
 <style scoped>
