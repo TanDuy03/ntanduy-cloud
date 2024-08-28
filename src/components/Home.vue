@@ -18,6 +18,7 @@ import Cloudflare from './icons/Cloudflare.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules'
 import 'swiper/css'
+import ScrollReveal from 'scrollreveal'
 
 // Initialize Database
 const db = getDatabase()
@@ -164,6 +165,48 @@ axios.get('https://ipinfo.io/json', {
 
   onMounted(() => {
     window.addEventListener("scroll", addActice)
+
+    const sr = ScrollReveal();
+    var slideUp = {
+      delay: 375,
+      duration: 500,
+      distance: '30px',
+      origin: 'top',
+      opacity: null,
+      easing: 'ease-out',
+      reset: true
+    };
+    var slideDown = {
+      delay: 375,
+      duration: 500,
+      distance: '30px',
+      origin: 'bottom',
+      opacity: null,
+      easing: 'ease-out',
+      reset: true
+    };
+    var slideLeft = {
+      delay: 375,
+      duration: 500,
+      distance: '30px',
+      origin: 'left',
+      opacity: null,
+      easing: 'ease-out',
+      reset: true
+    };
+    var slideRight = {
+      delay: 375,
+      duration: 500,
+      distance: '30px',
+      origin: 'right',
+      opacity: null,
+      easing: 'ease-out',
+      reset: true
+    };
+    sr.reveal('.slide-up', slideUp)
+    sr.reveal('.slide-down', slideDown)
+    sr.reveal('.slide-left', slideLeft)
+    sr.reveal('.slide-right', slideRight)
   })
 
   onBeforeUnmount(() => {
@@ -367,19 +410,19 @@ axios.get('https://ipinfo.io/json', {
 
       <!-- Chart -->
       <div class="w-full grid md:grid-cols-2 gap-[30px] mt-12 mb-10">
-        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">
+        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3 slide-left">
           <div class="card text-primary-content">
-            <h4 class="card-title text-white font-medium text-lg capitalize">Crypto Statistics</h4>
-            <p class="text-[#8896b9] text-xs mt-2">Latest data and analysis on cryptocurrencies</p>
+            <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Crypto Statistics</h4>
+            <p class="text-[#8896b9] text-xs mt-2 slide-left">Latest data and analysis on cryptocurrencies</p>
             <div class="card-body">
               <apexchart width="100%" type="line" :options="options" :series="series"></apexchart>
             </div>
           </div>
         </div>
-        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">
+        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3 slide-right">
           <div class="card text-primary-content flex flex-col h-full">
-            <h4 class="card-title text-white font-medium text-lg capitalize">Weather in your location</h4>
-            <p class="text-[#8896b9] text-xs mt-2">Instant weather forecast for your current location</p>
+            <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Weather in your location</h4>
+            <p class="text-[#8896b9] text-xs mt-2 slide-right">Instant weather forecast for your current location</p>
             <div class="card-body flex justify-center items-center flex-grow p-4">
               <div class="loader-spiner"></div>
             </div>
@@ -393,7 +436,7 @@ axios.get('https://ipinfo.io/json', {
           <div class="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between">
             <div class="lg:col-span-6 lg:col-start-1">
               <div class="mb-8">
-                <h2 class="mb-2 text-3xl text-white font-bold lg:text-4xl dark:text-neutral-200">
+                <h2 class="mb-2 text-3xl text-white font-bold lg:text-4xl dark:text-neutral-200 slide-up">
                   The passion that drives me forward
                 </h2>
                 <p class="text-gray-500 text-sm dark:text-neutral-400">
@@ -418,7 +461,7 @@ axios.get('https://ipinfo.io/json', {
                 </div>
 
                 <footer class="mt-6">
-                  <div class="flex items-center gap-x-4">
+                  <div class="flex items-center gap-x-4 slide-left">
                     <div class="shrink-0">
                       <img class="size-[42px] rounded-full object-fill"
                         v-lazy="'https://ik.imagekit.io/odbmay3h6/avatar.jpg?updatedAt=1724846688735'"
@@ -439,17 +482,17 @@ axios.get('https://ipinfo.io/json', {
                   class="grid grid-cols-2 divide-y-2 divide-x-2 divide-gray-500 overflow-hidden dark:divide-neutral-700">
                   <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                     <div
-                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200 slide-up">
                       <count-up :end-val="45"></count-up>k+
                     </div>
-                    <p class="text-sm sm:text-base text-white dark:text-neutral-400">
+                    <p class="text-sm sm:text-base text-white dark:text-neutral-400 slide-left">
                       users - from new startups to public companies
                     </p>
                   </li>
 
                   <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                     <div
-                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200 slide-up">
                       <svg class="shrink-0 size-5 text-[#ffab2d] dark:text-blue-500" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -458,14 +501,14 @@ axios.get('https://ipinfo.io/json', {
                       </svg>
                       <count-up :end-val="23"></count-up>%
                     </div>
-                    <p class="text-sm sm:text-base text-white dark:text-neutral-400">
+                    <p class="text-sm sm:text-base text-white dark:text-neutral-400 slide-right">
                       increase in traffic on webpages with Looms
                     </p>
                   </li>
 
                   <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                     <div
-                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200 slide-up">
                       <svg class="shrink-0 size-5 text-[#ffab2d] dark:text-blue-500" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -474,17 +517,17 @@ axios.get('https://ipinfo.io/json', {
                       </svg>
                       <count-up :end-val="93"></count-up>%
                     </div>
-                    <p class="text-sm sm:text-base text-white dark:text-neutral-400">
+                    <p class="text-sm sm:text-base text-white dark:text-neutral-400 slide-left">
                       boost in reply rates across sales outreach
                     </p>
                   </li>
 
                   <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                     <div
-                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      class="flex items-end text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200 slide-up">
                       <count-up :end-val="2"></count-up>x
                     </div>
-                    <p class="text-sm sm:text-base text-white dark:text-neutral-400">
+                    <p class="text-sm sm:text-base text-white dark:text-neutral-400 slide-right">
                       faster than previous Preline versions
                     </p>
                   </li>
@@ -500,20 +543,20 @@ axios.get('https://ipinfo.io/json', {
         <section class="py-6 bg-[#18254F] sm:py-12 lg:py-18 rounded-lg">
           <div class="px-4 md:px-0 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div class="grid items-center grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24">
-              <div>
+              <div class="slide-left">
                 <img class="w-full max-w-md mx-auto"
                   v-lazy="'https://cdn.rareblocks.xyz/collection/celebration/images/integration/2/services-icons.png'"
                   :alt="props.name" />
               </div>
               <div class="text-center lg:text-left">
-                <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">Grow business with
+                <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl slide-up">Grow business with
                   connections.</h2>
-                <p class="mt-6 text-gray-500 text-sm">Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                <p class="mt-6 text-gray-500 text-sm slide-right">Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                   amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
                   amet.</p>
 
                 <a href="#" title=""
-                  class="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md mt-9 hover:bg-blue-700 focus:bg-blue-700"
+                  class="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md mt-9 hover:bg-blue-700 focus:bg-blue-700 slide-down"
                   role="button"> Check all 1486 apps </a>
               </div>
             </div>
@@ -526,7 +569,7 @@ axios.get('https://ipinfo.io/json', {
         <section class="py-6 sm:py-12 lg:py-18">
           <div class="max-w-8xl px-4 mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-[2fr,1fr] md:items-stretch gap-x-12 lg:gap-x-20 gap-y-10">
-              <div class="flex flex-col lg:py-5">
+              <div class="flex flex-col lg:py-5 slide-left">
                 <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:leading-tight lg:text-5xl">Join
                   35k+ web professionals & build your website</h2>
 
@@ -577,7 +620,7 @@ axios.get('https://ipinfo.io/json', {
                 </div>
               </div>
 
-              <div class="">
+              <div class="slide-right">
                 <div class="overflow-hidden bg-white rounded-md" style="z-index: -1;">
                   <div class="p-10">
                     <h3 class="text-xs font-semibold tracking-widest text-purple-600 uppercase">Single pack</h3>
@@ -662,11 +705,11 @@ axios.get('https://ipinfo.io/json', {
         <div class="w-full max-w-screen-xl mx-auto px-8 py-4 md:pt-8 md:pb-5">
           <div class="sm:flex sm:items-center sm:justify-between">
             <a href="https://pinkary.com/@TanDuy03" target="_blank"
-              class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+              class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse slide-up">
               <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" :alt="props.name" />
               <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">{{ props.userID }}</span>
             </a>
-            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0">
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 slide-up">
               <li>
                 <a href="#" class="hover:underline me-4 md:me-6">About</a>
               </li>
@@ -685,7 +728,7 @@ axios.get('https://ipinfo.io/json', {
             </ul>
           </div>
           <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-5" />
-          <small class="block text-white sm:text-center">© {{ new Date().getFullYear() }} <a
+          <small class="block text-white sm:text-center slide-down">© {{ new Date().getFullYear() }} <a
               href="https://pinkary.com/@TanDuy03" class="hover:underline">{{ props.userID }}</a>. All Rights Reserved -
             Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}.</small>
         </div>
