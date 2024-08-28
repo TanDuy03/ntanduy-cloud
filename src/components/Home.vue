@@ -156,7 +156,7 @@ axios.get('https://ipinfo.io/json', {
 <template>
   <div class="container-fluid">
     <div class="w-full h-44 md:h-52 bg-[#3736af] absolute top-0 left-0 baner-top"></div>
-    <div class="fixed top-0 header-top w-full p-5 md:px-12 z-10">
+    <div class="fixed top-0 header-top w-full p-5 md:px-12 z-50">
       <div class="flex justify-between items-center relative">
         <div class="flex justify-center items-center gap-2 md:gap-3">
           <button aria-label="Menu" class="p-2 bg-[#ffffff1f] rounded-lg text-white">
@@ -374,7 +374,7 @@ axios.get('https://ipinfo.io/json', {
                 <h2 class="mb-2 text-3xl text-white font-bold lg:text-4xl dark:text-neutral-200">
                   It's all about speed
                 </h2>
-                <p class="text-gray-500 dark:text-neutral-400">
+                <p class="text-gray-500 text-sm dark:text-neutral-400">
                   We provide you with a test account that can be set up in seconds. Our main focus is getting responses
                   to you as soon as we can.
                 </p>
@@ -405,7 +405,7 @@ axios.get('https://ipinfo.io/json', {
                     </div>
                     <div class="grow">
                       <div class="font-semibold text-white dark:text-neutral-200">{{ props.name }}</div>
-                      <div class="text-xs text-white dark:text-neutral-500">Software Developer</div>
+                      <div class="text-xs text-white dark:text-neutral-500">{{ props.description }}</div>
                     </div>
                   </div>
                 </footer>
@@ -419,7 +419,7 @@ axios.get('https://ipinfo.io/json', {
                   <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                     <div
                       class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
-                      45k+
+                      <count-up :end-val="45"></count-up>k+
                     </div>
                     <p class="text-sm sm:text-base text-white dark:text-neutral-400">
                       users - from new startups to public companies
@@ -435,7 +435,7 @@ axios.get('https://ipinfo.io/json', {
                         <path d="m5 12 7-7 7 7" />
                         <path d="M12 19V5" />
                       </svg>
-                      23%
+                      <count-up :end-val="23"></count-up>%
                     </div>
                     <p class="text-sm sm:text-base text-white dark:text-neutral-400">
                       increase in traffic on webpages with Looms
@@ -451,7 +451,7 @@ axios.get('https://ipinfo.io/json', {
                         <path d="m5 12 7-7 7 7" />
                         <path d="M12 19V5" />
                       </svg>
-                      9.3%
+                      <count-up :end-val="93"></count-up>%
                     </div>
                     <p class="text-sm sm:text-base text-white dark:text-neutral-400">
                       boost in reply rates across sales outreach
@@ -461,7 +461,7 @@ axios.get('https://ipinfo.io/json', {
                   <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                     <div
                       class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
-                      2x
+                      <count-up :end-val="2"></count-up>x
                     </div>
                     <p class="text-sm sm:text-base text-white dark:text-neutral-400">
                       faster than previous Preline versions
@@ -485,7 +485,7 @@ axios.get('https://ipinfo.io/json', {
               <div class="text-center lg:text-left">
                 <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">Grow business with
                   connections.</h2>
-                <p class="mt-6 text-base text-white">Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                <p class="mt-6 text-base text-gray-500 text-sm">Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                   amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
                   amet.</p>
 
@@ -498,11 +498,141 @@ axios.get('https://ipinfo.io/json', {
         </section>
       </div>
       <div class="bg-[#18254F] mt-10 rounded-lg">
+        <section class="py-6 sm:py-12 lg:py-18">
+          <div class="max-w-8xl px-4 mx-auto sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-[2fr,1fr] md:items-stretch gap-x-12 lg:gap-x-20 gap-y-10">
+              <div class="flex flex-col lg:py-5">
+                <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:leading-tight lg:text-5xl">Join
+                  35k+ web professionals & build your website</h2>
+
+                <div class="mt-10">
+                  <div class="flex items-center">
+                    <svg class="w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  </div>
+
+                  <blockquote class="mt-3">
+                    <p class="text-sm leading-relaxed text-white">You made it so simple. My new site is so much faster
+                      and easier to work with than my old site. I just choose the page, make the change and click save.
+                    </p>
+                  </blockquote>
+
+                  <div class="flex items-center mt-8">
+                    <img class="flex-shrink-0 object-cover w-10 h-10 rounded-full"
+                      src="https://ik.imagekit.io/odbmay3h6/z5763204095890_794210606c61c277dac928b8ca60d86c-min.jpg?updatedAt=1724504017947" alt="" />
+                    <div class="ml-4">
+                      <p class="text-base font-semibold text-white">{{ props.name }}</p>
+                      <p class="mt-px text-sm text-gray-400">{{ props.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="overflow-hidden bg-white rounded-md" style="z-index: -1;">
+                  <div class="p-10">
+                    <h3 class="text-xs font-semibold tracking-widest text-purple-600 uppercase">Single pack</h3>
+                    <p class="mt-4 text-6xl font-bold text-black">$79</p>
+
+                    <ul class="flex flex-col mt-8 space-y-4">
+                      <li class="inline-flex items-center space-x-2">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-base font-medium text-gray-900"> 1 Domain License </span>
+                      </li>
+
+                      <li class="inline-flex items-center space-x-2">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-base font-medium text-gray-900"> Full Celebration Library </span>
+                      </li>
+
+                      <li class="inline-flex items-center space-x-2">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-base font-medium text-gray-900"> 120+ Coded Blocks </span>
+                      </li>
+
+                      <li class="inline-flex items-center space-x-2">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-base font-medium text-gray-900"> Design Files Included </span>
+                      </li>
+
+                      <li class="inline-flex items-center space-x-2">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="pb-0.5 text-base font-medium text-gray-900 border-b border-black border-dashed">
+                          Premium Support </span>
+                      </li>
+                    </ul>
+
+                    <a href="#" title=""
+                      class="inline-flex items-center justify-center w-full px-8 py-4 mt-10 font-semibold text-white transition-all duration-200 rounded-full bg-gradient-to-r from-fuchsia-600 to-blue-600 hover:opacity-80 focus:opacity-80"
+                      role="button"> Get full access </a>
+
+                    <div class="flex items-center mt-5">
+                      <svg class="flex-shrink-0 w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                      <span class="ml-2 text-sm text-gray-500"> 14 Days Moneyback Guarantee </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
       </div>
 
-      <footer class="bg-[#18254F] rounded-lg">
-        <div class="w-full max-w-screen-xl mx-auto p-4 md:pt-8 md:pb-5">
+      <footer class="bg-[#18254F] rounded-lg mt-10">
+        <div class="w-full max-w-screen-xl mx-auto px-5 py-4 md:pt-8 md:pb-5">
           <div class="sm:flex sm:items-center sm:justify-between">
             <a href="https://pinkary.com/@TanDuy03" target="_blank"
               class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
@@ -617,7 +747,7 @@ axios.get('https://ipinfo.io/json', {
     </div> -->
     </div>
   </div>
-    <!-- <div class="fixed bottom-0 right-0 py-3 w-full bg-[#6366F1] sm:bg-inherit sm:w-auto sm:bottom-10 
+  <!-- <div class="fixed bottom-0 right-0 py-3 w-full bg-[#6366F1] sm:bg-inherit sm:w-auto sm:bottom-10 
     sm:right-10 flex sm:flex-col sm:gap-3 rounded-t-[15px] justify-evenly items-center
     sm:rounded-none sm:py-0
     ">
