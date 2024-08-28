@@ -10,9 +10,19 @@ import { initializeApp } from "firebase/app"
 import { getPerformance } from "firebase/performance"
 import { inject } from '@vercel/analytics'
 import { injectSpeedInsights } from '@vercel/speed-insights'
+import VueApexCharts from "vue3-apexcharts"
+import VueLazyload from 'vue-lazyload'
 
 const meta = createHead()
-createApp(App).use(VueWriter).use(meta).use(router).mount('#app')
+createApp(App)
+.use(VueLazyload, {
+    preLoad: 1.3,
+    error: 'https://ik.imagekit.io/odbmay3h6/error.jpg?updatedAt=1724846706951',
+})
+.use(VueApexCharts)
+.use(VueWriter)
+.use(meta).use(router)
+.mount('#app')
 
 window.Alpine = Alpine
 Alpine.store('page', {
