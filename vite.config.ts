@@ -10,6 +10,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: '',
     minify: 'terser',
+    sourcemap: true,
     terserOptions: {
       compress: {
         drop_console: true,
@@ -31,5 +32,6 @@ export default defineConfig({
         },
       },
     },
+    chunkSizeWarningLimit: 1000,
   }
 })
