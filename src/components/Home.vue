@@ -409,7 +409,7 @@ axios.get('https://ipinfo.io/json', {
       </div>
 
       <!-- Chart -->
-      <div class="w-full grid md:grid-cols-2 gap-[30px] mt-12 mb-10 overflow-hidden">
+      <div class="w-full grid md:grid-cols-2 gap-[40px] mt-12 mb-10 overflow-hidden">
         <div class="bg-[#18254F] rounded-lg shadow-2xl p-3 slide-left">
           <div class="card text-primary-content">
             <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Crypto Statistics</h4>
