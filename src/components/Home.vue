@@ -21,7 +21,7 @@ import 'swiper/css'
 
 // Initialize Database
 const db = getDatabase()
-const props = defineProps<{ name: string, description: string }>()
+const props = defineProps<{ name: string, userID: string, description: string }>()
 const ipAddress = ref("")
 const city = ref("")
 const org = ref("")
@@ -209,11 +209,11 @@ axios.get('https://ipinfo.io/json', {
           <div class="flex gap-3">
             <div class="md:flex flex-col text-right hidden">
               <h3 class="text-white font-bold">{{ props.name }}</h3>
-              <small class="text-white">@TanDuy03</small>
+              <small class="text-white">@{{ props.userID }}</small>
             </div>
             <img class="size-[42px] rounded-full"
               src="https://ik.imagekit.io/odbmay3h6/z5763204095890_794210606c61c277dac928b8ca60d86c-min.jpg?updatedAt=1724504017947"
-              alt="Nguyen Tan Duy">
+              :alt="props.name ">
           </div>
         </div>
       </div>
@@ -302,7 +302,7 @@ axios.get('https://ipinfo.io/json', {
             </div>
           </swiper-slide>
           <swiper-slide>
-            <div class="max-w-sm p-6 bg-[#5B5E81] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-sm p-6 bg-[#F54D27] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <div class="flex gap-3 items-center">
                 <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
                   <Git />
@@ -368,9 +368,9 @@ axios.get('https://ipinfo.io/json', {
     <footer class="bg-[#18254F]">
       <div class="w-full max-w-screen-xl mx-auto p-4 md:pt-8 md:pb-5">
         <div class="sm:flex sm:items-center sm:justify-between">
-          <a href="https://www.github.com/TanDuy03" target="_blank" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">TanDuy03</span>
+          <a href="https://pinkary.com/@TanDuy03" target="_blank" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" :alt="props.name" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">{{ props.userID }}</span>
           </a>
           <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0">
             <li>
@@ -391,8 +391,8 @@ axios.get('https://ipinfo.io/json', {
           </ul>
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-5" />
-        <small class="block text-white sm:text-center">© 2024 <a
-          href="https://github.com/TanDuy03" class="hover:underline">TanDuy03</a>. All Rights Reserved - Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}.</small>
+        <small class="block text-white sm:text-center">© {{ new Date().getFullYear() }} <a
+          href="https://pinkary.com/@TanDuy03" class="hover:underline">{{ props.userID }}</a>. All Rights Reserved - Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}.</small>
       </div>
     </footer>
 
