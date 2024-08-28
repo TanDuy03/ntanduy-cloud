@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
+import { ref } from 'vue'
 import CountUp from 'vue-countup-v3'
 import axios from 'axios'
 import { toast } from 'vue3-toastify'
@@ -208,7 +208,7 @@ axios.get('https://ipinfo.io/json', {
 
           <div class="flex gap-3">
             <div class="md:flex flex-col text-right hidden">
-              <h3 class="text-white font-bold">Nguyen Tan Duy</h3>
+              <h3 class="text-white font-bold">{{ props.name }}</h3>
               <small class="text-white">@TanDuy03</small>
             </div>
             <img class="size-[42px] rounded-full"
@@ -392,7 +392,7 @@ axios.get('https://ipinfo.io/json', {
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-5" />
         <small class="block text-white sm:text-center">© 2024 <a
-          href="https://github.com/TanDuy03" class="hover:underline">TanDuy03</a>. All Rights Reserved - Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}</small>
+          href="https://github.com/TanDuy03" class="hover:underline">TanDuy03</a>. All Rights Reserved - Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}.</small>
       </div>
     </footer>
 
