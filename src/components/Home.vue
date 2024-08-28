@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import CountUp from 'vue-countup-v3'
 import axios from 'axios'
 import { toast } from 'vue3-toastify'
@@ -29,6 +29,7 @@ const loc = ref("")
 const timezone = ref("")
 const country = ref("")
 const postal = ref("")
+const menu = ref()
 const options = {
   chart: {
     height: 300,
@@ -151,12 +152,29 @@ axios.get('https://ipinfo.io/json', {
     })
   });
 
+  function addActice() {
+    const scrollPosition = window.scrollY
+
+    if (scrollPosition > 10) { 
+      menu.value.classList.add("active")
+    } else {
+      menu.value.classList.remove("active")
+    }
+  }
+
+  onMounted(() => {
+    window.addEventListener("scroll", addActice)
+  })
+
+  onBeforeUnmount(() => {
+    window.removeEventListener("scroll", addActice)
+  })
 </script>
 
 <template>
   <div class="container-fluid">
     <div class="w-full h-44 md:h-52 bg-[#3736af] absolute top-0 left-0 baner-top"></div>
-    <div class="fixed top-0 header-top w-full p-5 md:px-12 z-50">
+    <div class="fixed top-0 header-top w-full p-5 md:px-12 z-50" ref="menu">
       <div class="flex justify-between items-center relative">
         <div class="flex justify-center items-center gap-2 md:gap-3">
           <button aria-label="Menu" class="p-2 bg-[#ffffff1f] rounded-lg text-white">
@@ -212,7 +230,7 @@ axios.get('https://ipinfo.io/json', {
               <small class="text-white">@{{ props.userID }}</small>
             </div>
             <img class="size-[42px] rounded-full"
-              src="https://ik.imagekit.io/odbmay3h6/z5763204095890_794210606c61c277dac928b8ca60d86c-min.jpg?updatedAt=1724504017947"
+              v-lazy="'https://ik.imagekit.io/odbmay3h6/avatar.jpg?updatedAt=1724846688735'"
               :alt="props.name">
           </div>
         </div>
@@ -352,7 +370,7 @@ axios.get('https://ipinfo.io/json', {
         <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">
           <div class="card text-primary-content">
             <h4 class="card-title text-white font-medium text-lg capitalize">Crypto Statistics</h4>
-            <p class="text-[#8896b9] text-xs mt-2">Lorem ipsum dolor sit amet consectetur.</p>
+            <p class="text-[#8896b9] text-xs mt-2">Latest data and analysis on cryptocurrencies</p>
             <div class="card-body">
               <apexchart width="100%" type="line" :options="options" :series="series"></apexchart>
             </div>
@@ -360,8 +378,8 @@ axios.get('https://ipinfo.io/json', {
         </div>
         <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">
           <div class="card text-primary-content flex flex-col h-full">
-            <h4 class="card-title text-white font-medium text-lg capitalize">Maps</h4>
-            <p class="text-[#8896b9] text-xs mt-2">Lorem ipsum dolor sit amet consectetur.</p>
+            <h4 class="card-title text-white font-medium text-lg capitalize">Weather in your location</h4>
+            <p class="text-[#8896b9] text-xs mt-2">Instant weather forecast for your current location</p>
             <div class="card-body flex justify-center items-center flex-grow p-4">
               <div class="loader-spiner"></div>
             </div>
@@ -402,8 +420,8 @@ axios.get('https://ipinfo.io/json', {
                 <footer class="mt-6">
                   <div class="flex items-center gap-x-4">
                     <div class="shrink-0">
-                      <img class="size-8 rounded-full object-cover"
-                        src="https://ik.imagekit.io/odbmay3h6/z5763204095890_794210606c61c277dac928b8ca60d86c-min.jpg?updatedAt=1724504017947"
+                      <img class="size-[42px] rounded-full object-fill"
+                        v-lazy="'https://ik.imagekit.io/odbmay3h6/avatar.jpg?updatedAt=1724846688735'"
                         :alt="props.name">
                     </div>
                     <div class="grow">
@@ -484,8 +502,8 @@ axios.get('https://ipinfo.io/json', {
             <div class="grid items-center grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24">
               <div>
                 <img class="w-full max-w-md mx-auto"
-                  src="https://cdn.rareblocks.xyz/collection/celebration/images/integration/2/services-icons.png"
-                  alt="Technology" />
+                  v-lazy="'https://cdn.rareblocks.xyz/collection/celebration/images/integration/2/services-icons.png'"
+                  :alt="props.name" />
               </div>
               <div class="text-center lg:text-left">
                 <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">Grow business with
@@ -548,8 +566,9 @@ axios.get('https://ipinfo.io/json', {
                   </blockquote>
 
                   <div class="flex items-center mt-8">
-                    <img class="flex-shrink-0 object-cover w-10 h-10 rounded-full"
-                      src="https://ik.imagekit.io/odbmay3h6/z5763204095890_794210606c61c277dac928b8ca60d86c-min.jpg?updatedAt=1724504017947" alt="" />
+                    <img class="flex-shrink-0 object-fill size-[42px] rounded-full"
+                      v-lazy="'https://ik.imagekit.io/odbmay3h6/avatar.jpg?updatedAt=1724846688735'"
+                      :alt="props.name" />
                     <div class="ml-4">
                       <p class="text-base font-semibold text-white">{{ props.name }}</p>
                       <p class="mt-px text-sm text-gray-400">{{ props.description }}</p>
@@ -681,6 +700,19 @@ axios.get('https://ipinfo.io/json', {
   background-blend-mode: luminosity;
   background-size: cover;
   background-position: top;
+}
+
+.header-top {
+  -webkit-transition: background-color 1000ms linear;
+  -moz-transition: background-color 1000ms linear;
+  -o-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
+}
+
+.header-top.active {
+  background-color: #3736af;
+  box-shadow: 0 6px 12px rgba(55, 54, 175, 0.6);
 }
 
 svg {
