@@ -366,7 +366,7 @@ axios.get('https://ipinfo.io/json', {
           </div>
         </div>
       </div>
-      <div class="bg-[#ffffff] mt-10 rounded-lg">
+      <div class="bg-[#18254F] mt-10 rounded-lg">
         <div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-10 mx-auto">
           <div class="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between">
             <div class="lg:col-span-5 lg:col-start-1">
@@ -497,9 +497,11 @@ axios.get('https://ipinfo.io/json', {
           </div>
         </section>
       </div>
-      <div class="bg-[#18254F] mt-10 rounded-lg"></div>
+      <div class="bg-[#18254F] mt-10 rounded-lg">
 
-      <footer class="bg-[#18254F]">
+      </div>
+
+      <footer class="bg-[#18254F] rounded-lg">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:pt-8 md:pb-5">
           <div class="sm:flex sm:items-center sm:justify-between">
             <a href="https://pinkary.com/@TanDuy03" target="_blank"
