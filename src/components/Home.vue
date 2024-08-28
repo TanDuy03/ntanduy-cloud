@@ -423,7 +423,7 @@ axios.get('https://ipinfo.io/json', {
           <div class="card text-primary-content flex flex-col h-full">
             <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Weather in your location</h4>
             <p class="text-[#8896b9] text-xs mt-2 slide-right">Instant weather forecast for your current location</p>
-            <div class="card-body flex justify-center items-center flex-grow p-4">
+            <div class="card-body flex justify-center items-center flex-grow p-4 min-h-[120px]">
               <div class="loader-spiner"></div>
             </div>
           </div>
