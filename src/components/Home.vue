@@ -156,10 +156,10 @@ axios.get('https://ipinfo.io/json', {
 <template>
   <div class="container-fluid">
     <div class="w-full h-44 md:h-52 bg-[#3736af] absolute top-0 left-0 baner-top"></div>
-    <div class="relative w-full top-0">
-      <div class="fixed top-0 header-top w-full flex justify-between items-center p-5 md:px-12 z-10 bg-[#3736af]">
+    <div class="fixed top-0 header-top w-full p-5 md:px-12 z-10">
+      <div class="flex justify-between items-center relative">
         <div class="flex justify-center items-center gap-2 md:gap-3">
-          <button aria-label="Menu" class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
+          <button aria-label="Menu" class="p-2 bg-[#ffffff1f] rounded-lg text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2">
@@ -213,15 +213,18 @@ axios.get('https://ipinfo.io/json', {
             </div>
             <img class="size-[42px] rounded-full"
               src="https://ik.imagekit.io/odbmay3h6/z5763204095890_794210606c61c277dac928b8ca60d86c-min.jpg?updatedAt=1724504017947"
-              :alt="props.name ">
+              :alt="props.name">
           </div>
         </div>
       </div>
-      <div class="mt-32"></div>
     </div>
+    <div class="px-5 md:px-12">
+      <div class="relative w-full border-line"></div>
+    </div>
+    <div class="mt-32"></div>
     <div class="w-full p-5 md:px-12 min-h-[500px] bg-[#09153F]">
       <div class="z-[1]">
-        <swiper :modules="[Autoplay, Scrollbar]" :slides-per-view="1" :speed="10000" :space-between="20"
+        <swiper :modules="[Autoplay, Scrollbar]" :slides-per-view="1" :speed="15000" :space-between="20"
           :scrollbar="{ draggable: true }" :autoplay="{
             delay: 0,
             disableOnInteraction: false,
@@ -242,7 +245,7 @@ axios.get('https://ipinfo.io/json', {
             },
           }">
           <swiper-slide>
-            <div class="max-w-sm p-6 bg-[#F4392E] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-full p-6 bg-[#F4392E] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <div class="flex gap-3 items-center">
                 <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
                   <Laravel />
@@ -262,7 +265,7 @@ axios.get('https://ipinfo.io/json', {
             </div>
           </swiper-slide>
           <swiper-slide>
-            <div class="max-w-sm p-6 bg-[#3AB67A] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-full p-6 bg-[#3AB67A] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <div class="flex gap-3 items-center">
                 <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
                   <Vuejs />
@@ -282,27 +285,7 @@ axios.get('https://ipinfo.io/json', {
             </div>
           </swiper-slide>
           <swiper-slide>
-            <div class="max-w-sm p-6 bg-[#3693FF] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <div class="flex gap-3 items-center">
-                <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
-                  <Tailwind />
-                </div>
-                <h2 class="mb-2 text-lg font-semibold tracking-tight text-white dark:text-white">Tailwindcss
-                </h2>
-              </div>
-              <a href="https://tailwindcss.com" target="_blank"
-                class="inline-flex font-normal items-center text-white hover:underline">
-                <small class="text-[14px]">Documentation</small>
-                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                  fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
-                </svg>
-              </a>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="max-w-sm p-6 bg-[#F54D27] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-full p-6 bg-[#F54D27] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <div class="flex gap-3 items-center">
                 <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
                   <Git />
@@ -322,7 +305,27 @@ axios.get('https://ipinfo.io/json', {
             </div>
           </swiper-slide>
           <swiper-slide>
-            <div class="max-w-sm p-6 bg-[#FFAB2D] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-full p-6 bg-[#3693FF] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div class="flex gap-3 items-center">
+                <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
+                  <Tailwind />
+                </div>
+                <h2 class="mb-2 text-lg font-semibold tracking-tight text-white dark:text-white">Tailwindcss
+                </h2>
+              </div>
+              <a href="https://tailwindcss.com" target="_blank"
+                class="inline-flex font-normal items-center text-white hover:underline">
+                <small class="text-[14px]">Documentation</small>
+                <svg class="w-2 h-2 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                </svg>
+              </a>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="max-w-full p-6 bg-[#FFAB2D] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <div class="flex gap-3 items-center">
                 <div class="size-11 p-2 bg-white mb-3 flex justify-center items-center rounded-md">
                   <Cloudflare />
@@ -354,49 +357,182 @@ axios.get('https://ipinfo.io/json', {
           </div>
         </div>
         <div class="bg-[#18254F] rounded-lg shadow-2xl p-3">
-          <div class="card text-primary-content">
+          <div class="card text-primary-content flex flex-col h-full">
             <h4 class="card-title text-white font-medium text-lg capitalize">Maps</h4>
             <p class="text-[#8896b9] text-xs mt-2">Lorem ipsum dolor sit amet consectetur.</p>
-            <div class="card-body">
-
+            <div class="card-body flex justify-center items-center flex-grow p-4">
+              <div class="loader-spiner"></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="bg-[#ffffff] mt-10 rounded-lg">
+        <div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-10 mx-auto">
+          <div class="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between">
+            <div class="lg:col-span-5 lg:col-start-1">
+              <div class="mb-8">
+                <h2 class="mb-2 text-3xl text-white font-bold lg:text-4xl dark:text-neutral-200">
+                  It's all about speed
+                </h2>
+                <p class="text-gray-500 dark:text-neutral-400">
+                  We provide you with a test account that can be set up in seconds. Our main focus is getting responses
+                  to you as soon as we can.
+                </p>
+              </div>
 
-    <footer class="bg-[#18254F]">
-      <div class="w-full max-w-screen-xl mx-auto p-4 md:pt-8 md:pb-5">
-        <div class="sm:flex sm:items-center sm:justify-between">
-          <a href="https://pinkary.com/@TanDuy03" target="_blank" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" :alt="props.name" />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">{{ props.userID }}</span>
-          </a>
-          <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0">
-            <li>
-              <a href="#" class="hover:underline me-4 md:me-6">About</a>
-            </li>
-            <li>
-              <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-            </li>
-            <li>
-              <a href="#" class="hover:underline me-4 md:me-6">Contact</a>
-            </li>
-            <li>
-              <router-link to="/login" class="hover:underline">Login</router-link>
-            </li>
-          </ul>
+              <blockquote class="relative">
+                <svg
+                  class="absolute top-0 start-0 transform -translate-x-6 -translate-y-8 size-16 text-gray-200 dark:text-neutral-800"
+                  width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path
+                    d="M7.39762 10.3C7.39762 11.0733 7.14888 11.7 6.6514 12.18C6.15392 12.6333 5.52552 12.86 4.76621 12.86C3.84979 12.86 3.09047 12.5533 2.48825 11.94C1.91222 11.3266 1.62421 10.4467 1.62421 9.29999C1.62421 8.07332 1.96459 6.87332 2.64535 5.69999C3.35231 4.49999 4.33418 3.55332 5.59098 2.85999L6.4943 4.25999C5.81354 4.73999 5.26369 5.27332 4.84476 5.85999C4.45201 6.44666 4.19017 7.12666 4.05926 7.89999C4.29491 7.79332 4.56983 7.73999 4.88403 7.73999C5.61716 7.73999 6.21938 7.97999 6.69067 8.45999C7.16197 8.93999 7.39762 9.55333 7.39762 10.3ZM14.6242 10.3C14.6242 11.0733 14.3755 11.7 13.878 12.18C13.3805 12.6333 12.7521 12.86 11.9928 12.86C11.0764 12.86 10.3171 12.5533 9.71484 11.94C9.13881 11.3266 8.85079 10.4467 8.85079 9.29999C8.85079 8.07332 9.19117 6.87332 9.87194 5.69999C10.5789 4.49999 11.5608 3.55332 12.8176 2.85999L13.7209 4.25999C13.0401 4.73999 12.4903 5.27332 12.0713 5.85999C11.6786 6.44666 11.4168 7.12666 11.2858 7.89999C11.5215 7.79332 11.7964 7.73999 12.1106 7.73999C12.8437 7.73999 13.446 7.97999 13.9173 8.45999C14.3886 8.93999 14.6242 9.55333 14.6242 10.3Z"
+                    fill="currentColor" />
+                </svg>
+
+                <div class="relative z-10">
+                  <p class="text-xl italic text-white dark:text-white">
+                    Amazing people to work with. Very fast and professional partner.
+                  </p>
+                </div>
+
+                <footer class="mt-6">
+                  <div class="flex items-center gap-x-4">
+                    <div class="shrink-0">
+                      <img class="size-8 rounded-full object-cover"
+                        src="https://ik.imagekit.io/odbmay3h6/z5763204095890_794210606c61c277dac928b8ca60d86c-min.jpg?updatedAt=1724504017947"
+                        :alt="props.name">
+                    </div>
+                    <div class="grow">
+                      <div class="font-semibold text-white dark:text-neutral-200">{{ props.name }}</div>
+                      <div class="text-xs text-white dark:text-neutral-500">Software Developer</div>
+                    </div>
+                  </div>
+                </footer>
+              </blockquote>
+            </div>
+
+            <div class="mt-10 lg:mt-0 lg:col-span-6 lg:col-end-13">
+              <div class="space-y-6 sm:space-y-8">
+                <ul
+                  class="grid grid-cols-2 divide-y-2 divide-x-2 divide-gray-500 overflow-hidden dark:divide-neutral-700">
+                  <li class="flex flex-col -m-0.5 p-4 sm:p-8">
+                    <div
+                      class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      45k+
+                    </div>
+                    <p class="text-sm sm:text-base text-white dark:text-neutral-400">
+                      users - from new startups to public companies
+                    </p>
+                  </li>
+
+                  <li class="flex flex-col -m-0.5 p-4 sm:p-8">
+                    <div
+                      class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      <svg class="shrink-0 size-5 text-[#ffab2d] dark:text-blue-500" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m5 12 7-7 7 7" />
+                        <path d="M12 19V5" />
+                      </svg>
+                      23%
+                    </div>
+                    <p class="text-sm sm:text-base text-white dark:text-neutral-400">
+                      increase in traffic on webpages with Looms
+                    </p>
+                  </li>
+
+                  <li class="flex flex-col -m-0.5 p-4 sm:p-8">
+                    <div
+                      class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      <svg class="shrink-0 size-5 text-[#ffab2d] dark:text-blue-500" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m5 12 7-7 7 7" />
+                        <path d="M12 19V5" />
+                      </svg>
+                      9.3%
+                    </div>
+                    <p class="text-sm sm:text-base text-white dark:text-neutral-400">
+                      boost in reply rates across sales outreach
+                    </p>
+                  </li>
+
+                  <li class="flex flex-col -m-0.5 p-4 sm:p-8">
+                    <div
+                      class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-[#ffab2d] mb-2 dark:text-neutral-200">
+                      2x
+                    </div>
+                    <p class="text-sm sm:text-base text-white dark:text-neutral-400">
+                      faster than previous Preline versions
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-5" />
-        <small class="block text-white sm:text-center">© {{ new Date().getFullYear() }} <a
-          href="https://pinkary.com/@TanDuy03" class="hover:underline">{{ props.userID }}</a>. All Rights Reserved - Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}.</small>
       </div>
-    </footer>
+      <div class="mt-10">
+        <section class="py-6 bg-[#18254F] sm:py-12 lg:py-18 rounded-lg">
+          <div class="px-4 md:px-0 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+            <div class="grid items-center grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24">
+              <div>
+                <img class="w-full max-w-md mx-auto"
+                  src="https://cdn.rareblocks.xyz/collection/celebration/images/integration/2/services-icons.png"
+                  alt="Technology" />
+              </div>
+              <div class="text-center lg:text-left">
+                <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">Grow business with
+                  connections.</h2>
+                <p class="mt-6 text-base text-white">Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                  amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
+                  amet.</p>
 
-    <!-- <div
+                <a href="#" title=""
+                  class="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md mt-9 hover:bg-blue-700 focus:bg-blue-700"
+                  role="button"> Check all 1486 apps </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="bg-[#18254F] mt-10 rounded-lg"></div>
+
+      <footer class="bg-[#18254F]">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:pt-8 md:pb-5">
+          <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="https://pinkary.com/@TanDuy03" target="_blank"
+              class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+              <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" :alt="props.name" />
+              <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">{{ props.userID }}</span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0">
+              <li>
+                <a href="#" class="hover:underline me-4 md:me-6">About</a>
+              </li>
+              <li>
+                <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+              </li>
+              <li>
+                <a href="#" class="hover:underline me-4 md:me-6">Contact</a>
+              </li>
+              <li>
+                <router-link to="/login" class="hover:underline">Login</router-link>
+              </li>
+            </ul>
+          </div>
+          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-5" />
+          <small class="block text-white sm:text-center">© {{ new Date().getFullYear() }} <a
+              href="https://pinkary.com/@TanDuy03" class="hover:underline">{{ props.userID }}</a>. All Rights Reserved -
+            Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}.</small>
+        </div>
+      </footer>
+
+      <!-- <div
       class="rounded-[8px] bg-white shadow-3xl shadow-gray-500 rounded-primary relative mx-auto w-full max-w-[678px] bg-cover bg-clip-border dark:text-white dark:shadow-none"
     >
       <div class="p-[21px]">
@@ -477,8 +613,9 @@ axios.get('https://ipinfo.io/json', {
         <small class="block text-center text-[13px]">Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}</small>
       </div>
     </div> -->
+    </div>
   </div>
-  <!-- <div class="fixed bottom-0 right-0 py-3 w-full bg-[#6366F1] sm:bg-inherit sm:w-auto sm:bottom-10 
+    <!-- <div class="fixed bottom-0 right-0 py-3 w-full bg-[#6366F1] sm:bg-inherit sm:w-auto sm:bottom-10 
     sm:right-10 flex sm:flex-col sm:gap-3 rounded-t-[15px] justify-evenly items-center
     sm:rounded-none sm:py-0
     ">
@@ -523,19 +660,50 @@ svg {
   width: 1.65rem;
 }
 
-.baner-top .header-top::before {
-  position: absolute;
+.border-line::before {
   content: '';
-  bottom: 0;
+  position: absolute;
   left: 0;
+  right: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.12);
   height: 1px;
+  top: -45px;
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .swiper-wrapper {
   -webkit-transition-timing-function: linear;
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
+}
+
+.loader-spiner {
+  --s: 64px;
+  width: var(--s);
+  aspect-ratio: 2;
+  --_g: #fff 90%, #0000;
+  background:
+    radial-gradient(farthest-side, var(--_g)) 0 50%/25% 50%,
+    radial-gradient(farthest-side at bottom, var(--_g)) 50% calc(50% - var(--s)/16)/25% 25%,
+    radial-gradient(farthest-side at top, var(--_g)) 50% calc(50% + var(--s)/16)/25% 25%,
+    radial-gradient(farthest-side at bottom, var(--_g)) 100% calc(50% - var(--s)/16)/25% 25%,
+    radial-gradient(farthest-side at top, var(--_g)) 100% calc(50% + var(--s)/16)/25% 25%;
+  background-repeat: no-repeat;
+  animation: l14 1s infinite;
+}
+
+@keyframes l14 {
+  25% {
+    background-position: 0 50%, 50% 0, 50% 100%, 100% 0, 100% 100%
+  }
+
+  50% {
+    background-position: 100% 50%, 0 0, 0 100%, 50% 0, 50% 100%
+  }
+
+  75%,
+  100% {
+    background-position: 100% 50%, 0 calc(50% - var(--s)/16), 0 calc(50% + var(--s)/16), 50% calc(50% - var(--s)/16), 50% calc(50% + var(--s)/16)
+  }
 }
 </style>
