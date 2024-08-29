@@ -697,7 +697,7 @@ axios.get('https://ipinfo.io/json', {
               <img v-lazy="'https://flowbite.com/docs/images/logo.svg'" class="h-8" :alt="props.name" />
               <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">{{ props.userID }}</span>
             </a>
-            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 slide-up">
+            <ul class="flex flex-wrap items-center gap-3 mb-6 text-sm font-medium text-white sm:mb-0 slide-up">
               <li>
                 <a href="#" class="hover:underline me-4 md:me-6">About</a>
               </li>
