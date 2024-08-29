@@ -32,7 +32,9 @@ const timezone = ref("")
 const country = ref("")
 const postal = ref("")
 const menu = ref()
-const options = {
+
+// Option1
+const options1 = {
   chart: {
     height: 350,
     type: 'line',
@@ -109,7 +111,7 @@ const options = {
     show: false,
   },
 }
-const series = [{
+const series1 = [{
   name: '',
   type: 'line',
   data: [
@@ -374,6 +376,93 @@ const series = [{
   ]
 }]
 
+// Option2
+const options2 = {
+  chart: {
+    height: 350,
+    type: 'line',
+    toolbar: {
+      show: false
+    }
+  },
+  colors: ["#3736af", "#3693FF"],
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    curve: 'smooth',
+    width: 6
+  },
+  legend: {
+    show: false,
+
+  },
+  markers: {
+    strokeWidth: 5,
+    strokeColors: '#fff',
+    hover: {
+      size: 10,
+    },
+  },
+  grid: {
+    show: true,
+    strokeDashArray: 6,
+    borderColor: '#e6e6e6',
+    xaxis: {
+      lines: {
+        show: true
+      },
+    },
+    yaxis: {
+      lines: {
+        show: false
+      },
+    },
+  },
+  yaxis: {
+    show: false,
+    labels: {
+      style: {
+        colors: '#717579',
+        fontSize: '12px',
+        fontFamily: 'Poppins',
+        fontWeight: 400
+
+      },
+      formatter: function (value: number) {
+        return value + "USD";
+      }
+    },
+  },
+  xaxis: {
+    categories: ["Jan", "Feb", "Mar", "Apr", "jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+    labels: {
+      style: {
+        colors: '#B5B5C3',
+        fontSize: '12px',
+        fontFamily: 'Poppins',
+        fontWeight: 400
+
+      },
+    },
+    axisBorder: {
+      show: false,
+    },
+    tooltip: {
+      enabled: false,
+    }
+  }
+}
+const series2 = [{
+  name: '1 ETH',
+  className: 'bg-primary',
+  data: [10000, 25000, 15000, 5000, 8000, 7000, 6000, 5000, 10000, 4000]
+}, {
+  name: '1 XRP',
+  className: 'bg-secondary',
+  data: [7000, 15000, 8000, 3000, 4000, 5000, 1000, 500, 8000, 2000]
+}]
+
 axios.get('https://ipinfo.io/json', {
   params: {
     token: process.env.VITE_TOKEN_IP
@@ -465,26 +554,26 @@ onMounted(() => {
     })
   }),
 
-  ['.slide-down', '.slide-down1', '.slide-down2', '.slide-down3'].forEach((selector, index) => {
-    sr.reveal(selector, {
-      ...slideDown,
-      delay: 375 + index * 100
-    })
-  }),
+    ['.slide-down', '.slide-down1', '.slide-down2', '.slide-down3'].forEach((selector, index) => {
+      sr.reveal(selector, {
+        ...slideDown,
+        delay: 375 + index * 100
+      })
+    }),
 
-  ['.slide-left', '.slide-left1', '.slide-left2', '.slide-left3'].forEach((selector, index) => {
-    sr.reveal(selector, {
-      ...slideLeft,
-      delay: 375 + index * 100
-    })
-  }),
+    ['.slide-left', '.slide-left1', '.slide-left2', '.slide-left3'].forEach((selector, index) => {
+      sr.reveal(selector, {
+        ...slideLeft,
+        delay: 375 + index * 100
+      })
+    }),
 
-  ['.slide-right', '.slide-right1', '.slide-right2', '.slide-right3'].forEach((selector, index) => {
-    sr.reveal(selector, {
-      ...slideRight,
-      delay: 375 + index * 100
+    ['.slide-right', '.slide-right1', '.slide-right2', '.slide-right3'].forEach((selector, index) => {
+      sr.reveal(selector, {
+        ...slideRight,
+        delay: 375 + index * 100
+      })
     })
-  })
 })
 
 onBeforeUnmount(() => {
@@ -673,14 +762,14 @@ onBeforeUnmount(() => {
         </swiper>
       </div>
 
-      <!-- Chart -->
+      <!-- Chart1 -->
       <div class="w-full grid md:grid-cols-2 gap-[40px] mt-12 mb-10 overflow-hidden">
         <div class="bg-[#18254F] rounded-lg shadow-2xl p-3 slide-left">
           <div class="card text-primary-content">
-            <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Crypto Statistics</h4>
-            <p class="text-[#8896b9] text-xs mt-2 slide-left">Latest data and analysis on cryptocurrencies</p>
+            <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Market Overview</h4>
+            <p class="text-[#8896b9] text-xs mt-2 slide-left">Summary of current market trends and price movements</p>
             <div class="card-body">
-              <apexchart width="100%" type="line" :options="options" :series="series"></apexchart>
+              <apexchart width="100%" type="line" :options="options1" :series="series1"></apexchart>
             </div>
           </div>
         </div>
@@ -689,7 +778,29 @@ onBeforeUnmount(() => {
             <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Weather in your location</h4>
             <p class="text-[#8896b9] text-xs mt-2 slide-right">Instant weather forecast for your current location</p>
             <div class="card-body flex justify-center items-center flex-grow p-4 min-h-[120px]">
-              <div class="loader-spiner"></div>
+              <div class="loader-spiner1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart2 -->
+      <div class="w-full grid md:grid-cols-2 gap-[40px] mt-12 mb-10 overflow-hidden">
+        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3 slide-left">
+          <div class="card text-primary-content">
+            <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Crypto Statistics</h4>
+            <p class="text-[#8896b9] text-xs mt-2 slide-left">Latest data and analysis on cryptocurrencies</p>
+            <div class="card-body">
+              <apexchart width="100%" height="250" type="line" :options="options2" :series="series2"></apexchart>
+            </div>
+          </div>
+        </div>
+        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3 slide-right">
+          <div class="card text-primary-content flex flex-col h-full">
+            <h4 class="card-title text-white font-medium text-lg capitalize slide-up">User data analysis</h4>
+            <p class="text-[#8896b9] text-xs mt-2 slide-right">Assessing user behavior to optimize experience</p>
+            <div class="card-body flex justify-center items-center flex-grow p-4 min-h-[120px]">
+              <div class="loader-spiner2"></div>
             </div>
           </div>
         </div>
@@ -839,7 +950,9 @@ onBeforeUnmount(() => {
           <div class="max-w-8xl px-4 mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:items-stretch md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-10">
               <div class="flex flex-col lg:py-5">
-                <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:leading-tight lg:text-5xl slide-left">Join
+                <h2
+                  class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:leading-tight lg:text-5xl slide-left">
+                  Join
                   35k+ web professionals & build your website</h2>
                 <div class="mt-10">
                   <div class="flex items-center slide-down1">
@@ -980,195 +1093,398 @@ onBeforeUnmount(() => {
           <!-- End Title -->
 
           <!-- Grid -->
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Card -->
-            <article
-              class="group rounded-xl flex max-w-md flex-col border border-slate-300 bg-slate-100 p-6 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                class="size-12 text-black dark:text-white group-hover:scale-105 transition duration-500 ease-out"
-                aria-hidden="true">
-                <path
-                  d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
-              </svg>
-              <p class="mt-2 text-pretty text-sm">
-                Simply put, this software transformed my workflow! Its intuitive
-                interface and powerful features make tasks a breeze. A game-changer
-                for productivity!
-              </p>
-              <!-- avatar & rating -->
-              <div class="flex flex-col-reverse md:flex-row md:items-center mt-8 justify-between gap-6">
-                <!-- avatar & title -->
-                <div class="flex items-center gap-2">
-                  <img src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp"
-                    class="size-10 rounded-full object-cover" alt="avatar" />
-                  <div class="flex flex-col gap-1">
-                    <h3 class="font-bold leading-4 text-black dark:text-white">Bob Johnson</h3>
-                    <span class="text-xs">CEO - TechNova</span>
+          <div class="w-full">
+            <swiper :modules="[Autoplay, Scrollbar, Pagination, Navigation]" :slides-per-view="3" :speed="1800"
+              :space-between="20" :scrollbar="{ draggable: true }" :autoplay="{
+                delay: 1200,
+                disableOnInteraction: false,
+                reverseDirection: false,
+                pauseOnMouseEnter: true,
+              }" :navigation="{
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              }" :loop="true">
+              <!-- <div class="swiper-button-next">next</div>
+              <div class="swiper-button-prev">prev</div> -->
+              <swiper-slide>
+                <article
+                  class="group rounded-xl flex max-w-md flex-col border border-slate-300 bg-slate-100 p-6 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    class="size-12 text-black dark:text-white group-hover:scale-105 transition duration-500 ease-out"
+                    aria-hidden="true">
+                    <path
+                      d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
+                  </svg>
+                  <p class="mt-2 text-pretty text-sm">
+                    Simply put, this software transformed my workflow! Its intuitive
+                    interface and powerful features make tasks a breeze. A game-changer
+                    for productivity!
+                  </p>
+                  <!-- avatar & rating -->
+                  <div class="flex flex-col-reverse md:flex-row md:items-center mt-8 justify-between gap-6">
+                    <!-- avatar & title -->
+                    <div class="flex items-center gap-2">
+                      <img src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp"
+                        class="size-10 rounded-full object-cover" alt="avatar" />
+                      <div class="flex flex-col gap-1">
+                        <h3 class="font-bold leading-4 text-black dark:text-white">Bob Johnson</h3>
+                        <span class="text-xs">CEO - TechNova</span>
+                      </div>
+                    </div>
+                    <!-- Rating -->
+                    <div class="flex items-center gap-1">
+                      <span class="sr-only">Rated 4 stars</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-slate-700/50 dark:text-slate-300/50" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-                <!-- Rating -->
-                <div class="flex items-center gap-1">
-                  <span class="sr-only">Rated 4 stars</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-slate-700/50 dark:text-slate-300/50" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-            </article>
-            <!-- End Card -->
+                </article>
+              </swiper-slide>
 
-            <!-- Card -->
-            <article
-              class="group rounded-xl flex max-w-md flex-col border border-slate-300 bg-slate-100 p-6 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                class="size-12 text-black dark:text-white group-hover:scale-105 transition duration-500 ease-out"
-                aria-hidden="true">
-                <path
-                  d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
-              </svg>
-              <p class="mt-2 text-pretty text-sm">
-                Simply put, this software transformed my workflow! Its intuitive
-                interface and powerful features make tasks a breeze. A game-changer
-                for productivity!
-              </p>
-              <!-- avatar & rating -->
-              <div class="flex flex-col-reverse md:flex-row md:items-center mt-8 justify-between gap-6">
-                <!-- avatar & title -->
-                <div class="flex items-center gap-2">
-                  <img src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp"
-                    class="size-10 rounded-full object-cover" alt="avatar" />
-                  <div class="flex flex-col gap-1">
-                    <h3 class="font-bold leading-4 text-black dark:text-white">Bob Johnson</h3>
-                    <span class="text-xs">CEO - TechNova</span>
+              <swiper-slide>
+                <article
+                  class="group rounded-xl flex max-w-md flex-col border border-slate-300 bg-slate-100 p-6 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    class="size-12 text-black dark:text-white group-hover:scale-105 transition duration-500 ease-out"
+                    aria-hidden="true">
+                    <path
+                      d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
+                  </svg>
+                  <p class="mt-2 text-pretty text-sm">
+                    Simply put, this software transformed my workflow! Its intuitive
+                    interface and powerful features make tasks a breeze. A game-changer
+                    for productivity!
+                  </p>
+                  <!-- avatar & rating -->
+                  <div class="flex flex-col-reverse md:flex-row md:items-center mt-8 justify-between gap-6">
+                    <!-- avatar & title -->
+                    <div class="flex items-center gap-2">
+                      <img src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp"
+                        class="size-10 rounded-full object-cover" alt="avatar" />
+                      <div class="flex flex-col gap-1">
+                        <h3 class="font-bold leading-4 text-black dark:text-white">Bob Johnson</h3>
+                        <span class="text-xs">CEO - TechNova</span>
+                      </div>
+                    </div>
+                    <!-- Rating -->
+                    <div class="flex items-center gap-1">
+                      <span class="sr-only">Rated 4 stars</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-slate-700/50 dark:text-slate-300/50" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-                <!-- Rating -->
-                <div class="flex items-center gap-1">
-                  <span class="sr-only">Rated 4 stars</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-slate-700/50 dark:text-slate-300/50" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-            </article>
-            <!-- End Card -->
+                </article>
+              </swiper-slide>
 
-            <!-- Card -->
-            <article
-              class="group rounded-xl flex max-w-md flex-col border border-slate-300 bg-slate-100 p-6 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                class="size-12 text-black dark:text-white group-hover:scale-105 transition duration-500 ease-out"
-                aria-hidden="true">
-                <path
-                  d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
-              </svg>
-              <p class="mt-2 text-pretty text-sm">
-                Simply put, this software transformed my workflow! Its intuitive
-                interface and powerful features make tasks a breeze. A game-changer
-                for productivity!
-              </p>
-              <!-- avatar & rating -->
-              <div class="flex flex-col-reverse md:flex-row md:items-center mt-8 justify-between gap-6">
-                <!-- avatar & title -->
-                <div class="flex items-center gap-2">
-                  <img src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp"
-                    class="size-10 rounded-full object-cover" alt="avatar" />
-                  <div class="flex flex-col gap-1">
-                    <h3 class="font-bold leading-4 text-black dark:text-white">Bob Johnson</h3>
-                    <span class="text-xs">CEO - TechNova</span>
+              <swiper-slide>
+                <article
+                  class="group rounded-xl flex max-w-md flex-col border border-slate-300 bg-slate-100 p-6 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    class="size-12 text-black dark:text-white group-hover:scale-105 transition duration-500 ease-out"
+                    aria-hidden="true">
+                    <path
+                      d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
+                  </svg>
+                  <p class="mt-2 text-pretty text-sm">
+                    Simply put, this software transformed my workflow! Its intuitive
+                    interface and powerful features make tasks a breeze. A game-changer
+                    for productivity!
+                  </p>
+                  <!-- avatar & rating -->
+                  <div class="flex flex-col-reverse md:flex-row md:items-center mt-8 justify-between gap-6">
+                    <!-- avatar & title -->
+                    <div class="flex items-center gap-2">
+                      <img src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp"
+                        class="size-10 rounded-full object-cover" alt="avatar" />
+                      <div class="flex flex-col gap-1">
+                        <h3 class="font-bold leading-4 text-black dark:text-white">Bob Johnson</h3>
+                        <span class="text-xs">CEO - TechNova</span>
+                      </div>
+                    </div>
+                    <!-- Rating -->
+                    <div class="flex items-center gap-1">
+                      <span class="sr-only">Rated 4 stars</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-slate-700/50 dark:text-slate-300/50" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-                <!-- Rating -->
-                <div class="flex items-center gap-1">
-                  <span class="sr-only">Rated 4 stars</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
+                </article>
+              </swiper-slide>
+
+              <swiper-slide>
+                <article
+                  class="group rounded-xl flex max-w-md flex-col border border-slate-300 bg-slate-100 p-6 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    class="size-12 text-black dark:text-white group-hover:scale-105 transition duration-500 ease-out"
+                    aria-hidden="true">
+                    <path
+                      d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
                   </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
+                  <p class="mt-2 text-pretty text-sm">
+                    Simply put, this software transformed my workflow! Its intuitive
+                    interface and powerful features make tasks a breeze. A game-changer
+                    for productivity!
+                  </p>
+                  <!-- avatar & rating -->
+                  <div class="flex flex-col-reverse md:flex-row md:items-center mt-8 justify-between gap-6">
+                    <!-- avatar & title -->
+                    <div class="flex items-center gap-2">
+                      <img src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp"
+                        class="size-10 rounded-full object-cover" alt="avatar" />
+                      <div class="flex flex-col gap-1">
+                        <h3 class="font-bold leading-4 text-black dark:text-white">Bob Johnson</h3>
+                        <span class="text-xs">CEO - TechNova</span>
+                      </div>
+                    </div>
+                    <!-- Rating -->
+                    <div class="flex items-center gap-1">
+                      <span class="sr-only">Rated 4 stars</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-slate-700/50 dark:text-slate-300/50" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </article>
+              </swiper-slide>
+
+              <swiper-slide>
+                <article
+                  class="group rounded-xl flex max-w-md flex-col border border-slate-300 bg-slate-100 p-6 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    class="size-12 text-black dark:text-white group-hover:scale-105 transition duration-500 ease-out"
+                    aria-hidden="true">
+                    <path
+                      d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
                   </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
+                  <p class="mt-2 text-pretty text-sm">
+                    Simply put, this software transformed my workflow! Its intuitive
+                    interface and powerful features make tasks a breeze. A game-changer
+                    for productivity!
+                  </p>
+                  <!-- avatar & rating -->
+                  <div class="flex flex-col-reverse md:flex-row md:items-center mt-8 justify-between gap-6">
+                    <!-- avatar & title -->
+                    <div class="flex items-center gap-2">
+                      <img src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp"
+                        class="size-10 rounded-full object-cover" alt="avatar" />
+                      <div class="flex flex-col gap-1">
+                        <h3 class="font-bold leading-4 text-black dark:text-white">Bob Johnson</h3>
+                        <span class="text-xs">CEO - TechNova</span>
+                      </div>
+                    </div>
+                    <!-- Rating -->
+                    <div class="flex items-center gap-1">
+                      <span class="sr-only">Rated 4 stars</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-slate-700/50 dark:text-slate-300/50" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </article>
+              </swiper-slide>
+
+              <swiper-slide>
+                <article
+                  class="group rounded-xl flex max-w-md flex-col border border-slate-300 bg-slate-100 p-6 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    class="size-12 text-black dark:text-white group-hover:scale-105 transition duration-500 ease-out"
+                    aria-hidden="true">
+                    <path
+                      d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
                   </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-amber-500" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-4 text-slate-700/50 dark:text-slate-300/50" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-            </article>
-            <!-- End Card -->
+                  <p class="mt-2 text-pretty text-sm">
+                    Simply put, this software transformed my workflow! Its intuitive
+                    interface and powerful features make tasks a breeze. A game-changer
+                    for productivity!
+                  </p>
+                  <!-- avatar & rating -->
+                  <div class="flex flex-col-reverse md:flex-row md:items-center mt-8 justify-between gap-6">
+                    <!-- avatar & title -->
+                    <div class="flex items-center gap-2">
+                      <img src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp"
+                        class="size-10 rounded-full object-cover" alt="avatar" />
+                      <div class="flex flex-col gap-1">
+                        <h3 class="font-bold leading-4 text-black dark:text-white">Bob Johnson</h3>
+                        <span class="text-xs">CEO - TechNova</span>
+                      </div>
+                    </div>
+                    <!-- Rating -->
+                    <div class="flex items-center gap-1">
+                      <span class="sr-only">Rated 4 stars</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-amber-500" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="size-4 text-slate-700/50 dark:text-slate-300/50" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </article>
+              </swiper-slide>
+
+            </swiper>
           </div>
           <!-- End Grid -->
 
@@ -1298,7 +1614,8 @@ svg.icon-social {
   transition-timing-function: linear;
 }
 
-.loader-spiner {
+/*  */
+.loader-spiner1 {
   --s: 64px;
   width: var(--s);
   aspect-ratio: 2;
@@ -1325,6 +1642,37 @@ svg.icon-social {
   75%,
   100% {
     background-position: 100% 50%, 0 calc(50% - var(--s)/16), 0 calc(50% + var(--s)/16), 50% calc(50% - var(--s)/16), 50% calc(50% + var(--s)/16)
+  }
+}
+
+/*  */
+.loader-spiner2 {
+  width: 35px;
+  aspect-ratio: 1;
+  --_g: no-repeat radial-gradient(circle closest-side, #fff 90%, #0000);
+  background:
+    var(--_g) 0 0,
+    var(--_g) 0 100%,
+    var(--_g) 100% 100%;
+  background-size: 40% 40%;
+  animation: l11 1s infinite linear;
+}
+
+@keyframes l11 {
+  25% {
+    background-position: 100% 0, 0 100%, 100% 100%
+  }
+
+  50% {
+    background-position: 100% 0, 0 0, 100% 100%
+  }
+
+  75% {
+    background-position: 100% 0, 0 0, 0 100%
+  }
+
+  100% {
+    background-position: 100% 100%, 0 0, 0 100%
   }
 }
 </style>
