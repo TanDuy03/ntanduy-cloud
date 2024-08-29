@@ -48,11 +48,11 @@
             },
             name: {
                 type: String,
-                default: 'No data'
+                default: "Nguyen Tan Duy"
             },
             userID: {
                 type: String,
-                default: 'No data'
+                default: 'TanDuy03'
             }
         }
     }
