@@ -18,7 +18,7 @@
                 </div>
 
                 <blockquote class="relative">
-                    <svg class="absolute top-0 icon-social left-[-5px] transform -translate-x-5 -translate-y-6 size-8 text-gray-200 dark:text-neutral-800"
+                    <svg class="absolute top-0 icon-social left-[5px] transform -translate-x-5 -translate-y-6 size-8 text-gray-200 dark:text-neutral-800"
                         width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true">
                         <path
