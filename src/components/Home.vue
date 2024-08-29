@@ -1086,7 +1086,7 @@ onBeforeUnmount(() => {
       <div class="overflow-hidden bg-[#18254F] mt-10 rounded-lg">
         <div class="relative max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
           <!-- Title -->
-          <div class="max-w-5xl w-3/4 mb-6 sm:mb-10 md:mb-16 slide-up">
+          <div class="w-full md:max-w-5xl w-3/4 mb-6 sm:mb-10 md:mb-16 slide-up">
             <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:leading-tight lg:text-5xl">
               Loved by business and individuals across the globe
             </h2>
