@@ -1095,13 +1095,25 @@ onBeforeUnmount(() => {
 
           <!-- Grid -->
           <div class="w-full">
-            <swiper :modules="[Autoplay, Scrollbar, Pagination, Navigation]" :slides-per-view="3" :speed="1800"
+            <swiper :modules="[Autoplay, Scrollbar, Pagination, Navigation]" :slides-per-view="1" :speed="1800"
               :space-between="20" :scrollbar="{ draggable: true }" :autoplay="{
                 delay: 1200,
                 disableOnInteraction: false,
                 reverseDirection: false,
                 pauseOnMouseEnter: true,
-              }" :navigation="{
+              }"
+              :breakpoints="{
+                640: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }" 
+              :navigation="{
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
               }" :loop="true">
