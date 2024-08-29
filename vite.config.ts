@@ -31,7 +31,10 @@ export default defineConfig({
           ],
           'group-layout': [
             './src/components/layout/Footer.vue',
-          ]
+          ],
+          'group-page': [
+            './src/components/pages/About.vue',
+          ],
         },
       },
     },
