@@ -34,88 +34,344 @@ const postal = ref("")
 const menu = ref()
 const options = {
   chart: {
-    height: 300,
+    height: 350,
     type: 'line',
     toolbar: {
-      show: false
+      show: false,
     }
   },
-  colors: ["#3736af", "#3693FF"],
-  dataLabels: {
-    enabled: false
+  grid: {
+    show: false
+  },
+  title: {
+    text: '',
+    align: 'left'
   },
   stroke: {
-    curve: 'smooth',
-    width: 6
+    width: [3, 1]
   },
-  legend: {
-    show: false,
-
-  },
-  markers: {
-    strokeWidth: 5,
-    strokeColors: '#fff',
-    hover: {
-      size: 10,
-    },
-  },
-  grid: {
-    show: true,
-    strokeDashArray: 6,
-    borderColor: '#e6e6e6',
-    xaxis: {
-      lines: {
-        show: true
-      },
-    },
-    yaxis: {
-      lines: {
-        show: false
-      },
-    },
-  },
-  yaxis: {
-    show: false,
-    labels: {
-      style: {
-        colors: '#717579',
-        fontSize: '12px',
-        fontFamily: 'Poppins',
-        fontWeight: 400
-
-      },
-      formatter: function (value: number) {
-        return value + "USD";
-      }
-    },
+  tooltip: {
+    shared: true,
+    custom: [function ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) {
+      return w.globals.series[seriesIndex][dataPointIndex]
+    }, function ({ seriesIndex, dataPointIndex, w }: { seriesIndex: number; dataPointIndex: number; w: any }) {
+      var o = w.globals.seriesCandleO[seriesIndex][dataPointIndex]
+      var h = w.globals.seriesCandleH[seriesIndex][dataPointIndex]
+      var l = w.globals.seriesCandleL[seriesIndex][dataPointIndex]
+      var c = w.globals.seriesCandleC[seriesIndex][dataPointIndex]
+      return (
+        '<div class="apexcharts-tooltip-candlestick" style="padding: 10px 20px; background-color: #09153F; color: #fff; border-radius: 5px;">' +
+        '<div>Open: <span class="value" style="color: #00E396;">' + o + '</span></div>' +
+        '<div>High: <span class="value" style="color: #FEB019;">' + h + '</span></div>' +
+        '<div>Low: <span class="value" style="color: #FF4560;">' + l + '</span></div>' +
+        '<div>Close: <span class="value" style="color: #775DD0;">' + c + '</span></div>' +
+        '</div>'
+      );
+    }]
   },
   xaxis: {
-    categories: ["Jan", "Feb", "Mar", "Apr", "jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+    type: 'datetime',
     labels: {
       style: {
-        colors: '#B5B5C3',
+        colors: '#8896b9',
         fontSize: '12px',
-        fontFamily: 'Poppins',
-        fontWeight: 400
-
       },
     },
     axisBorder: {
-      show: false,
+      show: true,
+      color: '#8896b9',
+    },
+    axisTicks: {
+      show: true,
+      color: '#8896b9',
+    },
+  },
+  yaxis: {
+    labels: {
+      style: {
+        colors: '#8896b9',
+        fontSize: '12px',
+      },
     },
     tooltip: {
-      enabled: false,
+      enabled: true
     }
-  }
+  },
+  plotOptions: {
+    candlestick: {
+      colors: {
+        upward: '#3ab67a',
+        downward: '#fd5353'
+      }
+    }
+  },
+  legend: {
+    show: false,
+  },
 }
 const series = [{
-  name: '1 ETH',
-  className: 'bg-primary',
-  data: [10000, 25000, 15000, 5000, 8000, 7000, 6000, 5000, 10000, 4000]
+  name: '',
+  type: 'line',
+  data: [
+    {
+      x: new Date(1538778600000),
+      y: 6604
+    }, {
+      x: new Date(1538782200000),
+      y: 6602
+    }, {
+      x: new Date(1538814600000),
+      y: 6607
+    }, {
+      x: new Date(1538884800000),
+      y: 6620
+    }
+  ]
 }, {
-  name: '1 XRP',
-  className: 'bg-secondary',
-  data: [7000, 15000, 8000, 3000, 4000, 5000, 1000, 500, 8000, 2000]
+  name: '',
+  type: 'candlestick',
+  data: [
+    {
+      x: new Date(1538778600000),
+      y: [6629.81, 6650.5, 6623.04, 6633.33]
+    },
+    {
+      x: new Date(1538780400000),
+      y: [6632.01, 6643.59, 6620, 6630.11]
+    },
+    {
+      x: new Date(1538782200000),
+      y: [6630.71, 6648.95, 6623.34, 6635.65]
+    },
+    {
+      x: new Date(1538784000000),
+      y: [6635.65, 6651, 6629.67, 6638.24]
+    },
+    {
+      x: new Date(1538785800000),
+      y: [6638.24, 6640, 6620, 6624.47]
+    },
+    {
+      x: new Date(1538787600000),
+      y: [6624.53, 6636.03, 6621.68, 6624.31]
+    },
+    {
+      x: new Date(1538789400000),
+      y: [6624.61, 6632.2, 6617, 6626.02]
+    },
+    {
+      x: new Date(1538791200000),
+      y: [6627, 6627.62, 6584.22, 6603.02]
+    },
+    {
+      x: new Date(1538793000000),
+      y: [6605, 6608.03, 6598.95, 6604.01]
+    },
+    {
+      x: new Date(1538794800000),
+      y: [6604.5, 6614.4, 6602.26, 6608.02]
+    },
+    {
+      x: new Date(1538796600000),
+      y: [6608.02, 6610.68, 6601.99, 6608.91]
+    },
+    {
+      x: new Date(1538798400000),
+      y: [6608.91, 6618.99, 6608.01, 6612]
+    },
+    {
+      x: new Date(1538800200000),
+      y: [6612, 6615.13, 6605.09, 6612]
+    },
+    {
+      x: new Date(1538802000000),
+      y: [6612, 6624.12, 6608.43, 6622.95]
+    },
+    {
+      x: new Date(1538803800000),
+      y: [6623.91, 6623.91, 6615, 6615.67]
+    },
+    {
+      x: new Date(1538805600000),
+      y: [6618.69, 6618.74, 6610, 6610.4]
+    },
+    {
+      x: new Date(1538807400000),
+      y: [6611, 6622.78, 6610.4, 6614.9]
+    },
+    {
+      x: new Date(1538809200000),
+      y: [6614.9, 6626.2, 6613.33, 6623.45]
+    },
+    {
+      x: new Date(1538811000000),
+      y: [6623.48, 6627, 6618.38, 6620.35]
+    },
+    {
+      x: new Date(1538812800000),
+      y: [6619.43, 6620.35, 6610.05, 6615.53]
+    },
+    {
+      x: new Date(1538814600000),
+      y: [6615.53, 6617.93, 6610, 6615.19]
+    },
+    {
+      x: new Date(1538816400000),
+      y: [6615.19, 6621.6, 6608.2, 6620]
+    },
+    {
+      x: new Date(1538818200000),
+      y: [6619.54, 6625.17, 6614.15, 6620]
+    },
+    {
+      x: new Date(1538820000000),
+      y: [6620.33, 6634.15, 6617.24, 6624.61]
+    },
+    {
+      x: new Date(1538821800000),
+      y: [6625.95, 6626, 6611.66, 6617.58]
+    },
+    {
+      x: new Date(1538823600000),
+      y: [6619, 6625.97, 6595.27, 6598.86]
+    },
+    {
+      x: new Date(1538825400000),
+      y: [6598.86, 6598.88, 6570, 6587.16]
+    },
+    {
+      x: new Date(1538827200000),
+      y: [6588.86, 6600, 6580, 6593.4]
+    },
+    {
+      x: new Date(1538829000000),
+      y: [6593.99, 6598.89, 6585, 6587.81]
+    },
+    {
+      x: new Date(1538830800000),
+      y: [6587.81, 6592.73, 6567.14, 6578]
+    },
+    {
+      x: new Date(1538832600000),
+      y: [6578.35, 6581.72, 6567.39, 6579]
+    },
+    {
+      x: new Date(1538834400000),
+      y: [6579.38, 6580.92, 6566.77, 6575.96]
+    },
+    {
+      x: new Date(1538836200000),
+      y: [6575.96, 6589, 6571.77, 6588.92]
+    },
+    {
+      x: new Date(1538838000000),
+      y: [6588.92, 6594, 6577.55, 6589.22]
+    },
+    {
+      x: new Date(1538839800000),
+      y: [6589.3, 6598.89, 6589.1, 6596.08]
+    },
+    {
+      x: new Date(1538841600000),
+      y: [6597.5, 6600, 6588.39, 6596.25]
+    },
+    {
+      x: new Date(1538843400000),
+      y: [6598.03, 6600, 6588.73, 6595.97]
+    },
+    {
+      x: new Date(1538845200000),
+      y: [6595.97, 6602.01, 6588.17, 6602]
+    },
+    {
+      x: new Date(1538847000000),
+      y: [6602, 6607, 6596.51, 6599.95]
+    },
+    {
+      x: new Date(1538848800000),
+      y: [6600.63, 6601.21, 6590.39, 6591.02]
+    },
+    {
+      x: new Date(1538850600000),
+      y: [6591.02, 6603.08, 6591, 6591]
+    },
+    {
+      x: new Date(1538852400000),
+      y: [6591, 6601.32, 6585, 6592]
+    },
+    {
+      x: new Date(1538854200000),
+      y: [6593.13, 6596.01, 6590, 6593.34]
+    },
+    {
+      x: new Date(1538856000000),
+      y: [6593.34, 6604.76, 6582.63, 6593.86]
+    },
+    {
+      x: new Date(1538857800000),
+      y: [6593.86, 6604.28, 6586.57, 6600.01]
+    },
+    {
+      x: new Date(1538859600000),
+      y: [6601.81, 6603.21, 6592.78, 6596.25]
+    },
+    {
+      x: new Date(1538861400000),
+      y: [6596.25, 6604.2, 6590, 6602.99]
+    },
+    {
+      x: new Date(1538863200000),
+      y: [6602.99, 6606, 6584.99, 6587.81]
+    },
+    {
+      x: new Date(1538865000000),
+      y: [6587.81, 6595, 6583.27, 6591.96]
+    },
+    {
+      x: new Date(1538866800000),
+      y: [6591.97, 6596.07, 6585, 6588.39]
+    },
+    {
+      x: new Date(1538868600000),
+      y: [6587.6, 6598.21, 6587.6, 6594.27]
+    },
+    {
+      x: new Date(1538870400000),
+      y: [6596.44, 6601, 6590, 6596.55]
+    },
+    {
+      x: new Date(1538872200000),
+      y: [6598.91, 6605, 6596.61, 6600.02]
+    },
+    {
+      x: new Date(1538874000000),
+      y: [6600.55, 6605, 6589.14, 6593.01]
+    },
+    {
+      x: new Date(1538875800000),
+      y: [6593.15, 6605, 6592, 6603.06]
+    },
+    {
+      x: new Date(1538877600000),
+      y: [6603.07, 6604.5, 6599.09, 6603.89]
+    },
+    {
+      x: new Date(1538879400000),
+      y: [6604.44, 6604.44, 6600, 6603.5]
+    },
+    {
+      x: new Date(1538881200000),
+      y: [6603.5, 6603.99, 6597.5, 6603.86]
+    },
+    {
+      x: new Date(1538883000000),
+      y: [6603.85, 6605, 6600, 6604.07]
+    },
+    {
+      x: new Date(1538884800000),
+      y: [6604.98, 6606, 6604.07, 6606]
+    },
+  ]
 }]
 
 axios.get('https://ipinfo.io/json', {
@@ -154,65 +410,65 @@ axios.get('https://ipinfo.io/json', {
     })
   });
 
-  function addActice() {
-    const scrollPosition = window.scrollY
+function addActice() {
+  const scrollPosition = window.scrollY
 
-    if (scrollPosition > 10) { 
-      menu.value.classList.add("active")
-    } else {
-      menu.value.classList.remove("active")
-    }
+  if (scrollPosition > 10) {
+    menu.value.classList.add("active")
+  } else {
+    menu.value.classList.remove("active")
   }
+}
 
-  onMounted(() => {
-    window.addEventListener("scroll", addActice)
+onMounted(() => {
+  window.addEventListener("scroll", addActice)
 
-    const sr = ScrollReveal();
-    var slideUp = {
-      delay: 375,
-      duration: 500,
-      distance: '30px',
-      origin: 'top',
-      opacity: null,
-      easing: 'ease-out',
-      reset: true
-    };
-    var slideDown = {
-      delay: 375,
-      duration: 500,
-      distance: '30px',
-      origin: 'bottom',
-      opacity: null,
-      easing: 'ease-out',
-      reset: true
-    };
-    var slideLeft = {
-      delay: 375,
-      duration: 500,
-      distance: '30px',
-      origin: 'left',
-      opacity: null,
-      easing: 'ease-out',
-      reset: true
-    };
-    var slideRight = {
-      delay: 375,
-      duration: 500,
-      distance: '30px',
-      origin: 'right',
-      opacity: null,
-      easing: 'ease-out',
-      reset: true
-    };
-    sr.reveal('.slide-up', slideUp)
-    sr.reveal('.slide-down', slideDown)
-    sr.reveal('.slide-left', slideLeft)
-    sr.reveal('.slide-right', slideRight)
-  })
+  const sr = ScrollReveal();
+  var slideUp = {
+    delay: 375,
+    duration: 500,
+    distance: '30px',
+    origin: 'top',
+    opacity: null,
+    easing: 'ease-out',
+    reset: true
+  };
+  var slideDown = {
+    delay: 375,
+    duration: 500,
+    distance: '30px',
+    origin: 'bottom',
+    opacity: null,
+    easing: 'ease-out',
+    reset: true
+  };
+  var slideLeft = {
+    delay: 375,
+    duration: 500,
+    distance: '30px',
+    origin: 'left',
+    opacity: null,
+    easing: 'ease-out',
+    reset: true
+  };
+  var slideRight = {
+    delay: 375,
+    duration: 500,
+    distance: '30px',
+    origin: 'right',
+    opacity: null,
+    easing: 'ease-out',
+    reset: true
+  };
+  sr.reveal('.slide-up', slideUp)
+  sr.reveal('.slide-down', slideDown)
+  sr.reveal('.slide-left', slideLeft)
+  sr.reveal('.slide-right', slideRight)
+})
 
-  onBeforeUnmount(() => {
-    window.removeEventListener("scroll", addActice)
-  })
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", addActice)
+})
 </script>
 
 <template>
@@ -231,8 +487,9 @@ axios.get('https://ipinfo.io/json', {
               <path d="M4 18l16 0" />
             </svg>
           </button>
-          <a href="https://discordapp.com/users/1261979713388150845" target="_blank" aria-label="Dark Mode" class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
-            <Discord/>
+          <a href="https://discordapp.com/users/1261979713388150845" target="_blank" aria-label="Dark Mode"
+            class="p-2 md:bg-[#ffffff1f] rounded-lg text-white">
+            <Discord />
           </a>
         </div>
         <div class="flex gap-2 md:gap-4">
@@ -261,8 +518,7 @@ axios.get('https://ipinfo.io/json', {
               <small class="text-white">@{{ props.userID }}</small>
             </div>
             <img class="size-[42px] rounded-full"
-              v-lazy="'https://ik.imagekit.io/odbmay3h6/avatar.jpg?updatedAt=1724846688735'"
-              :alt="props.name">
+              v-lazy="'https://ik.imagekit.io/odbmay3h6/avatar.jpg?updatedAt=1724846688735'" :alt="props.name">
           </div>
         </div>
       </div>
@@ -273,8 +529,8 @@ axios.get('https://ipinfo.io/json', {
     <div class="mt-24 md:mt-32"></div>
     <div class="w-full p-5 md:px-12 min-h-[500px] bg-[#09153F]">
       <div class="z-[1]">
-        <swiper :modules="[Autoplay, Scrollbar, Pagination, Navigation]" :slides-per-view="1" :speed="15000" :space-between="20"
-          :scrollbar="{ draggable: true }" :autoplay="{
+        <swiper :modules="[Autoplay, Scrollbar, Pagination, Navigation]" :slides-per-view="1" :speed="15000"
+          :space-between="20" :scrollbar="{ draggable: true }" :autoplay="{
             delay: 0,
             disableOnInteraction: false,
             reverseDirection: true,
@@ -428,7 +684,9 @@ axios.get('https://ipinfo.io/json', {
                   The passion that drives me forward
                 </h2>
                 <p class="text-gray-500 text-sm dark:text-neutral-400">
-                  I am a programmer from Vietnam, I specialize in programming web applications using Laravel, Vuejs, Tailwindcss, etc. My strong passion for programming drives me to create powerful, high-performance web applications with the most modern technologies and contribute to the development of open source.
+                  I am a programmer from Vietnam, I specialize in programming web applications using Laravel, Vuejs,
+                  Tailwindcss, etc. My strong passion for programming drives me to create powerful, high-performance web
+                  applications with the most modern technologies and contribute to the development of open source.
                 </p>
               </div>
 
@@ -537,9 +795,11 @@ axios.get('https://ipinfo.io/json', {
                   :alt="props.name" />
               </div>
               <div class="text-center lg:text-left">
-                <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl slide-up">Grow business with
+                <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl slide-up">Grow business
+                  with
                   connections.</h2>
-                <p class="mt-6 text-gray-500 text-sm slide-right">Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                <p class="mt-6 text-gray-500 text-sm slide-right">Amet minim mollit non deserunt ullamco est sit aliqua
+                  dolor do
                   amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
                   amet.</p>
 
@@ -556,11 +816,10 @@ axios.get('https://ipinfo.io/json', {
       <div class="bg-[#18254F] mt-10 rounded-lg">
         <section class="py-6 sm:py-12 lg:py-18 overflow-hidden">
           <div class="max-w-8xl px-4 mx-auto sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-[2fr,1fr] md:items-stretch gap-x-12 lg:gap-x-20 gap-y-10">
+            <div class="grid grid-cols-1 md:items-stretch md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-10">
               <div class="flex flex-col lg:py-5 slide-left">
                 <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:leading-tight lg:text-5xl">Join
                   35k+ web professionals & build your website</h2>
-
                 <div class="mt-10">
                   <div class="flex items-center">
                     <svg class="w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
