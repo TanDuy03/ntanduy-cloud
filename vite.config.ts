@@ -29,6 +29,9 @@ export default defineConfig({
             './src/components/auth/Register.vue',
             './src/components/auth/ResetPassword.vue',
           ],
+          'group-layout': [
+            './src/components/layout/Footer.vue',
+          ]
         },
       },
     },

@@ -15,6 +15,7 @@ import Tailwind from './icons/Tailwind.vue'
 import Git from './icons/Git.vue'
 import Cloudflare from './icons/Cloudflare.vue'
 import Discord from './icons/Discord.vue'
+import Footer from './layout/Footer.vue'
 // import Account from './icons/Account.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules'
@@ -1536,38 +1537,7 @@ onBeforeUnmount(() => {
       </div>
 
       <!-- Footer -->
-      <footer class="bg-[#18254F] rounded-lg mt-10">
-        <div class="w-full max-w-screen-xl mx-auto px-8 py-4 md:pt-8 md:pb-5">
-          <div class="sm:flex sm:items-center sm:justify-between">
-            <a href="https://pinkary.com/@TanDuy03" target="_blank"
-              class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse slide-up">
-              <img v-lazy="'https://flowbite.com/docs/images/logo.svg'" class="h-8" :alt="props.name" />
-              <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">{{ props.userID }}</span>
-            </a>
-            <ul class="flex flex-wrap items-center gap-3 mb-6 text-sm font-medium text-white sm:mb-0 slide-up">
-              <li>
-                <a href="#" class="hover:underline me-4 md:me-6">About</a>
-              </li>
-              <li>
-                <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-              </li>
-              <li>
-                <a href="#" class="hover:underline me-4 md:me-6">Contact</a>
-              </li>
-              <li>
-                <router-link to="/login" class="hover:underline">Login</router-link>
-              </li>
-            </ul>
-          </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-5" />
-          <small class="block text-white sm:text-center slide-down">© {{ new Date().getFullYear() }} <a
-              href="https://pinkary.com/@TanDuy03" class="hover:underline">{{ props.userID }}</a>. All Rights Reserved -
-            Your current IP: {{ ipAddress || 'No data' }} - {{ city || 'No data' }}.</small>
-        </div>
-      </footer>
+      <Footer :ipAddress="ipAddress" :city="city" :name="props.name" :userID="props.userID"/>
     </div>
   </div>
 </template>
