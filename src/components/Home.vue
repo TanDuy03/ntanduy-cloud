@@ -423,7 +423,7 @@ axios.get('https://ipinfo.io/json', {
         <div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-10 mx-auto">
           <div class="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between overflow-hidden">
             <div class="lg:col-span-6 lg:col-start-1">
-              <div class="mb-8">
+              <div class="mb-10">
                 <h2 class="mb-2 text-3xl text-white font-bold lg:text-4xl dark:text-neutral-200 slide-up">
                   The passion that drives me forward
                 </h2>
@@ -434,7 +434,7 @@ axios.get('https://ipinfo.io/json', {
 
               <blockquote class="relative">
                 <svg
-                  class="absolute top-0 start-0 transform -translate-x-6 -translate-y-8 size-16 text-gray-200 dark:text-neutral-800"
+                  class="absolute top-[-5px] left-[20px] transform -translate-x-5 -translate-y-6 size-16 text-gray-200 dark:text-neutral-800"
                   width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true">
                   <path
