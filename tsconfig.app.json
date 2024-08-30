@@ -8,8 +8,7 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "types": [
-      "node",
-      "vue"
+      "node"
     ],
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,

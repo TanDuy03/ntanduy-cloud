@@ -5,8 +5,7 @@
     "skipLibCheck": true,
     "module": "ESNext",
     "types": [
-      "node",
-      "vue"
+      "node"
     ],
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
