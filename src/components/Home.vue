@@ -470,36 +470,36 @@ axios.get('https://ipinfo.io/json', {
     token: process.env.VITE_TOKEN_IP
   }
 })
-  .then((response) => {
-    const getData = response.data
-    ipAddress.value = getData.ip || null
-    city.value = getData.city || null
-    org.value = getData.org || null
-    loc.value = getData.loc || null
-    timezone.value = getData.timezone || null
-    country.value = getData.country || null
-    postal.value = getData.postal || null
+.then((response) => {
+  const getData = response.data
+  ipAddress.value = getData.ip || null
+  city.value = getData.city || null
+  org.value = getData.org || null
+  loc.value = getData.loc || null
+  timezone.value = getData.timezone || null
+  country.value = getData.country || null
+  postal.value = getData.postal || null
 
-    // Firebase Database Realtime
-    const ipUnique = query(dbRef(db, 'ip/'), orderByChild('ip'), equalTo(ipAddress.value))
-    get(ipUnique)
-      .then((data) => {
-        data.exists() ? undefined : push(dbRef(db, 'ip/'), {
-          ip: ipAddress.value,
-          location: city.value,
-          org: org.value,
-          loc: loc.value,
-          timezone: timezone.value,
-          country: country.value,
-          postal: postal.value,
-        })
+  // Firebase Database Realtime
+  const ipUnique = query(dbRef(db, 'ip/'), orderByChild('ip'), equalTo(ipAddress.value))
+  get(ipUnique)
+    .then((data) => {
+      data.exists() ? undefined : push(dbRef(db, 'ip/'), {
+        ip: ipAddress.value,
+        location: city.value,
+        org: org.value,
+        loc: loc.value,
+        timezone: timezone.value,
+        country: country.value,
+        postal: postal.value,
       })
-  })
-  .catch((error) => {
-    toast.error(error.message, {
-      autoClose: 1600
     })
-  });
+})
+.catch((error) => {
+  toast.error(error.message, {
+    autoClose: 1600
+  })
+});
 
 function addActice() {
   const scrollPosition = window.scrollY
@@ -1145,7 +1145,7 @@ svg.icon-social {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
   }
 }
 </style>
