@@ -1,6 +1,6 @@
 <template>
     <footer class="bg-[#18254F] rounded-lg mt-10">
-        <div class="w-full max-w-screen-xl mx-auto px-8 py-4 md:pt-8 md:pb-5">
+        <div class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:pt-8 md:pb-5">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <a href="https://pinkary.com/@TanDuy03" target="_blank"
                     class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse slide-up">

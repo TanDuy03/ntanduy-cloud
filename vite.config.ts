@@ -34,6 +34,7 @@ export default defineConfig({
           ],
           'group-page': [
             './src/components/pages/About.vue',
+            './src/components/pages/Pricing.vue',
           ],
         },
       },
