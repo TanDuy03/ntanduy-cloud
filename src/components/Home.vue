@@ -820,10 +820,10 @@ onBeforeUnmount(() => {
                 <img class="w-full max-w-lg mx-auto choose-us-img"
                   src="../assets/choose_lines.svg"
                   :alt="props.name" />
-                <img class="w-full max-w-[82%] md:max-w-[85%] absolute top-[15px] md:top-[10px] left-[40px] md:left-[50px] choose-us-brands"
+                <img class="w-full max-w-[84%] md:max-w-[75%] absolute top-[20px] md:top-[10px] left-[60px] md:left-[90px] choose-us-brands"
                   src="../assets/brands.png"
                   :alt="props.name" />
-                <img class="w-full md:max-w-[95%] absolute sm:top-[90px] top-[100px] left-[-20px] md:top-[110px] md:left-[-40px] choose_bubbles"
+                <img class="w-full max-w-[99%] md:max-w-[98%] absolute top-[70px] left-[-12px] md:top-[80px] md:left-[-10px] choose_bubbles"
                   src="../assets/bubbles.png"
                   :alt="props.name" />
               </div>
@@ -1128,7 +1128,7 @@ svg.icon-social {
 }
 
 .choose_bubbles {
-  animation: slide_up_down 3.5s ease-in-out infinite alternate both;
+  animation: slide_up_down1 3s ease-in-out infinite alternate both;
 }
 
 @keyframes slide_up_down {
@@ -1136,7 +1136,16 @@ svg.icon-social {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes slide_up_down1 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
   }
 }
 </style>
