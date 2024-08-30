@@ -820,10 +820,10 @@ onBeforeUnmount(() => {
                 <img class="w-full max-w-lg mx-auto choose-us-img"
                   src="../assets/choose_lines.svg"
                   :alt="props.name" />
-                <img class="w-full max-w-[82%] md:max-w-[84%] absolute top-[15px] md:bottom-0 left-[40px] md:left-[50px] choose-us-brands"
+                <img class="w-full max-w-[82%] md:max-w-[85%] absolute top-[15px] md:top-[10px] left-[40px] md:left-[50px] choose-us-brands"
                   src="../assets/brands.png"
                   :alt="props.name" />
-                <img class="w-full md:max-w-[95%] absolute top-[100px] left-[-20px] md:top-[90px] md:left-[-30px] choose_bubbles"
+                <img class="w-full md:max-w-[95%] absolute top-[100px] left-[-20px] md:top-[110px] md:left-[-40px] choose_bubbles"
                   src="../assets/bubbles.png"
                   :alt="props.name" />
               </div>
@@ -837,7 +837,7 @@ onBeforeUnmount(() => {
                   amet.</p>
 
                 <a href="#" title=""
-                  class="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md mt-9 hover:bg-blue-700 focus:bg-blue-700 slide-down"
+                  class="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md mt-9 hover:bg-blue-700 focus:bg-blue-700 slide-left"
                   role="button"> Check all 1486 apps </a>
               </div>
             </div>
@@ -1128,7 +1128,7 @@ svg.icon-social {
 }
 
 .choose_bubbles {
-  animation: slide_up_down 4s ease-in-out infinite alternate both;
+  animation: slide_up_down 3.5s ease-in-out infinite alternate both;
 }
 
 @keyframes slide_up_down {
