@@ -820,11 +820,11 @@ onBeforeUnmount(() => {
                 <img class="w-full max-w-lg mx-auto choose-us-img"
                   src="../assets/choose_lines.svg"
                   :alt="props.name" />
-                <img class="w-full max-w-md absolute bottom-[100px] left-[40px] choose-us-brands"
-                  src="../assets/choose_brands.png"
+                <img class="w-full max-w-[84%] absolute top-[15px] md:bottom-0 left-[60px] md:left-[50px] choose-us-brands"
+                  src="../assets/brands.png"
                   :alt="props.name" />
-                <img class="w-full max-w-md absolute bottom-[100px] left-0 choose_bubbles"
-                  src="../assets/choose_bubbles.png"
+                <img class="w-full md:max-w-[95%] absolute top-[70px] left-[-20px] md:top-[90px] md:left-[-30px] choose_bubbles"
+                  src="../assets/bubbles.png"
                   :alt="props.name" />
               </div>
               <div class="text-center lg:text-left">
@@ -1119,9 +1119,16 @@ svg.icon-social {
   }
 }
 
-.choose-us-brands,
-.choose_bubbles {
+/* .choose_bubbles {
+  animation-delay: 1s;
+} */
+
+.choose-us-brands {
   animation: slide_up_down 2s ease-in-out infinite alternate both;
+}
+
+.choose_bubbles {
+  animation: slide_up_down 4s ease-in-out infinite alternate both;
 }
 
 @keyframes slide_up_down {
