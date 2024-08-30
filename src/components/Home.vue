@@ -816,9 +816,15 @@ onBeforeUnmount(() => {
         <section class="py-6 bg-[#18254F] sm:py-12 lg:py-18 rounded-lg overflow-hidden">
           <div class="px-4 md:px-0 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div class="grid items-center grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24">
-              <div class="slide-left">
-                <img class="w-full max-w-md mx-auto"
-                  v-lazy="'https://cdn.rareblocks.xyz/collection/celebration/images/integration/2/services-icons.png'"
+              <div class="slide-left relative w-full">
+                <img class="w-full max-w-lg mx-auto choose-us-img"
+                  src="../assets/choose_lines.svg"
+                  :alt="props.name" />
+                <img class="w-full max-w-md absolute bottom-[100px] left-[40px] choose-us-brands"
+                  src="../assets/choose_brands.png"
+                  :alt="props.name" />
+                <img class="w-full max-w-md absolute bottom-[100px] left-0 choose_bubbles"
+                  src="../assets/choose_bubbles.png"
                   :alt="props.name" />
               </div>
               <div class="text-center lg:text-left">
@@ -1096,6 +1102,34 @@ svg.icon-social {
 
   100% {
     background-position: 100% 100%, 0 0, 0 100%
+  }
+}
+
+/*  */
+.choose-us-img {
+  animation: rotate-center 100s linear infinite both
+}
+
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.choose-us-brands,
+.choose_bubbles {
+  animation: slide_up_down 2s ease-in-out infinite alternate both;
+}
+
+@keyframes slide_up_down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
   }
 }
 </style>
