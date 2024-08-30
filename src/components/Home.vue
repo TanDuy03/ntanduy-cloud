@@ -823,7 +823,7 @@ onBeforeUnmount(() => {
                 <img class="w-full max-w-[84%] md:max-w-[75%] absolute top-[20px] md:top-[10px] left-[50px] md:left-[90px] choose-us-brands"
                   src="../assets/brands.png"
                   :alt="props.name" />
-                <img class="w-full max-w-[99%] md:max-w-[98%] absolute top-[85px] left-[-12px] md:top-[80px] md:left-[-10px] choose_bubbles"
+                <img class="w-full max-w-[99%] md:max-w-[98%] absolute top-[75px] left-[-12px] md:top-[80px] md:left-[-10px] choose_bubbles"
                   src="../assets/bubbles.png"
                   :alt="props.name" />
               </div>
