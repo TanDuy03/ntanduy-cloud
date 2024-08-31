@@ -902,7 +902,7 @@ onBeforeUnmount(() => {
                   <div class="flex flex-col-reverse md:flex-row md:items-center mt-8 justify-between gap-6">
                     <div class="flex items-center gap-2">
                       <img v-lazy="'https://ik.imagekit.io/odbmay3h6/avatar.jpg?updatedAt=1724846688735'" :alt="props.name"
-                        class="size-10 rounded-full object-cover"/>
+                        class="size-10 rounded-full"/>
                       <div class="flex flex-col gap-1">
                         <h3 class="font-bold leading-4 text-black dark:text-white">{{ props.name }}</h3>
                         <span class="text-xs">{{ props.description }}</span>
