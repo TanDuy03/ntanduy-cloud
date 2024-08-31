@@ -6,10 +6,7 @@ import Alpine from 'alpinejs'
 import VueWriter from "vue-writer";
 import { createHead } from '@vueuse/head'
 import { initializeApp } from "firebase/app"
-// import { getAnalytics } from "firebase/analytics"
 import { getPerformance } from "firebase/performance"
-import { inject } from '@vercel/analytics'
-import { injectSpeedInsights } from '@vercel/speed-insights'
 import VueApexCharts from "vue3-apexcharts"
 import VueLazyload from 'vue-lazyload'
 
@@ -42,7 +39,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig)
-// getAnalytics(app)
 getPerformance(app)
-inject()
-injectSpeedInsights()
