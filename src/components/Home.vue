@@ -556,26 +556,26 @@ onMounted(() => {
     })
   }),
 
-    ['.slide-down', '.slide-down1', '.slide-down2', '.slide-down3'].forEach((selector, index) => {
-      sr.reveal(selector, {
-        ...slideDown,
-        delay: 375 + index * 100
-      })
-    }),
-
-    ['.slide-left', '.slide-left1', '.slide-left2', '.slide-left3'].forEach((selector, index) => {
-      sr.reveal(selector, {
-        ...slideLeft,
-        delay: 375 + index * 100
-      })
-    }),
-
-    ['.slide-right', '.slide-right1', '.slide-right2', '.slide-right3'].forEach((selector, index) => {
-      sr.reveal(selector, {
-        ...slideRight,
-        delay: 375 + index * 100
-      })
+  ['.slide-down', '.slide-down1', '.slide-down2', '.slide-down3'].forEach((selector, index) => {
+    sr.reveal(selector, {
+      ...slideDown,
+      delay: 375 + index * 100
     })
+  }),
+
+  ['.slide-left', '.slide-left1', '.slide-left2', '.slide-left3'].forEach((selector, index) => {
+    sr.reveal(selector, {
+      ...slideLeft,
+      delay: 375 + index * 100
+    })
+  }),
+
+  ['.slide-right', '.slide-right1', '.slide-right2', '.slide-right3'].forEach((selector, index) => {
+    sr.reveal(selector, {
+      ...slideRight,
+      delay: 375 + index * 100
+    })
+  })
 })
 
 onBeforeUnmount(() => {
