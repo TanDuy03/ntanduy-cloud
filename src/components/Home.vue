@@ -1145,7 +1145,7 @@ svg.icon-social {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
   }
 }
 </style>
