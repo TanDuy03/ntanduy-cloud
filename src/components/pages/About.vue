@@ -35,7 +35,7 @@
                     <footer class="mt-6">
                         <div class="flex items-center gap-x-4 slide-left">
                             <div class="shrink-0 slide-left3">
-                                <img class="size-[42px] rounded-full object-fill"
+                                <img class="size-[42px] rounded-full object-fill" :alt="name"
                                     v-lazy="'https://ik.imagekit.io/odbmay3h6/avatar.jpg?updatedAt=1724846688735'">
                             </div>
                             <div class="grow">
