@@ -437,7 +437,7 @@ const options2 = {
     },
   },
   xaxis: {
-    categories: ["Jan", "Feb", "Mar", "Apr", "jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+    categories: ["Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
     labels: {
       style: {
         colors: '#B5B5C3',
