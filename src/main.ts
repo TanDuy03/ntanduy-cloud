@@ -9,6 +9,7 @@ import { initializeApp } from "firebase/app"
 import { getPerformance } from "firebase/performance"
 import VueApexCharts from "vue3-apexcharts"
 import VueLazyload from 'vue-lazyload'
+import DisableDevtool from 'disable-devtool'
 
 const meta = createHead()
 createApp(App)
@@ -40,3 +41,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 getPerformance(app)
+
+//Disable Devtool
+DisableDevtool()
