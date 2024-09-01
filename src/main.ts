@@ -44,5 +44,12 @@ getPerformance(app)
 
 //Disable Devtool
 DisableDevtool({
-    ondevtoolopen: (_type, next) => next()
+    url: "https://ntanduy.id.vn",
+    ondevtoolopen: (_type, next) => next(),
+    disableCopy: true,
+    disableCut: true,
+    disablePaste: true,
+    disableSelect: true,
+    clearLog: true,
+    disableMenu: true,
 })
