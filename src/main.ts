@@ -43,4 +43,7 @@ const app = initializeApp(firebaseConfig)
 getPerformance(app)
 
 //Disable Devtool
-DisableDevtool()
+DisableDevtool({
+    url: "https://ntanduy.id.vn",
+    ondevtoolopen: (_type, next) => next()
+})
