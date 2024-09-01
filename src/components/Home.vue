@@ -764,7 +764,7 @@ onBeforeUnmount(() => {
         </swiper>
       </div>
 
-      <!-- Chart1 -->
+      <!-- Chart -->
       <div class="w-full grid md:grid-cols-2 gap-[40px] mt-12 mb-10 overflow-hidden">
         <div class="bg-[#18254F] rounded-lg shadow-2xl p-3 slide-left">
           <div class="card text-primary-content">
@@ -775,25 +775,25 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3 slide-right">
-          <div class="card text-primary-content flex flex-col h-full">
-            <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Weather in your location</h4>
-            <p class="text-[#8896b9] text-xs mt-2 slide-right">Instant weather forecast for your current location</p>
-            <div class="card-body flex justify-center items-center flex-grow p-4 min-h-[120px]">
-              <div class="loader-spiner1"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chart2 -->
-      <div class="w-full grid md:grid-cols-2 gap-[40px] mt-12 mb-10 overflow-hidden">
         <div class="bg-[#18254F] rounded-lg shadow-2xl p-3 slide-left">
           <div class="card text-primary-content">
             <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Crypto Statistics</h4>
             <p class="text-[#8896b9] text-xs mt-2 slide-left">Latest data and analysis on cryptocurrencies</p>
             <div class="card-body">
-              <apexchart width="100%" height="250" type="line" :options="options2" :series="series2"></apexchart>
+              <apexchart width="100%" type="line" :options="options2" :series="series2"></apexchart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Analytic -->
+      <div class="w-full grid md:grid-cols-2 gap-[40px] mt-12 mb-10 overflow-hidden">
+        <div class="bg-[#18254F] rounded-lg shadow-2xl p-3 slide-right">
+          <div class="card text-primary-content flex flex-col h-full">
+            <h4 class="card-title text-white font-medium text-lg capitalize slide-up">Weather in your location</h4>
+            <p class="text-[#8896b9] text-xs mt-2 slide-right">Instant weather forecast for your current location</p>
+            <div class="card-body flex justify-center items-center flex-grow p-4 min-h-[150px]">
+              <div class="loader-spiner1"></div>
             </div>
           </div>
         </div>
@@ -801,7 +801,7 @@ onBeforeUnmount(() => {
           <div class="card text-primary-content flex flex-col h-full">
             <h4 class="card-title text-white font-medium text-lg capitalize slide-up">User data analysis</h4>
             <p class="text-[#8896b9] text-xs mt-2 slide-right">Assessing user behavior to optimize experience</p>
-            <div class="card-body flex justify-center items-center flex-grow p-4 min-h-[120px]">
+            <div class="card-body flex justify-center items-center flex-grow p-4 min-h-[150px]">
               <div class="loader-spiner2"></div>
             </div>
           </div>
