@@ -51,5 +51,4 @@ DisableDevtool({
     disablePaste: true,
     disableSelect: true,
     clearLog: true,
-    disableMenu: true,
 })
