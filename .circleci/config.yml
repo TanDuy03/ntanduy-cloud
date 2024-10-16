@@ -2,7 +2,7 @@
 # Stacks detected: deps:node:.
 version: 2.1
 orbs:
-  node: circleci/node@5.3.0
+  node: circleci/node@6.3.0
 jobs:
   build-node:
     # Build node project
