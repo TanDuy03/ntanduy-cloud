@@ -16,7 +16,7 @@
     "axios": "^1.7.6",
     "babel-plugin-transform-import-meta": "^2.2.1",
     "disable-devtool": "^0.3.7",
-    "firebase": "^10.14.1",
+    "firebase": "^11.0.1",
     "scrollreveal": "^4.0.9",
     "swiper": "^11.1.14",
     "vite-plugin-environment": "^1.1.3",
