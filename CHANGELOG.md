@@ -1,3 +1,10 @@
+## [1.15.7](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.6...v1.15.7) (2024-11-08)
+
+
+### Bug Fixes
+
+* upgrade apexcharts from 3.54.0 to 3.54.1 ([47d69ec](https://github.com/TanDuy03/ntanduy-bot/commit/47d69ecb3b42f2110159322368549c73ab569009))
+
 ## [1.15.6](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.5...v1.15.6) (2024-08-02)
 
 
