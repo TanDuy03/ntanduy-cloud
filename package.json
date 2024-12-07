@@ -13,7 +13,7 @@
     "@vercel/speed-insights": "^1.0.12",
     "@vueuse/head": "^2.0.0",
     "apexcharts": "^3.54.1",
-    "axios": "^1.7.6",
+    "axios": "^1.7.8",
     "babel-plugin-transform-import-meta": "^2.2.1",
     "disable-devtool": "^0.3.7",
     "firebase": "^11.0.1",
