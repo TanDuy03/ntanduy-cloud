@@ -1,3 +1,10 @@
+## [1.15.8](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.7...v1.15.8) (2024-12-10)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([6eb2283](https://github.com/TanDuy03/ntanduy-bot/commit/6eb2283cb0ad5a6085a128b61201c2e6bd1002e7))
+
 ## [1.15.7](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.6...v1.15.7) (2024-11-08)
 
 
