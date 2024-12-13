@@ -1,3 +1,11 @@
+## [1.15.9](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.8...v1.15.9) (2024-12-13)
+
+
+### Bug Fixes
+
+* upgrade firebase from 11.0.1 to 11.0.2 ([064b94d](https://github.com/TanDuy03/ntanduy-bot/commit/064b94d1b95c75ee92d4ae0fa2e342bbcb073946))
+* upgrade vue from 3.5.12 to 3.5.13 ([fc22e48](https://github.com/TanDuy03/ntanduy-bot/commit/fc22e48595fc837879b449ef188a7f1c1c4173cc))
+
 ## [1.15.8](https://github.com/TanDuy03/ntanduy-bot/compare/v1.15.7...v1.15.8) (2024-12-10)
 
 
