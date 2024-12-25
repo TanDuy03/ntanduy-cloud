@@ -27,7 +27,7 @@
     "vue-turnstile": "^1.0.11",
     "vue-writer": "^2.0.2",
     "vue3-apexcharts": "^1.7.0",
-    "vue3-toastify": "^0.2.3"
+    "vue3-toastify": "^0.2.8"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
