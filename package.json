@@ -38,7 +38,7 @@
     "@vitejs/plugin-vue": "^5.1.4",
     "alpinejs": "^3.14.4",
     "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.47",
+    "postcss": "^8.5.1",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "semantic-release": "^24.1.3",
